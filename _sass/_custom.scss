@@ -1,7 +1,6 @@
 // =============================================================================
 // ARI Lab — Custom Theme
 // Loaded last in main.scss via @use "custom";
-// Overrides al-folio defaults to match DESIGN_PROTOTYPE.jsx exactly.
 // =============================================================================
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -18,11 +17,11 @@ $text-muted: #666;
 $border: #e8eaf0;
 $shadow-sm: 0 1px 8px rgba(0, 0, 0, 0.05);
 $shadow-md: 0 2px 12px rgba(0, 0, 0, 0.06);
-$shadow-lg: 0 2px 16px rgba(0, 0, 0, 0.08);
+$shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.08);
+$transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 1. OVERRIDE AL-FOLIO CSS CUSTOM PROPERTIES (light theme)
-//    Must match specificity of html[data-theme="light"] in _themes.scss
 // ─────────────────────────────────────────────────────────────────────────────
 
 html[data-theme="light"] {
@@ -33,9 +32,9 @@ html[data-theme="light"] {
   --global-hover-color: #{$primary-light};
   --global-hover-text-color: #fff;
   --global-divider-color: #{$border};
-  --global-footer-bg-color: #{$text}; // #1a1a2e
-  --global-footer-text-color: rgba(255, 255, 255, 0.6);
-  --global-footer-link-color: rgba(255, 255, 255, 0.75);
+  --global-footer-bg-color: #{$text};
+  --global-footer-text-color: rgba(255, 255, 255, 0.5);
+  --global-footer-link-color: rgba(255, 255, 255, 0.65);
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -46,27 +45,46 @@ body {
   font-family: "Segoe UI", system-ui, -apple-system, sans-serif !important;
   background-color: $bg;
   color: $text;
+  line-height: 1.7;
+}
+
+p {
+  line-height: 1.75;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// 3. NAVIGATION BAR
-//    Prototype: sticky, glassmorphism, "ARI Lab" gradient + "KAIST" small text,
-//    pill-button nav items, 60px height
+// 3. SCROLL REVEAL
+// ─────────────────────────────────────────────────────────────────────────────
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+
+  &.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 4. NAVIGATION BAR
 // ─────────────────────────────────────────────────────────────────────────────
 
 header.fixed-top,
 nav.navbar {
-  background: rgba(255, 255, 255, 0.88) !important;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid $border !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
   box-shadow: none !important;
   min-height: 60px;
 
-  // "ARI Lab" — gradient text
   .navbar-brand {
     font-weight: 700;
-    font-size: 1.125rem; // 18px
+    font-size: 1.125rem;
     letter-spacing: -0.03em;
     background: linear-gradient(135deg, $primary, $primary-light);
     -webkit-background-clip: text;
@@ -74,29 +92,27 @@ nav.navbar {
     background-clip: text;
     padding-right: 0;
 
-    // "· KAIST" affiliation text appended via CSS
     &::after {
       content: "KAIST";
-      font-size: 0.75rem; // 12px
+      font-size: 0.75rem;
       font-weight: 400;
       letter-spacing: 0;
-      color: #888;
+      color: #999;
       margin-left: 0.5rem;
       background: none;
       -webkit-background-clip: unset;
-      -webkit-text-fill-color: #888;
+      -webkit-text-fill-color: #999;
       background-clip: unset;
     }
   }
 
-  // Nav links — pill buttons
   .navbar-nav .nav-item .nav-link {
-    font-size: 0.875rem; // 14px
+    font-size: 0.875rem;
     font-weight: 400;
     color: $text-light;
-    padding: 0.5rem 1rem; // 8px 16px
+    padding: 0.5rem 1rem;
     border-radius: 8px;
-    transition: background 0.15s ease, color 0.15s ease, font-weight 0.15s ease;
+    transition: $transition;
 
     &:hover {
       color: $primary;
@@ -110,14 +126,56 @@ nav.navbar {
     font-weight: 600 !important;
     background: $accent;
   }
+
+  // Search icon
+  .search-info {
+    color: $text-muted;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+// Dropdown menu
+.dropdown-menu {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background: white;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  animation: dropdownFade 0.2s ease;
+
+  .dropdown-item {
+    border-radius: 6px;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.875rem;
+    color: $text-light;
+    transition: $transition;
+
+    &:hover,
+    &:focus {
+      background: $accent;
+      color: $primary;
+    }
+  }
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// 4. HERO SECTION
-//    Rendered directly in <body> via home.liquid (outside .container).
-//    Inner .container constrains content to max-width.
-//    Prototype: linear-gradient 135deg, padding 80px/70px,
-//    h1 42px/800, desc 18px, two CTA buttons in flex row.
+// 5. HERO SECTION
 // ─────────────────────────────────────────────────────────────────────────────
 
 .hero-section {
@@ -126,44 +184,44 @@ nav.navbar {
   padding: 80px 1.5rem 70px;
 
   .hero-subtitle {
-    font-size: 0.875rem; // 14px
-    letter-spacing: 2px;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
     text-transform: uppercase;
     opacity: 0.7;
     margin-bottom: 1rem;
   }
 
   h1 {
-    font-size: 2.625rem; // 42px
+    font-size: 2.8rem;
     font-weight: 800;
-    line-height: 1.2;
+    line-height: 1.15;
     margin-bottom: 1rem;
     max-width: 700px;
     color: white;
   }
 
   .hero-desc {
-    font-size: 1.125rem; // 18px
+    font-size: 1.15rem;
     opacity: 0.85;
     max-width: 600px;
-    line-height: 1.6;
+    line-height: 1.7;
     margin-bottom: 2rem;
   }
 
   .hero-buttons {
     display: flex;
-    gap: 0.75rem;
+    gap: 1rem; // 16px
     flex-wrap: wrap;
   }
 
   .hero-btn {
     display: inline-block;
-    padding: 0.75rem 1.75rem; // 12px 28px
-    border-radius: 10px;
+    padding: 14px 32px;
+    border-radius: 12px;
     font-weight: 600;
-    font-size: 0.9375rem; // 15px
+    font-size: 0.9375rem;
     text-decoration: none;
-    transition: transform 0.2s ease;
+    transition: $transition;
 
     &:hover {
       transform: translateY(-2px);
@@ -173,6 +231,10 @@ nav.navbar {
     &.primary {
       background: white;
       color: $primary;
+
+      &:hover {
+        box-shadow: 0 4px 15px rgba(45, 58, 140, 0.3);
+      }
     }
 
     &.secondary {
@@ -184,8 +246,7 @@ nav.navbar {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// 5. HOME PAGE — RESEARCH AREAS PREVIEW BAND
-//    Prototype: bg #f0f2f8, padding 48px, 3-col grid, cards WITHOUT left border
+// 6. HOME PAGE — RESEARCH AREAS PREVIEW BAND
 // ─────────────────────────────────────────────────────────────────────────────
 
 .research-areas {
@@ -193,8 +254,8 @@ nav.navbar {
   padding: 3rem 1.5rem;
 
   .section-title {
-    font-size: 1.5rem; // 24px
-    font-weight: 700;
+    font-size: 1.5rem;
+    font-weight: 800;
     margin-bottom: 1.5rem;
     color: $text;
   }
@@ -206,33 +267,41 @@ nav.navbar {
   }
 }
 
-// Research preview cards on home page — NO left border
+// Research preview cards — NO left border
 .research-preview-card {
   background: white;
   border-radius: 14px;
-  padding: 1.75rem; // 28px
+  padding: 1.75rem;
   box-shadow: $shadow-md;
-  transition: transform 0.2s ease;
+  transition: $transition;
   cursor: default;
 
   &:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px);
+    box-shadow: $shadow-lg;
   }
 
   .research-icon {
-    font-size: 2rem; // 32px
-    margin-bottom: 0.75rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: $accent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 0.875rem;
   }
 
   h3 {
-    font-size: 1.0625rem; // 17px
+    font-size: 1.0625rem;
     font-weight: 700;
     color: $primary;
     margin-bottom: 0.5rem;
   }
 
   p {
-    font-size: 0.875rem; // 14px
+    font-size: 0.875rem;
     color: $text-muted;
     line-height: 1.6;
     margin: 0;
@@ -240,7 +309,7 @@ nav.navbar {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// 6. HOME PAGE — NEWS & SELECTED PAPERS CONTAINER
+// 7. HOME PAGE — NEWS & SELECTED PAPERS CONTAINER
 // ─────────────────────────────────────────────────────────────────────────────
 
 .home-sections {
@@ -248,8 +317,8 @@ nav.navbar {
   padding-bottom: 4rem;
 
   .home-section-title {
-    font-size: 1.5rem; // 24px
-    font-weight: 700;
+    font-size: 1.5rem;
+    font-weight: 800;
     color: $text;
     margin-bottom: 1.5rem;
 
@@ -264,7 +333,7 @@ nav.navbar {
   }
 }
 
-// News table — match prototype (date | text rows)
+// News table
 .news {
   .table-responsive {
     border: none;
@@ -281,7 +350,7 @@ nav.navbar {
       }
 
       th[scope="row"] {
-        font-size: 0.8125rem; // 13px
+        font-size: 0.8125rem;
         color: $primary;
         font-weight: 600;
         white-space: nowrap;
@@ -291,11 +360,15 @@ nav.navbar {
       }
 
       td {
-        font-size: 0.9375rem; // 15px
+        font-size: 0.9375rem;
         color: #333;
         padding: 0.75rem 0;
         border: none;
         vertical-align: middle;
+
+        strong {
+          font-weight: 600;
+        }
 
         a.news-title {
           color: $text;
@@ -312,8 +385,7 @@ nav.navbar {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// 7. RESEARCH PAGE (projects.md)
-//    Prototype: vertical flex cards, borderLeft 4px solid, icon+title in row
+// 8. RESEARCH PAGE
 // ─────────────────────────────────────────────────────────────────────────────
 
 .research-page {
@@ -326,23 +398,29 @@ nav.navbar {
 .research-detail-card {
   background: white;
   border-radius: 16px;
-  padding: 2rem; // 32px
+  padding: 2rem;
   box-shadow: $shadow-lg;
   border-left: 4px solid $primary;
+  transition: $transition;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 32px rgba(45, 58, 140, 0.12);
+  }
 
   .research-detail-header {
     display: flex;
     align-items: center;
-    gap: 0.75rem; // 12px
+    gap: 0.75rem;
     margin-bottom: 0.75rem;
 
     .research-detail-icon {
-      font-size: 1.75rem; // 28px
+      font-size: 1.75rem;
       line-height: 1;
     }
 
     h3 {
-      font-size: 1.25rem; // 20px
+      font-size: 1.25rem;
       font-weight: 700;
       color: $primary;
       margin: 0;
@@ -350,29 +428,43 @@ nav.navbar {
   }
 
   .research-detail-desc {
-    font-size: 0.9375rem; // 15px
+    font-size: 0.9375rem;
     color: $text-light;
-    line-height: 1.7;
+    line-height: 1.75;
     margin-bottom: 1rem;
   }
 
   .research-detail-meta {
     margin-top: 1rem;
-    padding: 0.75rem 1rem; // 12px 16px
+    padding: 0.625rem 1rem;
     background: #f8f9ff;
     border-radius: 8px;
-    font-size: 0.8125rem; // 13px
+    font-size: 0.8125rem;
     color: $text-muted;
     line-height: 1.5;
   }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// 8. PUBLICATIONS PAGE
-//    Prototype: white card, borderRadius 12, padding 24px 28px,
-//    title 16px/700, authors 14px/#666, venue 13px/#2d3a8c/500,
-//    tag badge (Journal: blue, Conference: green), action buttons
+// 9. PUBLICATIONS PAGE
 // ─────────────────────────────────────────────────────────────────────────────
+
+// Search bar
+#bibsearch,
+.bibsearch-form-input {
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  padding: 10px 16px;
+  font-size: 0.9375rem;
+  width: 100%;
+  transition: $transition;
+  outline: none;
+
+  &:focus {
+    border-color: $primary;
+    box-shadow: 0 0 0 3px rgba(45, 58, 140, 0.1);
+  }
+}
 
 .publications {
   .bibliography {
@@ -381,23 +473,30 @@ nav.navbar {
 
     > li {
       background: white;
-      border-radius: 12px;
-      padding: 1.5rem 1.75rem; // 24px 28px
+      border-radius: 14px;
+      padding: 1.5rem 1.75rem;
       margin-bottom: 1rem;
       box-shadow: $shadow-sm;
       border: none;
+      transition: $transition;
 
-      // Thumbnail column
+      &:hover {
+        box-shadow: $shadow-lg;
+        transform: translateY(-2px);
+      }
+
+      // Thumbnail column / badge
       .col.abbr {
         display: flex;
         align-items: flex-start;
         padding-top: 0.25rem;
 
         abbr.badge {
-          font-size: 0.75rem; // 12px
+          font-size: 0.75rem;
           font-weight: 600;
           padding: 0.25rem 0.75rem;
-          border-radius: 20px;
+          border-radius: 6px;
+          background: $primary !important;
           color: white !important;
           text-decoration: none;
 
@@ -408,22 +507,32 @@ nav.navbar {
         }
       }
 
-      // Title
+      // Thumbnail image: hide if broken/missing
+      .preview {
+        img {
+          max-width: 100%;
+          border-radius: 6px;
+        }
+
+        img[src=""],
+        img:not([src]) {
+          display: none;
+        }
+      }
+
       .title {
-        font-size: 1rem; // 16px
+        font-size: 1rem;
         font-weight: 700;
         color: $text;
         margin-bottom: 0.375rem;
         line-height: 1.4;
       }
 
-      // Authors
       .author {
-        font-size: 0.875rem; // 14px
+        font-size: 0.875rem;
         color: $text-muted;
         margin-bottom: 0.25rem;
 
-        // Highlight self (PI) in bold
         em {
           font-style: normal;
           font-weight: 700;
@@ -431,15 +540,13 @@ nav.navbar {
         }
       }
 
-      // Venue / periodical
       .periodical {
-        font-size: 0.8125rem; // 13px
+        font-size: 0.8125rem;
         color: $primary;
         font-weight: 500;
         margin-bottom: 0.75rem;
       }
 
-      // Action buttons
       .links {
         display: flex;
         flex-wrap: wrap;
@@ -448,18 +555,19 @@ nav.navbar {
 
         a.btn,
         button.btn {
-          font-size: 0.75rem; // 12px
-          padding: 0.25rem 0.75rem; // 4px 12px
-          border-radius: 6px;
+          font-size: 0.8rem;
+          padding: 6px 14px;
+          border-radius: 8px;
           border: 1px solid #ddd;
           background: white;
           color: $text-light;
-          transition: border-color 0.15s, color 0.15s;
+          transition: all 0.25s ease;
           box-shadow: none;
 
           &:hover {
+            background: $primary;
+            color: white;
             border-color: $primary;
-            color: $primary;
           }
         }
       }
@@ -467,96 +575,348 @@ nav.navbar {
   }
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// 9. MEMBERS PAGE
-//    Prototype: grid auto-fill minmax(200px), card 80px emoji avatar,
-//    name 15px/700, role 13px/#2d3a8c
-// ─────────────────────────────────────────────────────────────────────────────
-
-.pi-grid {
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 2rem;
-
-  .person-card {
-    max-width: 220px;
-  }
+// Year headings in publication list
+.year {
+  color: $text-light;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-bottom: 2px solid $border;
+  padding-bottom: 0.25rem;
+  margin-top: 2rem;
 }
 
-.people-grid {
+// ─────────────────────────────────────────────────────────────────────────────
+// 10. MEMBERS PAGE — STUDENT CARDS
+// ─────────────────────────────────────────────────────────────────────────────
+
+.members-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
   margin-bottom: 2rem;
 }
 
-.person-card {
+.member-card {
   background: white;
-  border-radius: 14px;
-  padding: 1.5rem;
-  text-align: center;
+  border-radius: 16px;
+  padding: 1.75rem 1.5rem;
   box-shadow: $shadow-md;
-  transition: transform 0.2s ease;
+  text-align: center;
+  transition: $transition;
 
   &:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px);
+    box-shadow: $shadow-lg;
   }
 
-  // Real photo avatar
-  .avatar {
-    width: 80px;
-    height: 80px;
+  .member-avatar {
+    margin-bottom: 1rem;
+  }
+
+  .member-photo {
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     object-fit: cover;
     display: block;
-    margin: 0 auto 1rem;
+    margin: 0 auto;
   }
 
-  // Emoji / placeholder avatar (gradient circle with centered emoji)
-  .avatar-emoji {
-    width: 80px;
-    height: 80px;
+  .member-emoji-avatar {
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     background: linear-gradient(135deg, $accent, #d8dcf0);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.25rem; // 36px
-    margin: 0 auto 1rem;
+    font-size: 3rem;
+    margin: 0 auto;
   }
 
-  .name {
-    font-size: 0.9375rem; // 15px
+  .member-name {
+    font-size: 0.9375rem;
     font-weight: 700;
     color: $text;
+    margin-bottom: 0.1rem;
+  }
+
+  .member-name-ko {
+    font-size: 0.8rem;
+    color: $text-muted;
     margin-bottom: 0.25rem;
   }
 
-  .role {
-    font-size: 0.8125rem; // 13px
+  .member-role {
+    font-size: 0.8125rem;
     color: $primary;
-    margin-bottom: 0;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
   }
 
-  .links-row {
-    margin-top: 0.75rem;
-    font-size: 0.8rem;
+  .member-school {
+    font-size: 0.75rem;
     color: $text-muted;
+    margin-bottom: 0.125rem;
+  }
 
-    a {
-      color: $text-muted;
-      text-decoration: none;
+  .member-undergrad {
+    font-size: 0.75rem;
+    color: $text-muted;
+    margin-bottom: 0.625rem;
+  }
 
-      &:hover {
-        color: $primary;
-      }
+  .member-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+    justify-content: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .member-links {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+
+  .member-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    border: 1px solid $border;
+    color: $text-muted;
+    font-size: 0.75rem;
+    text-decoration: none;
+    transition: $transition;
+
+    &:hover {
+      background: $accent;
+      color: $primary;
+      border-color: $primary;
+    }
+  }
+}
+
+.research-tag {
+  display: inline-block;
+  background: $accent;
+  color: $primary;
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 11. ALUMNI TABLE
+// ─────────────────────────────────────────────────────────────────────────────
+
+.alumni-table-wrap {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: $shadow-sm;
+}
+
+.alumni-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+
+  thead tr {
+    background: $accent;
+
+    th {
+      padding: 0.875rem 1.25rem;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: $primary;
+      text-align: left;
+      border: none;
+    }
+  }
+
+  tbody tr {
+    border-bottom: 1px solid $border;
+    transition: background 0.2s;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background: #f8f9ff;
+    }
+
+    td {
+      padding: 0.875rem 1.25rem;
+      font-size: 0.875rem;
+      color: $text-light;
+      border: none;
     }
   }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// 10. CONTACT PAGE
-//     Prototype: grid auto-fit minmax(280px), card white/14 radius/28 padding
+// 12. ADVISOR PAGE
+// ─────────────────────────────────────────────────────────────────────────────
+
+.advisor-page {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.advisor-header {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+  padding: 2.5rem;
+  background: white;
+  border-radius: 20px;
+  box-shadow: $shadow-lg;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.advisor-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.advisor-emoji-avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, $accent, #d8dcf0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  flex-shrink: 0;
+}
+
+.advisor-info {
+  flex: 1;
+}
+
+.advisor-name {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: $text;
+  margin-bottom: 0.125rem;
+}
+
+.advisor-name-ko {
+  font-size: 1rem;
+  color: $text-muted;
+  margin-bottom: 0.25rem;
+}
+
+.advisor-role {
+  font-size: 0.9375rem;
+  color: $primary;
+  font-weight: 600;
+  margin-bottom: 0.125rem;
+}
+
+.advisor-affil {
+  font-size: 0.875rem;
+  color: $text-muted;
+  margin-bottom: 1rem;
+}
+
+.advisor-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.advisor-link-btn {
+  display: inline-block;
+  padding: 0.375rem 1rem;
+  border-radius: 8px;
+  border: 1px solid $border;
+  font-size: 0.8125rem;
+  color: $text-light;
+  text-decoration: none;
+  transition: $transition;
+
+  &:hover {
+    background: $accent;
+    color: $primary;
+    border-color: $primary;
+    text-decoration: none;
+  }
+}
+
+.advisor-section {
+  background: white;
+  border-radius: 14px;
+  padding: 2rem;
+  box-shadow: $shadow-md;
+  margin-bottom: 1.5rem;
+
+  h2 {
+    font-size: 1.125rem;
+    font-weight: 800;
+    color: $primary;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid $accent;
+  }
+
+  p,
+  li {
+    font-size: 0.9375rem;
+    color: $text-light;
+    line-height: 1.75;
+  }
+
+  ul.interest-list,
+  ul.award-list {
+    padding-left: 1.25rem;
+    margin: 0;
+  }
+}
+
+.cv-item {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 0.875rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .cv-period {
+    font-size: 0.8125rem;
+    color: $primary;
+    font-weight: 600;
+    white-space: nowrap;
+    min-width: 120px;
+  }
+
+  .cv-detail {
+    font-size: 0.9375rem;
+    color: $text-light;
+    line-height: 1.6;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 13. CONTACT PAGE
 // ─────────────────────────────────────────────────────────────────────────────
 
 .contact-grid {
@@ -568,44 +928,81 @@ nav.navbar {
 .contact-card {
   background: white;
   border-radius: 14px;
-  padding: 1.75rem; // 28px
-  box-shadow: $shadow-md;
+  padding: 2rem;
+  box-shadow: $shadow-lg;
+  transition: $transition;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
 
   h3 {
-    font-size: 1.0625rem; // 17px
+    font-size: 1.0625rem;
     font-weight: 700;
     color: $primary;
-    margin-bottom: 1rem; // 16px
+    margin-bottom: 1rem;
   }
 
   p {
-    font-size: 0.875rem; // 14px
+    font-size: 0.875rem;
     color: $text-light;
     line-height: 1.8;
     margin: 0;
   }
+
+  a {
+    color: $primary;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Prospective students accent box
+.prospective-box {
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  background: $accent;
+  border-left: 4px solid $primary;
+  border-radius: 0 8px 8px 0;
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: $primary;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 0.875rem;
+    color: $text-light;
+    margin: 0;
+    line-height: 1.7;
+  }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// 11. FOOTER
-//     Prototype: bg #1a1a2e, rgba(255,255,255,0.6) text, 13px, centered
+// 14. FOOTER
 // ─────────────────────────────────────────────────────────────────────────────
 
 footer.sticky-bottom,
 footer.fixed-bottom {
-  background-color: $text !important; // #1a1a2e
+  background-color: $text !important;
   border-top: none !important;
-  padding-top: 2rem !important;
-  padding-bottom: 2rem !important;
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
 
   .container {
-    color: rgba(255, 255, 255, 0.6) !important;
-    font-size: 0.8125rem; // 13px
+    color: rgba(255, 255, 255, 0.5) !important;
+    font-size: 0.8125rem;
     text-align: center;
   }
 
   a {
-    color: rgba(255, 255, 255, 0.75) !important;
+    color: rgba(255, 255, 255, 0.65) !important;
     text-decoration: none;
 
     &:hover {
@@ -615,11 +1012,11 @@ footer.fixed-bottom {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// 12. PAGE TITLES (for non-home pages using layout: page)
+// 15. PAGE TITLES
 // ─────────────────────────────────────────────────────────────────────────────
 
 .post-title {
-  font-size: 2rem; // 32px
+  font-size: 2rem;
   font-weight: 800 !important;
   color: $text;
   margin-bottom: 0.5rem;
@@ -628,11 +1025,11 @@ footer.fixed-bottom {
 .post-description {
   font-size: 1rem;
   color: $text-muted;
-  margin-bottom: 2.25rem; // 36px
+  margin-bottom: 2.25rem;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// 13. RESPONSIVE
+// 16. RESPONSIVE
 // ─────────────────────────────────────────────────────────────────────────────
 
 @media (max-width: 768px) {
@@ -640,7 +1037,7 @@ footer.fixed-bottom {
     padding: 3rem 1.25rem 2.5rem;
 
     h1 {
-      font-size: 1.75rem;
+      font-size: 1.875rem;
     }
 
     .hero-desc {
@@ -648,11 +1045,26 @@ footer.fixed-bottom {
     }
   }
 
-  .people-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  .members-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   }
 
   .research-detail-card {
     padding: 1.25rem;
+  }
+
+  .advisor-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cv-item {
+    flex-direction: column;
+    gap: 0.25rem;
+
+    .cv-period {
+      min-width: unset;
+    }
   }
 }

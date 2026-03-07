@@ -3,75 +3,169 @@ layout: page
 title: Members
 permalink: /people/
 description: Our team of researchers and students.
-nav: true
-nav_order: 3
+nav: false
 ---
 
-## Principal Investigator
+{% assign members = site.data.members %}
 
-<div class="pi-grid">
-  <div class="person-card">
-    <div class="avatar-emoji">👨‍🔬</div>
-    <div class="name">Prof. Minjun Kim</div>
-    <div class="role">Principal Investigator</div>
-    <p class="links-row">
-      <a href="mailto:minjun@kaist.ac.kr">Email</a> ·
-      <a href="https://scholar.google.com/" target="_blank">Scholar</a>
-    </p>
-  </div>
-</div>
-
----
-
+<!-- ── Ph.D. Students ───────────────────────────────────────── -->
+{% if members.phd.size > 0 %}
 ## Ph.D. Students
 
-<div class="people-grid">
-  <div class="person-card">
-    <div class="avatar-emoji">👩‍💻</div>
-    <div class="name">Soyeon Park</div>
-    <div class="role">Ph.D. Candidate</div>
+<div class="members-grid" data-reveal-group="phd">
+  {% for person in members.phd %}
+  <div class="member-card scroll-reveal">
+    <div class="member-avatar">
+      {% if person.image %}
+        <img src="{{ person.image | relative_url }}" alt="{{ person.name }}" class="member-photo">
+      {% else %}
+        <div class="member-emoji-avatar">{{ person.emoji }}</div>
+      {% endif %}
+    </div>
+    <div class="member-info">
+      <div class="member-name">{{ person.name }}</div>
+      <div class="member-name-ko">{{ person.name_ko }}</div>
+      <div class="member-role">{{ person.role }}</div>
+      {% if person.grad_school %}
+        <div class="member-school">{{ person.grad_school }}</div>
+      {% endif %}
+      {% if person.undergrad %}
+        <div class="member-undergrad">{{ person.undergrad }}</div>
+      {% endif %}
+      {% if person.research_areas %}
+        <div class="member-tags">
+          {% for tag in person.research_areas %}
+            <span class="research-tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+      <div class="member-links">
+        {% if person.email %}
+          <a href="mailto:{{ person.email }}" class="member-link" title="Email">✉</a>
+        {% endif %}
+        {% if person.scholar %}
+          <a href="{{ person.scholar }}" target="_blank" rel="noopener" class="member-link" title="Google Scholar">S</a>
+        {% endif %}
+        {% if person.github %}
+          <a href="{{ person.github }}" target="_blank" rel="noopener" class="member-link" title="GitHub">G</a>
+        {% endif %}
+      </div>
+    </div>
   </div>
-  <div class="person-card">
-    <div class="avatar-emoji">👨‍💻</div>
-    <div class="name">Hyunwoo Lee</div>
-    <div class="role">Ph.D. Student</div>
-  </div>
+  {% endfor %}
 </div>
+{% endif %}
 
 ---
 
+<!-- ── M.S. Students ───────────────────────────────────────── -->
+{% if members.ms.size > 0 %}
 ## M.S. Students
 
-<div class="people-grid">
-  <div class="person-card">
-    <div class="avatar-emoji">👩‍🎓</div>
-    <div class="name">Minji Choi</div>
-    <div class="role">M.S. Student</div>
+<div class="members-grid" data-reveal-group="ms">
+  {% for person in members.ms %}
+  <div class="member-card scroll-reveal">
+    <div class="member-avatar">
+      {% if person.image %}
+        <img src="{{ person.image | relative_url }}" alt="{{ person.name }}" class="member-photo">
+      {% else %}
+        <div class="member-emoji-avatar">{{ person.emoji }}</div>
+      {% endif %}
+    </div>
+    <div class="member-info">
+      <div class="member-name">{{ person.name }}</div>
+      <div class="member-name-ko">{{ person.name_ko }}</div>
+      <div class="member-role">{{ person.role }}</div>
+      {% if person.grad_school %}
+        <div class="member-school">{{ person.grad_school }}</div>
+      {% endif %}
+      {% if person.undergrad %}
+        <div class="member-undergrad">{{ person.undergrad }}</div>
+      {% endif %}
+      {% if person.research_areas %}
+        <div class="member-tags">
+          {% for tag in person.research_areas %}
+            <span class="research-tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+      <div class="member-links">
+        {% if person.email %}
+          <a href="mailto:{{ person.email }}" class="member-link" title="Email">✉</a>
+        {% endif %}
+        {% if person.scholar %}
+          <a href="{{ person.scholar }}" target="_blank" rel="noopener" class="member-link" title="Google Scholar">S</a>
+        {% endif %}
+        {% if person.github %}
+          <a href="{{ person.github }}" target="_blank" rel="noopener" class="member-link" title="GitHub">G</a>
+        {% endif %}
+      </div>
+    </div>
   </div>
-  <div class="person-card">
-    <div class="avatar-emoji">👨‍🎓</div>
-    <div class="name">Yujin Seo</div>
-    <div class="role">M.S. Student</div>
-  </div>
+  {% endfor %}
 </div>
+{% endif %}
 
 ---
 
-## Undergraduate Interns
+<!-- ── Research Interns ────────────────────────────────────── -->
+{% if members.research_interns.size > 0 %}
+## Research Interns
 
-<div class="people-grid">
-  <div class="person-card">
-    <div class="avatar-emoji">🧑‍💻</div>
-    <div class="name">Donghyun Kang</div>
-    <div class="role">Undergraduate Intern</div>
+<div class="members-grid" data-reveal-group="interns">
+  {% for person in members.research_interns %}
+  <div class="member-card scroll-reveal">
+    <div class="member-avatar">
+      {% if person.image %}
+        <img src="{{ person.image | relative_url }}" alt="{{ person.name }}" class="member-photo">
+      {% else %}
+        <div class="member-emoji-avatar">{{ person.emoji }}</div>
+      {% endif %}
+    </div>
+    <div class="member-info">
+      <div class="member-name">{{ person.name }}</div>
+      <div class="member-name-ko">{{ person.name_ko }}</div>
+      <div class="member-role">{{ person.role }}</div>
+      {% if person.school %}
+        <div class="member-school">{{ person.school }}</div>
+      {% endif %}
+      {% if person.research_areas %}
+        <div class="member-tags">
+          {% for tag in person.research_areas %}
+            <span class="research-tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
   </div>
+  {% endfor %}
 </div>
+{% endif %}
 
 ---
 
+<!-- ── Alumni ──────────────────────────────────────────────── -->
+{% if members.alumni.size > 0 %}
 ## Alumni
 
-| Name | Degree | Current Position |
-| ---- | ------ | ---------------- |
-| Dr. Jihoon Yoon | Ph.D. 2024 | Postdoc @ MIT |
-| Eunji Han | M.S. 2024 | Samsung Research |
+<div class="alumni-table-wrap scroll-reveal">
+  <table class="alumni-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Degree</th>
+        <th>Current Position</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for person in members.alumni %}
+      <tr>
+        <td>{{ person.name }}</td>
+        <td>{{ person.degree }}</td>
+        <td>{{ person.current }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}

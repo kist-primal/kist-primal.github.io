@@ -31,21 +31,21 @@ social: false
 <div class="research-areas">
   <div class="container">
     <h2 class="section-title">Research Areas</h2>
-    <div class="research-grid">
+    <div class="research-grid" data-reveal-group="home-research">
 
-      <div class="research-preview-card">
+      <div class="research-preview-card scroll-reveal">
         <div class="research-icon">🤖</div>
         <h3>Autonomous Navigation</h3>
         <p>Self-driving systems for complex urban environments using LiDAR and vision fusion.</p>
       </div>
 
-      <div class="research-preview-card">
+      <div class="research-preview-card scroll-reveal">
         <div class="research-icon">🔗</div>
         <h3>Multi-Robot Systems</h3>
         <p>Cooperative planning and communication for heterogeneous robot teams.</p>
       </div>
 
-      <div class="research-preview-card">
+      <div class="research-preview-card scroll-reveal">
         <div class="research-icon">🌐</div>
         <h3>3D Scene Understanding</h3>
         <p>Real-time semantic mapping and object recognition from point clouds.</p>

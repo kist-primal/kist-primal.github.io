@@ -7,9 +7,9 @@ nav: true
 nav_order: 1
 ---
 
-<div class="research-page">
+<div class="research-page" data-reveal-group="research">
 
-  <div class="research-detail-card">
+  <div class="research-detail-card scroll-reveal">
     <div class="research-detail-header">
       <span class="research-detail-icon">🤖</span>
       <h3>Autonomous Navigation</h3>
@@ -25,7 +25,7 @@ nav_order: 1
     </div>
   </div>
 
-  <div class="research-detail-card">
+  <div class="research-detail-card scroll-reveal">
     <div class="research-detail-header">
       <span class="research-detail-icon">🔗</span>
       <h3>Multi-Robot Systems</h3>
@@ -41,7 +41,7 @@ nav_order: 1
     </div>
   </div>
 
-  <div class="research-detail-card">
+  <div class="research-detail-card scroll-reveal">
     <div class="research-detail-header">
       <span class="research-detail-icon">🌐</span>
       <h3>3D Scene Understanding</h3>

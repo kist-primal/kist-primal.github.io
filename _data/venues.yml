@@ -1,4 +1,7 @@
-# IEEE Robotics Journals (blue — matches lab primary)
+# All venue badges are unified to lab primary blue (#2d3a8c)
+# The CSS in _custom.scss forces abbr.badge { background: #2d3a8c !important }
+# These color values are kept for reference / fallback only.
+
 "RA-L":
   url: https://www.ieee.org/publications/rights/index.html
   color: "#2d3a8c"
@@ -10,36 +13,43 @@
 "IJRR":
   color: "#2d3a8c"
 
-# Robotics Conferences (green)
 "ICRA":
-  color: "#2a7a2a"
+  color: "#2d3a8c"
 
 "IROS":
-  color: "#2a7a2a"
+  color: "#2d3a8c"
 
 "CoRL":
-  color: "#2a7a2a"
+  color: "#2d3a8c"
 
 "RSS":
-  color: "#2a7a2a"
+  color: "#2d3a8c"
 
-# Vision/ML Conferences
 "CVPR":
-  color: "#7a4f2a"
+  color: "#2d3a8c"
 
 "ICCV":
-  color: "#7a4f2a"
+  color: "#2d3a8c"
+
+"ECCV":
+  color: "#2d3a8c"
 
 "NeurIPS":
-  color: "#7a2a2a"
+  color: "#2d3a8c"
+
+"ICLR":
+  color: "#2d3a8c"
+
+"ICML":
+  color: "#2d3a8c"
 
 # Template defaults
 "AJP":
   url: https://aapt.scitation.org/journal/ajp
-  color: "#00369f"
+  color: "#2d3a8c"
 
 "PhysRev":
   url: https://journals.aps.org/
 
 "Vision":
-  color: "#009f36"
+  color: "#2d3a8c"
