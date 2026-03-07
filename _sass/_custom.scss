@@ -78,7 +78,7 @@ nav.navbar {
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
   box-shadow: none !important;
-  min-height: 60px;
+  min-height: 70px;
 
   .navbar-brand {
     font-weight: 700;
@@ -643,7 +643,8 @@ nav.navbar {
 .members-list {
   display: flex;
   flex-direction: column;
-  max-width: 1100px;
+  width: 100%;
+  max-width: 100%;
   margin: 0 auto 2rem;
   gap: 1.5rem;
 }
@@ -651,8 +652,8 @@ nav.navbar {
 .member-row-card {
   background: white;
   border-radius: 16px;
-  padding: 32px 40px;
-  min-height: 240px;
+  padding: 36px 48px;
+  min-height: 280px;
   box-shadow: $shadow-md;
   display: flex;
   flex-direction: row;
@@ -675,26 +676,28 @@ nav.navbar {
   }
 
   .member-photo {
-    width: 180px;
-    height: 225px;
+    width: 210px;
+    height: 265px;
     border-radius: 12px;
     object-fit: cover;
     object-position: center top;
     display: block;
+    flex-shrink: 0;
   }
 
   .member-initials-avatar {
-    width: 180px;
-    height: 225px;
+    width: 210px;
+    height: 265px;
     border-radius: 12px;
     background: linear-gradient(135deg, $primary, $primary-light);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.25rem;
+    font-size: 2.5rem;
     font-weight: 700;
     color: white;
     letter-spacing: 0.05em;
+    flex-shrink: 0;
   }
 
   .member-name {
@@ -1344,33 +1347,51 @@ footer.fixed-bottom {
   }
 }
 
-// Lightbox2 — caption styled as overlay on the bottom of the image area
+// Gallery date: always white regardless of parent context
+span.gallery-date {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+// Lightbox2 — caption overlaid on bottom of image (negative margin pulls it up into the image)
 #lightbox {
   .lb-outerContainer {
     margin-bottom: 0 !important;
+    overflow: visible !important;
   }
 
   .lb-dataContainer {
-    background: rgba(10, 10, 25, 0.82);
-    border-radius: 0 0 10px 10px;
-    margin-top: 0;
-    padding: 0.6rem 1rem;
+    position: relative;
+    margin-top: -72px !important;
+    z-index: 10;
+    background: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.72) 35%) !important;
+    padding: 2rem 1.25rem 0.75rem !important;
+    border-radius: 0 0 8px 8px;
+    pointer-events: none;
   }
 
   .lb-data {
+    .lb-details {
+      background: none !important;
+    }
+
     .lb-caption {
       font-size: 0.9375rem;
       color: white !important;
       font-weight: 500;
       line-height: 1.5;
       text-align: center;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
     }
 
     .lb-number {
       font-size: 0.75rem;
-      color: rgba(255, 255, 255, 0.55) !important;
+      color: rgba(255, 255, 255, 0.65) !important;
       text-align: center;
     }
+  }
+
+  .lb-closeContainer {
+    pointer-events: auto;
   }
 }
 
@@ -1519,13 +1540,13 @@ ninja-keys {
   text-decoration: none !important;
 
   .navbar-logo-img {
-    height: 54px;
+    height: 58px;
     width: auto;
   }
 
   .navbar-logo-text {
     font-weight: 700;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     color: $primary !important;
     -webkit-text-fill-color: $primary !important;
     letter-spacing: 0.5px;

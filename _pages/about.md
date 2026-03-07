@@ -27,7 +27,7 @@ social: false
     </p>
     <div class="hero-buttons">
       <a href="/research/" class="hero-btn primary">Our Research</a>
-      <a href="/publications/" class="hero-btn secondary">Publications</a>
+      <a href="/publications/" class="hero-btn primary">Publications</a>
     </div>
   </div>
 </div>
