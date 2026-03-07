@@ -8,66 +8,6 @@ nav: false
 
 {% assign members = site.data.members %}
 
-<!-- ── Ph.D. Students ───────────────────────────────────────── -->
-
-{% if members.phd.size > 0 %}
-
-## Ph.D. Students
-
-<div class="members-list">
-  {% for person in members.phd %}
-  <div class="member-row-card scroll-reveal">
-    <div class="member-avatar">
-      {% if person.image %}
-        <img src="{{ person.image | relative_url }}" alt="{{ person.name }}" class="member-photo">
-      {% else %}
-        <div class="member-initials-avatar">
-          {{- person.name | split: " " | first | slice: 0 -}}{{- person.name | split: " " | last | slice: 0 -}}
-        </div>
-      {% endif %}
-    </div>
-    <div class="member-info">
-      <div class="member-name">{{ person.name }}</div>
-      <div class="member-name-ko">{{ person.name_ko }}</div>
-      <div class="member-role">{{ person.role }}</div>
-      {% if person.grad_school %}
-        <div class="member-school">{{ person.grad_school }}</div>
-      {% endif %}
-      {% if person.undergrad %}
-        <div class="member-undergrad">B.S. {{ person.undergrad }}</div>
-      {% endif %}
-      {% if person.research_areas %}
-        <div class="member-tags">
-          {% for tag in person.research_areas %}
-            <span class="research-tag">{{ tag }}</span>
-          {% endfor %}
-        </div>
-      {% endif %}
-      <div class="member-links">
-        {% if person.email %}
-          <a href="mailto:{{ person.email }}" class="member-link" title="Email">
-            <i class="fa-solid fa-envelope"></i>
-          </a>
-        {% endif %}
-        {% if person.scholar %}
-          <a href="{{ person.scholar }}" target="_blank" rel="noopener" class="member-link" title="Google Scholar">
-            <i class="fa-solid fa-graduation-cap"></i>
-          </a>
-        {% endif %}
-        {% if person.github %}
-          <a href="{{ person.github }}" target="_blank" rel="noopener" class="member-link" title="GitHub">
-            <i class="fa-brands fa-github"></i>
-          </a>
-        {% endif %}
-      </div>
-    </div>
-  </div>
-  {% endfor %}
-</div>
-{% endif %}
-
----
-
 <!-- ── M.S. Students ───────────────────────────────────────── -->
 
 {% if members.ms.size > 0 %}
@@ -79,22 +19,24 @@ nav: false
   <div class="member-row-card scroll-reveal">
     <div class="member-avatar">
       {% if person.image %}
-        <img src="{{ person.image | relative_url }}" alt="{{ person.name }}" class="member-photo">
+        <img src="{{ person.image | relative_url }}" alt="{{ person.name_en }}" class="member-photo">
       {% else %}
         <div class="member-initials-avatar">
-          {{- person.name | split: " " | first | slice: 0 -}}{{- person.name | split: " " | last | slice: 0 -}}
+          {{- person.name_en | split: " " | first | slice: 0 -}}{{- person.name_en | split: " " | last | slice: 0 -}}
         </div>
       {% endif %}
     </div>
     <div class="member-info">
-      <div class="member-name">{{ person.name }}</div>
+      <div class="member-name">{{ person.name_en }}</div>
       <div class="member-name-ko">{{ person.name_ko }}</div>
       <div class="member-role">{{ person.role }}</div>
-      {% if person.grad_school %}
-        <div class="member-school">{{ person.grad_school }}</div>
+      {% if person.affiliation %}
+        <div class="member-school">{{ person.affiliation }}</div>
       {% endif %}
-      {% if person.undergrad %}
-        <div class="member-undergrad">B.S. {{ person.undergrad }}</div>
+      {% if person.education %}
+        {% for edu in person.education %}
+          <div class="member-undergrad">{{ edu }}</div>
+        {% endfor %}
       {% endif %}
       {% if person.research_areas %}
         <div class="member-tags">
@@ -104,7 +46,7 @@ nav: false
         </div>
       {% endif %}
       <div class="member-links">
-        {% if person.email %}
+        {% if person.email and person.email != "" %}
           <a href="mailto:{{ person.email }}" class="member-link" title="Email">
             <i class="fa-solid fa-envelope"></i>
           </a>
@@ -128,30 +70,32 @@ nav: false
 
 ---
 
-<!-- ── Research Interns ────────────────────────────────────── -->
+<!-- ── Intern Researchers ──────────────────────────────────── -->
 
 {% if members.research_interns.size > 0 %}
 
-## Research Interns
+## Intern Researchers
 
 <div class="members-list">
   {% for person in members.research_interns %}
   <div class="member-row-card scroll-reveal">
     <div class="member-avatar">
       {% if person.image %}
-        <img src="{{ person.image | relative_url }}" alt="{{ person.name }}" class="member-photo">
+        <img src="{{ person.image | relative_url }}" alt="{{ person.name_en }}" class="member-photo">
       {% else %}
         <div class="member-initials-avatar">
-          {{- person.name | split: " " | first | slice: 0 -}}{{- person.name | split: " " | last | slice: 0 -}}
+          {{- person.name_en | split: " " | first | slice: 0 -}}{{- person.name_en | split: " " | last | slice: 0 -}}
         </div>
       {% endif %}
     </div>
     <div class="member-info">
-      <div class="member-name">{{ person.name }}</div>
+      <div class="member-name">{{ person.name_en }}</div>
       <div class="member-name-ko">{{ person.name_ko }}</div>
       <div class="member-role">{{ person.role }}</div>
-      {% if person.school %}
-        <div class="member-school">{{ person.school }}</div>
+      {% if person.education %}
+        {% for edu in person.education %}
+          <div class="member-school">{{ edu }}</div>
+        {% endfor %}
       {% endif %}
       {% if person.research_areas %}
         <div class="member-tags">
@@ -160,6 +104,62 @@ nav: false
           {% endfor %}
         </div>
       {% endif %}
+      <div class="member-links">
+        {% if person.email and person.email != "" %}
+          <a href="mailto:{{ person.email }}" class="member-link" title="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+---
+
+<!-- ── Undergraduate Students ─────────────────────────────── -->
+
+{% if members.undergrad.size > 0 %}
+
+## Undergraduate Students
+
+<div class="members-list">
+  {% for person in members.undergrad %}
+  <div class="member-row-card scroll-reveal">
+    <div class="member-avatar">
+      {% if person.image %}
+        <img src="{{ person.image | relative_url }}" alt="{{ person.name_en }}" class="member-photo">
+      {% else %}
+        <div class="member-initials-avatar">
+          {{- person.name_en | split: " " | first | slice: 0 -}}{{- person.name_en | split: " " | last | slice: 0 -}}
+        </div>
+      {% endif %}
+    </div>
+    <div class="member-info">
+      <div class="member-name">{{ person.name_en }}</div>
+      <div class="member-name-ko">{{ person.name_ko }}</div>
+      <div class="member-role">{{ person.role }}</div>
+      {% if person.education %}
+        {% for edu in person.education %}
+          <div class="member-school">{{ edu }}</div>
+        {% endfor %}
+      {% endif %}
+      {% if person.research_areas %}
+        <div class="member-tags">
+          {% for tag in person.research_areas %}
+            <span class="research-tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+      <div class="member-links">
+        {% if person.email and person.email != "" %}
+          <a href="mailto:{{ person.email }}" class="member-link" title="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        {% endif %}
+      </div>
     </div>
   </div>
   {% endfor %}
@@ -170,28 +170,54 @@ nav: false
 
 <!-- ── Alumni ──────────────────────────────────────────────── -->
 
-{% if members.alumni.size > 0 %}
-
 ## Alumni
+
+### Intern Researchers
 
 <div class="alumni-table-wrap scroll-reveal">
   <table class="alumni-table">
     <thead>
       <tr>
         <th>Name</th>
-        <th>Degree</th>
-        <th>Current Position</th>
+        <th>Period</th>
+        <th>Affiliation</th>
+        <th>Next Position</th>
       </tr>
     </thead>
     <tbody>
-      {% for person in members.alumni %}
+      {% for person in members.alumni.intern_alumni %}
       <tr>
-        <td>{{ person.name }}</td>
-        <td>{{ person.degree }}</td>
-        <td>{{ person.current }}</td>
+        <td>{{ person.name_en }}</td>
+        <td>{{ person.period }}</td>
+        <td>{{ person.affiliation }}</td>
+        <td>{% if person.next and person.next != "" %}{{ person.next }}{% else %}—{% endif %}</td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
 </div>
-{% endif %}
+
+### Undergraduate Students
+
+<div class="alumni-table-wrap scroll-reveal">
+  <table class="alumni-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Period</th>
+        <th>Affiliation</th>
+        <th>Next Position</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for person in members.alumni.undergrad_alumni %}
+      <tr>
+        <td>{{ person.name_en }}</td>
+        <td>{{ person.period }}</td>
+        <td>{{ person.affiliation }}</td>
+        <td>{% if person.next and person.next != "" %}{{ person.next }}{% else %}—{% endif %}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

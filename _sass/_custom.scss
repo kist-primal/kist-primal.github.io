@@ -183,9 +183,9 @@ nav.navbar {
 
   .hero-subtitle {
     font-size: 0.8rem;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.88);
     margin-bottom: 1rem;
   }
 
@@ -199,10 +199,10 @@ nav.navbar {
   }
 
   .hero-desc {
-    font-size: 1.15rem;
-    color: rgba(255, 255, 255, 0.88);
-    max-width: 600px;
-    line-height: 1.7;
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 720px;
+    line-height: 1.8;
     margin-bottom: 2rem;
   }
 
@@ -454,8 +454,22 @@ nav.navbar {
     border-radius: 8px;
     font-size: 0.8125rem;
     color: $text-muted;
-    line-height: 1.5;
+    line-height: 1.8;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
   }
+}
+
+.focus-tag {
+  display: inline-block;
+  background: #eef0ff;
+  color: #2d3a8c;
+  border-radius: 20px;
+  padding: 0.2rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 500;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -615,20 +629,20 @@ nav.navbar {
 .members-list {
   display: flex;
   flex-direction: column;
-  max-width: 760px;
+  max-width: 900px;
   margin: 0 auto 2rem;
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
 .member-row-card {
   background: white;
   border-radius: 16px;
-  padding: 1.5rem;
+  padding: 24px 32px;
   box-shadow: $shadow-md;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 1.5rem;
+  gap: 2rem;
   transition: $transition;
 
   &:hover {
@@ -1113,6 +1127,11 @@ footer.fixed-bottom {
     padding: 1.25rem;
   }
 
+  .member-row-card {
+    padding: 1.25rem;
+    gap: 1.25rem;
+  }
+
   .advisor-header {
     flex-direction: column;
     align-items: center;
@@ -1177,10 +1196,14 @@ footer.fixed-bottom {
 }
 
 .stat-label {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 1px;
+}
+
+.pier-accent {
+  color: #8b9cf7;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

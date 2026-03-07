@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Advisor
+title: Faculty
 permalink: /people/advisor/
 description: Principal Investigator of PIER Lab.
 nav: false
@@ -13,18 +13,22 @@ nav: false
   <div class="advisor-header scroll-reveal">
     <div class="advisor-avatar">
       {% if pi.image %}
-        <img src="{{ pi.image | relative_url }}" alt="{{ pi.name }}" class="advisor-photo">
+        <img src="{{ pi.image | relative_url }}" alt="{{ pi.name_en }}" class="advisor-photo">
       {% else %}
         <div class="advisor-initials-avatar">
-          {{ pi.name | split: " " | first | slice: 0 }}{{ pi.name | split: " " | last | slice: 0 }}
+          {% if pi.initials %}
+            {{ pi.initials }}
+          {% else %}
+            {{ pi.name_en | split: " " | first | slice: 0 }}{{ pi.name_en | split: " " | last | slice: 0 }}
+          {% endif %}
         </div>
       {% endif %}
     </div>
     <div class="advisor-info">
-      <h1 class="advisor-name">{{ pi.name }}</h1>
+      <h1 class="advisor-name">{{ pi.name_en }}</h1>
       <p class="advisor-name-ko">{{ pi.name_ko }}</p>
       <p class="advisor-role">{{ pi.role }}</p>
-      <p class="advisor-affil">KIST (Korea Institute of Science and Technology)</p>
+      <p class="advisor-affil">KIST (Korea Institute of Science and Technology) · Humanoid Research Division</p>
       <div class="advisor-links">
         {% if pi.email %}
           <a href="mailto:{{ pi.email }}" class="advisor-link-btn">
@@ -36,7 +40,12 @@ nav: false
             <i class="fa-solid fa-graduation-cap"></i> Scholar
           </a>
         {% endif %}
-        {% if pi.website %}
+        {% if pi.github %}
+          <a href="{{ pi.github }}" target="_blank" rel="noopener" class="advisor-link-btn">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+        {% endif %}
+        {% if pi.website and pi.website != "" %}
           <a href="{{ pi.website }}" target="_blank" rel="noopener" class="advisor-link-btn">
             <i class="fa-solid fa-globe"></i> Website
           </a>
@@ -48,6 +57,19 @@ nav: false
   <div class="advisor-section scroll-reveal">
     <h2>Biography</h2>
     <p>{{ pi.bio }}</p>
+  </div>
+
+  <div class="advisor-section scroll-reveal">
+    <h2>Education</h2>
+    {% for edu in pi.education %}
+      <div class="cv-item">
+        <div class="cv-period">{{ edu.year }}</div>
+        <div class="cv-detail">
+          <strong>{{ edu.degree }}</strong><br>
+          {{ edu.institution }}
+        </div>
+      </div>
+    {% endfor %}
   </div>
 
   <div class="advisor-section scroll-reveal">
@@ -72,6 +94,8 @@ nav: false
     {% endfor %}
   </div>
 
+{% if pi.awards.size > 0 %}
+
   <div class="advisor-section scroll-reveal">
     <h2>Awards &amp; Honors</h2>
     <ul class="award-list">
@@ -80,18 +104,16 @@ nav: false
       {% endfor %}
     </ul>
   </div>
+  {% endif %}
 
   <div class="advisor-section scroll-reveal">
-    <h2>Education</h2>
-    {% for edu in pi.education %}
-      <div class="cv-item">
-        <div class="cv-period">{{ edu.year }}</div>
-        <div class="cv-detail">
-          <strong>{{ edu.degree }}</strong><br>
-          {{ edu.institution }}
-        </div>
-      </div>
-    {% endfor %}
+    <h2>Contact</h2>
+    <p>
+      <i class="fa-solid fa-envelope" style="color: #2d3a8c; margin-right: 0.5rem;"></i>
+      <strong>Email:</strong> {{ pi.email }}<br>
+      <i class="fa-solid fa-map-marker-alt" style="color: #2d3a8c; margin-right: 0.5rem;"></i>
+      <strong>Location:</strong> KIST, Seoul, South Korea
+    </p>
   </div>
 
 </div>

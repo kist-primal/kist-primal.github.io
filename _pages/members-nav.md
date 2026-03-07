@@ -5,7 +5,7 @@ nav: true
 nav_order: 3
 dropdown: true
 children:
-  - title: Advisor
+  - title: Faculty
     permalink: /people/advisor/
   - title: Members
     permalink: /people/

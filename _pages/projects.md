@@ -11,49 +11,61 @@ nav_order: 1
 
   <div class="research-detail-card scroll-reveal">
     <div class="research-detail-header">
-      <span class="research-detail-icon"><i class="fa-solid fa-hand"></i></span>
-      <h3>Robot Manipulation</h3>
+      <span class="research-detail-icon"><i class="fa-solid fa-hand-fist"></i></span>
+      <h3>Physical Embodiment</h3>
     </div>
     <p class="research-detail-desc">
-      We develop algorithms for dexterous robotic manipulation — from model-based grasping to
-      tactile-feedback-driven contact-rich tasks. Our systems work across rigid, deformable,
-      and unknown objects using multi-fingered hands and parallel grippers.
+      We integrate force-aware control and tactile sensing to enhance the physical capabilities of
+      robotic systems. By processing high-fidelity contact feedback and haptic data, our robots
+      achieve safe and stable interaction in unstructured environments, moving beyond purely
+      vision-based approaches.
     </p>
     <div class="research-detail-meta">
-      Representative: Kim et al., <em>RA-L 2025</em> &nbsp;&middot;&nbsp;
-      Focus: grasping, tactile sensing, contact-rich manipulation
+      <strong>Focus:</strong>
+      <span class="focus-tag">force control</span>
+      <span class="focus-tag">tactile feedback</span>
+      <span class="focus-tag">hardware-software co-design</span>
+      <span class="focus-tag">contact-rich interaction</span>
     </div>
   </div>
 
   <div class="research-detail-card scroll-reveal">
     <div class="research-detail-header">
-      <span class="research-detail-icon"><i class="fa-solid fa-brain"></i></span>
-      <h3>Embodied AI</h3>
+      <span class="research-detail-icon"><i class="fa-solid fa-eye"></i></span>
+      <h3>Visuomotor Policy</h3>
     </div>
     <p class="research-detail-desc">
-      We build learning systems that enable robots to acquire physical skills through imitation,
-      reinforcement, and language-conditioned interaction. We investigate sim-to-real transfer,
-      foundation model adaptation, and few-shot policy learning for real-world deployment.
+      We build end-to-end learning systems that map sensory inputs directly to motor commands.
+      Utilizing imitation learning and Vision-Language-Action (VLA) models, our research enables
+      robots to generalize across diverse tasks and follow complex natural language instructions
+      in real-world settings.
     </p>
     <div class="research-detail-meta">
-      Representative: Park et al., <em>ICRA 2025</em> &nbsp;&middot;&nbsp;
-      Focus: imitation learning, language grounding, sim-to-real
+      <strong>Focus:</strong>
+      <span class="focus-tag">imitation learning</span>
+      <span class="focus-tag">VLA</span>
+      <span class="focus-tag">foundation models for robotics</span>
+      <span class="focus-tag">few-shot policy learning</span>
     </div>
   </div>
 
   <div class="research-detail-card scroll-reveal">
     <div class="research-detail-header">
-      <span class="research-detail-icon"><i class="fa-solid fa-microchip"></i></span>
-      <h3>Physical Perception</h3>
+      <span class="research-detail-icon"><i class="fa-solid fa-robot"></i></span>
+      <h3>Whole-Body Control</h3>
     </div>
     <p class="research-detail-desc">
-      We design multi-modal perception pipelines combining LiDAR, RGB-D, and tactile sensors
-      for real-time 3D object detection, scene understanding, and state estimation — enabling
-      robots to accurately perceive and reason about physical interactions.
+      We develop optimization-based control frameworks for high-degree-of-freedom robotic systems.
+      By leveraging Hierarchical Quadratic Programming (HQP) for multi-objective constraint
+      satisfaction and Model Predictive Path Integral (MPPI) for nonlinear dynamics, we enable
+      agile, balanced, and coordinated full-body movements.
     </p>
     <div class="research-detail-meta">
-      Representative: Lee et al., <em>IROS 2024</em> &nbsp;&middot;&nbsp;
-      Focus: sensor fusion, 3D detection, contact state estimation
+      <strong>Focus:</strong>
+      <span class="focus-tag">HQP optimization</span>
+      <span class="focus-tag">MPPI</span>
+      <span class="focus-tag">dynamic locomotion</span>
+      <span class="focus-tag">multi-contact planning</span>
     </div>
   </div>
 

@@ -6,50 +6,119 @@
 % 4. preview={파일명.png} → assets/img/publication_preview/ 에 썸네일
 % =============================================================================
 
-@article{kim2025manipulation,
-  title     = {Tactile-Guided Dexterous Manipulation in Cluttered Environments},
-  author    = {Kim, Minjun and Park, Soyeon and Lee, Hyunwoo},
-  journal   = {IEEE Robotics and Automation Letters (RA-L)},
-  year      = {2025},
-  abbr      = {RA-L},
-  selected  = {true},
-  bibtex_show = {true},
-  pdf       = {kim2025manipulation.pdf},
-  abstract  = {We present a tactile-guided manipulation framework that combines dense tactile feedback with model-based grasp planning, enabling robust handling of objects with unknown geometry in cluttered scenes.}
+@article{jang2023door,
+  title        = {Motion Planning of Mobile Manipulator for Navigation Including Door Traversal},
+  author       = {Jang, Keunwoo and Kim, Sanghyun and Park, Jaeheung},
+  journal      = {IEEE Robotics and Automation Letters},
+  year         = {2023},
+  abbr         = {RA-L},
+  selected     = {true},
+  bibtex_show  = {true},
+  doi          = {10.1109/LRA.2023.3282037},
+  abstract     = {We present a motion planning framework for mobile manipulators that enables navigation including door traversal. The system integrates whole-body control with task planning to handle the complex constraints of door interaction.}
 }
 
-@inproceedings{park2025embodied,
-  title     = {Language-Conditioned Manipulation via Physical Interaction Learning},
-  author    = {Park, Soyeon and Choi, Minji},
-  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
-  year      = {2025},
-  abbr      = {ICRA},
-  selected  = {true},
-  bibtex_show = {true},
-  pdf       = {park2025embodied.pdf},
-  code      = {https://github.com/pier-lab/lang-manip},
-  abstract  = {We propose a language-conditioned policy learning framework where a robot acquires manipulation skills from human demonstrations annotated with natural language instructions, enabling zero-shot generalization to novel task descriptions.}
+@article{jang2022weighted,
+  title        = {Weighted Hierarchical Quadratic Programming: Assigning Individual Joint Weights for Each Task Priority},
+  author       = {Jang, Keunwoo and Kim, Sanghyun and Park, Suhan and Park, Jaeheung},
+  journal      = {Intelligent Service Robotics},
+  year         = {2022},
+  volume       = {15},
+  pages        = {475--486},
+  abbr         = {ISR},
+  selected     = {true},
+  bibtex_show  = {true},
+  doi          = {10.1007/s11370-022-00431-9},
+  abstract     = {We propose a weighted hierarchical quadratic programming (W-HQP) approach that assigns individual joint weights for each task priority level, enabling more flexible and intuitive whole-body robot control.}
 }
 
-@inproceedings{lee2024perception,
-  title     = {Real-time Multi-modal 3D Perception for Contact-Rich Manipulation},
-  author    = {Lee, Hyunwoo and Kim, Minjun and Seo, Yujin},
-  booktitle = {IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
-  year      = {2024},
-  abbr      = {IROS},
-  selected  = {true},
-  bibtex_show = {true},
-  pdf       = {lee2024perception.pdf},
-  abstract  = {We introduce a lightweight multi-modal perception architecture that fuses LiDAR, RGB-D, and tactile data for real-time 3D state estimation during contact-rich robot manipulation tasks.}
+@article{jang2021collision,
+  title        = {Reactive Self-Collision Avoidance for a Differentially Driven Mobile Manipulator},
+  author       = {Jang, Keunwoo and Kim, Sanghyun and Park, Jaeheung},
+  journal      = {Sensors},
+  year         = {2021},
+  volume       = {21},
+  number       = {3},
+  pages        = {890},
+  abbr         = {Sensors},
+  selected     = {true},
+  bibtex_show  = {true},
+  doi          = {10.3390/s21030890},
+  abstract     = {We present a reactive self-collision avoidance framework for a differentially driven mobile manipulator based on hierarchical quadratic programming, enabling real-time safe operation in dynamic environments.}
 }
 
-@article{choi2024simtoreal,
-  title     = {Sim-to-Real Transfer for Deformable Object Manipulation},
-  author    = {Choi, Minji and Park, Soyeon},
-  journal   = {IEEE Transactions on Robotics (T-RO)},
-  year      = {2024},
-  abbr      = {T-RO},
-  bibtex_show = {true},
-  pdf       = {choi2024simtoreal.pdf},
-  abstract  = {We propose a domain randomization and adaptation framework for transferring manipulation policies trained in simulation to real robotic systems with minimal fine-tuning on physical deformable objects.}
+@article{kim2019continuous,
+  title        = {Continuous Task Transition Approach for Robot Controller Based on Hierarchical Quadratic Programming},
+  author       = {Kim, Sanghyun and Jang, Keunwoo and Park, Suhan and Lee, Yisoo and Lee, Sang Yup and Park, Jaeheung},
+  journal      = {IEEE Robotics and Automation Letters},
+  year         = {2019},
+  volume       = {4},
+  pages        = {1603--1610},
+  abbr         = {RA-L},
+  selected     = {true},
+  bibtex_show  = {true},
+  doi          = {10.1109/LRA.2019.2896769},
+  abstract     = {We present a continuous task transition approach for robot controllers based on hierarchical quadratic programming (HQP), enabling smooth switching between task priorities during robot motion.}
+}
+
+@inproceedings{kim2019wholebody,
+  title        = {Whole-body Control of Non-holonomic Mobile Manipulator Based on Hierarchical Quadratic Programming and Continuous Task Transition},
+  author       = {Kim, Sanghyun and Jang, Keunwoo and Park, Suhan and Lee, Yisoo and Lee, Sang Yup and Park, Jaeheung},
+  booktitle    = {4th IEEE International Conference on Advanced Robotics and Mechatronics (ICARM)},
+  year         = {2019},
+  abbr         = {ICARM},
+  bibtex_show  = {true},
+  doi          = {10.1109/ICARM.2019.8834269},
+  abstract     = {We propose a whole-body control framework for non-holonomic mobile manipulators using HQP with continuous task transition, enabling coordinated base and arm motion under multiple task priorities.}
+}
+
+@article{lee2022contact,
+  title        = {Contact State Estimation for Peg-in-Hole Assembly Using Gaussian Mixture Model},
+  author       = {Lee, Haeseong and Park, Suhan and Jang, Keunwoo and Kim, Seungyeon and Park, Jaeheung},
+  journal      = {IEEE Robotics and Automation Letters},
+  year         = {2022},
+  volume       = {7},
+  number       = {2},
+  pages        = {3349--3356},
+  abbr         = {RA-L},
+  bibtex_show  = {true},
+  doi          = {10.1109/LRA.2022.3170746},
+  abstract     = {We present a contact state estimation method for peg-in-hole assembly tasks using a Gaussian Mixture Model, enabling robust estimation of contact states during precision assembly operations.}
+}
+
+@article{park2022furniture,
+  title        = {Robotic Furniture Assembly: Task Abstraction, Motion Planning, and Control},
+  author       = {Park, Suhan and Lee, Haeseong and Kim, Seungyeon and Baek, Jiyeong and Jang, Keunwoo and Kim, Hyoung Cheol and Kim, Myeongsoo and Park, Jaeheung},
+  journal      = {Intelligent Service Robotics},
+  year         = {2022},
+  volume       = {15},
+  pages        = {441--457},
+  abbr         = {ISR},
+  bibtex_show  = {true},
+  doi          = {10.1007/s11370-022-00427-5},
+  abstract     = {We present a complete robotic furniture assembly system that integrates task abstraction, motion planning, and whole-body control to autonomously assemble furniture from components.}
+}
+
+@article{park2025avatar,
+  title        = {Intuitive and Interactive Robotic Avatar System for Tele-Existence: TEAM SNU in the ANA Avatar XPRIZE Finals},
+  author       = {Park, Beomyeong and Kim, Donghyeon and Lim, Daegyu and Park, Suhan and Ahn, Junewhee and Kim, Seungyeon and Shin, Jaeyong and Sung, Eunho and Sim, Jaehoon and Kim, Junhyung and Kim, Myeong-Ju and Cha, Junhyeok and Park, Gyeongjae and Lee, Hokyun and You, Seungbin and Jang, Keunwoo and Kim, Seung-Hun and Schwartz, Mathew and Park, Jaeheung},
+  journal      = {International Journal of Social Robotics},
+  year         = {2025},
+  volume       = {17},
+  pages        = {379--407},
+  abbr         = {IJSR},
+  bibtex_show  = {true},
+  doi          = {10.1007/s12369-024-01152-y},
+  abstract     = {We describe a robotic avatar system developed for the ANA Avatar XPRIZE Finals, featuring intuitive teleoperation interfaces and whole-body control for tele-existence applications.}
+}
+
+@article{kim2024subspace,
+  title        = {Subspace-wise Hybrid Reinforcement Learning for Articulated Object Manipulation},
+  author       = {Kim, Yujin and Choi, Sol and You, Bum-Jae and Jang, Keunwoo and Lee, Yisoo},
+  journal      = {arXiv preprint arXiv:2412.08522},
+  year         = {2024},
+  abbr         = {arXiv},
+  bibtex_show  = {true},
+  arxiv        = {2412.08522},
+  abstract     = {We propose a subspace-wise hybrid reinforcement learning approach for articulated object manipulation, combining model-based and model-free methods to enable efficient policy learning for complex manipulation tasks.}
 }

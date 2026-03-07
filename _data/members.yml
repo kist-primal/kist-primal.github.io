@@ -1,98 +1,199 @@
 pi:
-  - name: Prof. Minjun Kim
-    name_ko: 김민준
-    role: Principal Investigator
-    image: # /assets/img/members/pi.jpg
-    email: minjun@kist.re.kr
-    scholar: https://scholar.google.com/
-    website: https://kist-primal.github.io/
+  - name_en: "Dr. Keunwoo Jang"
+    name_ko: "장근우"
+    initials: "KJ"
+    role: "Principal Investigator / Senior Researcher"
+    image: /assets/img/members/pi.jpg
+    email: "jang90 [at] kist.re.kr"
+    github: "https://github.com/jkw0701"
+    scholar: "https://scholar.google.com/citations?user=WveMircAAAAJ&hl=ko"
+    website: ""
     bio: >
-      Prof. Minjun Kim leads the Physical Intelligence & Embodied Robotics (PIER) Lab at KIST
-      (Korea Institute of Science and Technology). His research focuses on robot manipulation,
-      embodied AI, and multi-modal perception for real-world robotic systems that physically
-      interact with complex environments.
+      Dr. Keunwoo Jang is a Senior Researcher and Principal Investigator at the
+      Humanoid Research Division, Korea Institute of Science and Technology (KIST).
+      His research focuses on whole-body control of humanoid and mobile manipulator systems,
+      hierarchical quadratic programming (HQP) for multi-objective constraint satisfaction,
+      and physically intelligent robotic systems for robust real-world interaction.
     research_interests:
-      - Robot Manipulation & Dexterous Grasping
-      - Embodied AI & Learning from Interaction
-      - Physical Perception & Sensor Fusion
-      - Sim-to-Real Transfer
+      - Whole-Body Control & HQP Optimization
+      - Physical Embodiment & Force-Aware Control
+      - Visuomotor Policy Learning
+      - Mobile Manipulation & Dynamic Locomotion
     education:
-      - degree: Ph.D. in Computer Science
-        institution: Carnegie Mellon University
-        year: "2015"
-      - degree: B.S. in Electrical Engineering
-        institution: Seoul National University
-        year: "2010"
+      - degree: "[TBD]"
+        institution: "[TBD]"
+        year: "[TBD]"
     career:
-      - title: Principal Researcher
-        institution: KIST (Korea Institute of Science and Technology)
-        period: "2018 – Present"
-      - title: Postdoctoral Researcher
-        institution: MIT CSAIL
-        period: "2015 – 2018"
-    awards:
-      - "Best Paper Award, IROS 2024"
-      - "Outstanding Reviewer, ICRA 2023"
-      - "NRF Young Researcher Award, 2021"
+      - title: "Senior Researcher"
+        institution: "Humanoid Research Division, KIST (Korea Institute of Science and Technology)"
+        period: "[TBD] – Present"
+    awards: []
 
-phd:
-  - name: Soyeon Park
-    name_ko: 박소연
-    role: Ph.D. Candidate
-    image: # /assets/img/members/soyeon.jpg
-    grad_school: KIST / UST (University of Science and Technology)
-    undergrad: Seoul National University, Electrical Engineering
-    research_areas: [Robot Manipulation, Tactile Sensing, Grasping]
-    email: soyeon@kist.re.kr
-    scholar:
-    github:
-
-  - name: Hyunwoo Lee
-    name_ko: 이현우
-    role: Ph.D. Student
-    image: # /assets/img/members/hyunwoo.jpg
-    grad_school: KIST / UST (University of Science and Technology)
-    undergrad: POSTECH, Computer Science
-    research_areas: [Embodied AI, Language-Conditioned Manipulation]
-    email: hyunwoo@kist.re.kr
-    scholar:
-    github:
+# Ph.D. Students — 현재 없음. 추후 추가 시 아래 형식으로 작성
+# phd:
+#   - name_en: "Name"
+#     name_ko: "이름"
+#     role: "Ph.D. Student (since 20XX. X)"
+#     image: /assets/img/members/name.jpg
+#     education:
+#       - "M.S. in ..., University, Year"
+#       - "B.S. in ..., University, Year"
+#     research_areas:
+#       - "Research Area 1"
+#     email: "name [at] kist.re.kr"
+phd: []
 
 ms:
-  - name: Minji Choi
-    name_ko: 최민지
-    role: M.S. Student
-    image: # /assets/img/members/minji.jpg
-    grad_school: KIST / UST (University of Science and Technology)
-    undergrad: Yonsei University, Computer Science
-    research_areas: [3D Perception, Sensor Fusion]
-    email: minji@kist.re.kr
-    scholar:
-    github:
+  - name_en: "Seungseop Lee"
+    name_ko: "이승섭"
+    role: "M.S. Student"
+    image: /assets/img/members/seungseop_lee.jpg
+    affiliation: "M.S. Department of Mechanical Engineering, Yonsei University (Entered: 2026)"
+    education:
+      - "B.S. School of Electrical and Computer Engineering, University of Seoul (Graduated: 2025)"
+    research_areas:
+      - "World Model"
+      - "Reinforcement Learning"
+      - "Model-based Control"
+    email: ""
 
-  - name: Yujin Seo
-    name_ko: 서유진
-    role: M.S. Student
-    image: # /assets/img/members/yujin.jpg
-    grad_school: KIST / UST (University of Science and Technology)
-    undergrad: Hanyang University, Electrical Engineering
-    research_areas: [Sim-to-Real Transfer, Reinforcement Learning]
-    email: yujin@kist.re.kr
-    scholar:
-    github:
+  - name_en: "Namyoon Kim"
+    name_ko: "김남윤"
+    role: "M.S. Student"
+    image: /assets/img/members/namyoon_kim.jpg
+    affiliation: "M.S. Department of Mechanical Engineering, Korea University (Entered: 2026)"
+    education:
+      - "B.S. School of Mechanical Engineering, Korea University (Graduated: 2026)"
+    research_areas:
+      - "Visuomotor Policy"
+      - "Teleoperation"
+    email: ""
 
 research_interns:
-  - name: Donghyun Kang
-    name_ko: 강동현
-    role: Research Intern
-    image: # /assets/img/members/donghyun.jpg
-    school: KAIST, Computer Science (4th year)
-    research_areas: [Robot Perception, 3D Object Detection]
+  - name_en: "Seungwon Jang"
+    name_ko: "장승원"
+    role: "Intern Researcher"
+    image: /assets/img/members/seungwon_jang.jpg
+    education:
+      - "B.S. Department of Robotics, Kwangwoon University (Graduated: 2026)"
+    research_areas:
+      - "Imitation Learning"
+      - "Reinforcement Learning"
+    email: ""
+
+  - name_en: "Suhyeon Pyo"
+    name_ko: "표수현"
+    role: "Intern Researcher"
+    image: /assets/img/members/suhyeon_pyo.jpg
+    education:
+      - "[TBD]"
+    research_areas:
+      - "Large Language Models (LLM)"
+    email: ""
+
+undergrad:
+  - name_en: "Junsoo Park"
+    name_ko: "박준수"
+    role: "Undergraduate Student Researcher"
+    image: /assets/img/members/junsoo_park.jpg
+    education:
+      - "School of Mechanical Engineering, Sungkyunkwan University"
+    research_areas:
+      - "Imitation Learning"
+      - "Multi-modality"
+    email: ""
+
+  - name_en: "Changwoo Shin"
+    name_ko: "신창우"
+    role: "Undergraduate Student Researcher"
+    image: /assets/img/members/changwoo_shin.jpg
+    education:
+      - "School of Mechanical Engineering, Korea University"
+    research_areas:
+      - "Vision-Language-Action (VLA)"
+      - "Foundation Models"
+    email: ""
+
+  - name_en: "Byeol Nam"
+    name_ko: "남별"
+    role: "Undergraduate Student Researcher"
+    image: /assets/img/members/byeol_nam.jpg
+    education:
+      - "Division of Mechanical and Biomedical Engineering, Ewha Womans University"
+    research_areas:
+      - "Medical Robotics"
+      - "Teleoperation"
+    email: ""
+
+  - name_en: "Taehyun Lee"
+    name_ko: "이태현"
+    role: "Undergraduate Student Researcher"
+    image: /assets/img/members/taehyun_lee.jpg
+    education:
+      - "Department of Mechanical and Information Engineering, University of Seoul"
+    research_areas:
+      - "Hardware Design and Systems"
+    email: ""
 
 alumni:
-  - name: Dr. Jihoon Yoon
-    degree: Ph.D. 2024
-    current: Postdoc @ MIT CSAIL
-  - name: Eunji Han
-    degree: M.S. 2024
-    current: Hyundai Motor Group, AI Research
+  intern_alumni:
+    - name_en: "Seungseop Lee"
+      period: "2025.07 ~ 2026.02"
+      affiliation: "School of Electrical and Computer Engineering, University of Seoul"
+      next: ""
+
+    - name_en: "Jiyeon Jeong"
+      period: "2025.07 ~ 2026.03"
+      affiliation: "Department of Software, Sungkyunkwan University"
+      next: "Intern at Kim Jaechul Graduate School of AI, KAIST"
+
+    - name_en: "Namyoon Kim"
+      period: "2026.01 ~ 2026.02"
+      affiliation: "School of Mechanical Engineering, Korea University"
+      next: ""
+
+  undergrad_alumni:
+    - name_en: "Taekgeun Nam"
+      period: "2025.09 ~ 2026.02"
+      affiliation: "Department of Mechanical Engineering, KAIST"
+      next: ""
+
+    - name_en: "Chanpyo Hong"
+      period: "2025.09 ~ 2026.02"
+      affiliation: "Department of Mechanical Engineering, KAIST"
+      next: ""
+
+    - name_en: "Dogeun Kim"
+      period: "2025.07 ~ 2025.12"
+      affiliation: "Department of Artificial Intelligence, University of Seoul"
+      next: "M.S. at Cho Chun Shik Graduate School of Mobility, KAIST"
+
+    - name_en: "Namyoon Kim"
+      period: "2025.03 ~ 2025.12"
+      affiliation: "School of Mechanical Engineering, Korea University"
+      next: ""
+
+    - name_en: "Seungseop Lee"
+      period: "2024.12 ~ 2025.06"
+      affiliation: "School of Electrical and Computer Engineering, University of Seoul"
+      next: ""
+
+    - name_en: "Jiyeon Jeong"
+      period: "2024.12 ~ 2025.06"
+      affiliation: "Department of Software, Sungkyunkwan University"
+      next: ""
+
+    - name_en: "Geonyoung Ko"
+      period: "2024.12 ~ 2025.06"
+      affiliation: "Department of Electronic Engineering, Sogang University"
+      next: "M.S.-Ph.D. Integrated Program at Sogang University"
+
+    - name_en: "Geonwoo Ko"
+      period: "2024.09 ~ 2025.02"
+      affiliation: "Department of Robotics, Kwangwoon University"
+      next: "Intern at POSCO DX"
+
+    - name_en: "Youngwook Kim"
+      period: "2024.07 ~ 2024.12"
+      affiliation: "Department of Robotics, Kwangwoon University"
+      next: "ROBOTIS"
