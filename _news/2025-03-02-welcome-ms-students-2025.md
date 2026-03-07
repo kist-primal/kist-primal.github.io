@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Welcome new M.S. students **Yujin Seo** and **Donghyun Kang** to ARI Lab!
+Welcome new M.S. students **Yujin Seo** and **Donghyun Kang** to PIER Lab!

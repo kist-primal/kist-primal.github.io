@@ -1,73 +1,18 @@
 photos:
-  # ── Lab Life ───────────────────────────────────────────────
-  - image: "/assets/img/gallery/lablife_01.jpg"
-    caption: "Farewell to Geonwoo Ko (Intern)"
-    category: "lab-life"
-    date: "2025-02-27"
-
-  - image: "/assets/img/gallery/lablife_02.jpg"
-    caption: "Teacher's Day Celebration"
-    category: "lab-life"
-    date: "2025-05-15"
-
-  - image: "/assets/img/gallery/lablife_03.jpg"
-    caption: "Farewell to Geonyoung Ko (Intern)"
-    category: "lab-life"
-    date: "2025-06-18"
-
-  - image: "/assets/img/gallery/lablife_04.jpg"
-    caption: "KIST AIR Autumn Team Building — Achasan Hiking (1)"
-    category: "lab-life"
-    date: "2025-10-17"
-
-  - image: "/assets/img/gallery/lablife_05.jpg"
-    caption: "KIST AIR Autumn Team Building — Achasan Hiking (2)"
-    category: "lab-life"
-    date: "2025-10-17"
-
-  - image: "/assets/img/gallery/lablife_06.jpg"
-    caption: "Birthday Party (Junsoo, Seungwon) & Farewell (Jiyeon, Dogeun)"
-    category: "lab-life"
-    date: "2025-12-09"
-
-  - image: "/assets/img/gallery/lablife_07.jpg"
-    caption: "KIST AIR Lab Group Dinner"
-    category: "lab-life"
-    date: "2026-01-09"
-
-  - image: "/assets/img/gallery/lablife_08.jpg"
-    caption: "Farewell to Taekgeun Nam & Chanpyo Hong (Interns) (1)"
-    category: "lab-life"
-    date: "2026-02-24"
+  # Sorted by date descending (newest first)
 
   - image: "/assets/img/gallery/lablife_09.jpg"
     caption: "Farewell to Taekgeun Nam & Chanpyo Hong (Interns) (2)"
     category: "lab-life"
     date: "2026-02-24"
 
-  # ── Conferences ────────────────────────────────────────────
-  - image: "/assets/img/gallery/conf_01.jpg"
-    caption: "KROS Locomotion & Manipulation Workshop (1)"
-    category: "conferences"
-    date: "2025-05-30"
+  - image: "/assets/img/gallery/lablife_08.jpg"
+    caption: "Farewell to Taekgeun Nam & Chanpyo Hong (Interns) (1)"
+    category: "lab-life"
+    date: "2026-02-24"
 
-  - image: "/assets/img/gallery/conf_02.jpg"
-    caption: "KROS Locomotion & Manipulation Workshop (2)"
-    category: "conferences"
-    date: "2025-05-30"
-
-  - image: "/assets/img/gallery/conf_03.jpg"
-    caption: "CoRL & Humanoids Conference (1)"
-    category: "conferences"
-    date: "2025-09-20"
-
-  - image: "/assets/img/gallery/conf_04.jpg"
-    caption: "CoRL & Humanoids Conference (2)"
-    category: "conferences"
-    date: "2025-09-30"
-
-  - image: "/assets/img/gallery/conf_05.jpg"
-    caption: "KROS Robotics Society 2026 (1)"
+  - image: "/assets/img/gallery/conf_07.jpg"
+    caption: "KROS Robotics Society 2026 (3)"
     category: "conferences"
     date: "2026-02-05"
 
@@ -76,7 +21,62 @@ photos:
     category: "conferences"
     date: "2026-02-05"
 
-  - image: "/assets/img/gallery/conf_07.jpg"
-    caption: "KROS Robotics Society 2026 (3)"
+  - image: "/assets/img/gallery/conf_05.jpg"
+    caption: "KROS Robotics Society 2026 (1)"
     category: "conferences"
     date: "2026-02-05"
+
+  - image: "/assets/img/gallery/lablife_07.jpg"
+    caption: "KIST AIR Lab Group Dinner"
+    category: "lab-life"
+    date: "2026-01-09"
+
+  - image: "/assets/img/gallery/lablife_06.jpg"
+    caption: "Birthday Party (Junsoo, Seungwon) & Farewell (Jiyeon, Dogeun)"
+    category: "lab-life"
+    date: "2025-12-09"
+
+  - image: "/assets/img/gallery/lablife_05.jpg"
+    caption: "KIST AIR Autumn Team Building — Achasan Hiking (2)"
+    category: "lab-life"
+    date: "2025-10-17"
+
+  - image: "/assets/img/gallery/lablife_04.jpg"
+    caption: "KIST AIR Autumn Team Building — Achasan Hiking (1)"
+    category: "lab-life"
+    date: "2025-10-17"
+
+  - image: "/assets/img/gallery/conf_04.jpg"
+    caption: "CoRL & Humanoids Conference (2)"
+    category: "conferences"
+    date: "2025-09-30"
+
+  - image: "/assets/img/gallery/conf_03.jpg"
+    caption: "CoRL & Humanoids Conference (1)"
+    category: "conferences"
+    date: "2025-09-20"
+
+  - image: "/assets/img/gallery/lablife_03.jpg"
+    caption: "Farewell to Geonyoung Ko (Intern)"
+    category: "lab-life"
+    date: "2025-06-18"
+
+  - image: "/assets/img/gallery/conf_02.jpg"
+    caption: "KROS Locomotion & Manipulation Workshop (2)"
+    category: "conferences"
+    date: "2025-05-30"
+
+  - image: "/assets/img/gallery/conf_01.jpg"
+    caption: "KROS Locomotion & Manipulation Workshop (1)"
+    category: "conferences"
+    date: "2025-05-30"
+
+  - image: "/assets/img/gallery/lablife_02.jpg"
+    caption: "Teacher's Day Celebration"
+    category: "lab-life"
+    date: "2025-05-15"
+
+  - image: "/assets/img/gallery/lablife_01.jpg"
+    caption: "Farewell to Geonwoo Ko (Intern)"
+    category: "lab-life"
+    date: "2025-02-27"
