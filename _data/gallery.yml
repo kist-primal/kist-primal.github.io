@@ -1,0 +1,48 @@
+photos:
+  - image: "/assets/img/gallery/lab-meeting-2025.jpg"
+    caption: "Weekly lab meeting — Spring 2025"
+    category: "lab-life"
+    date: "2025-03"
+    emoji: "🤝"
+
+  - image: "/assets/img/gallery/robot-demo.jpg"
+    caption: "Autonomous robot demo in the KAIST campus"
+    category: "lab-life"
+    date: "2025-02"
+    emoji: "🤖"
+
+  - image: "/assets/img/gallery/icra-2025.jpg"
+    caption: "ICRA 2025 — Atlanta, USA"
+    category: "conferences"
+    date: "2025-05"
+    emoji: "🎤"
+
+  - image: "/assets/img/gallery/iros-2024.jpg"
+    caption: "IROS 2024 — Abu Dhabi, UAE"
+    category: "conferences"
+    date: "2024-10"
+    emoji: "🌍"
+
+  - image: "/assets/img/gallery/lab-bbq.jpg"
+    caption: "Lab BBQ party — Summer 2024"
+    category: "lab-life"
+    date: "2024-08"
+    emoji: "🔥"
+
+  - image: "/assets/img/gallery/drone-field.jpg"
+    caption: "UAV field test at KAIST outdoor facility"
+    category: "lab-life"
+    date: "2024-06"
+    emoji: "🚁"
+
+  - image: "/assets/img/gallery/ral-2025.jpg"
+    caption: "RA-L paper presentation — Seoul Robotics Forum"
+    category: "conferences"
+    date: "2025-04"
+    emoji: "📄"
+
+  - image: "/assets/img/gallery/new-students.jpg"
+    caption: "Welcoming new PhD students — Fall 2024"
+    category: "lab-life"
+    date: "2024-09"
+    emoji: "🎓"

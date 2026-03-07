@@ -1,0 +1,24 @@
+equipment:
+  - name: "Unitree Go2 Quadruped"
+    emoji: "🐕"
+    description: "Agile legged robot for outdoor terrain traversal and multi-modal sensing experiments."
+
+  - name: "DJI Matrice 300 RTK"
+    emoji: "🚁"
+    description: "Professional UAV platform with dual-gimbal payload for aerial 3D mapping and inspection."
+
+  - name: "Velodyne VLP-32C LiDAR"
+    emoji: "🔴"
+    description: "32-channel rotating LiDAR providing 360° dense point clouds at 20 Hz for SLAM research."
+
+  - name: "NVIDIA Jetson AGX Orin"
+    emoji: "⚡"
+    description: "Edge AI compute platform enabling real-time neural inference on all robot platforms."
+
+  - name: "OptiTrack Motion Capture"
+    emoji: "📡"
+    description: "12-camera 360° tracking system for precise ground-truth pose estimation in the indoor arena."
+
+  - name: "RealSense D455 Depth Array"
+    emoji: "👁️"
+    description: "Fleet of Intel RealSense cameras for stereo-depth and RGB-D dataset collection."

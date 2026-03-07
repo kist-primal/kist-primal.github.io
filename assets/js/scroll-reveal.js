@@ -1,9 +1,30 @@
 // Scroll Reveal — ARI Lab
 // Uses Intersection Observer to fade-in + slide-up elements with class .scroll-reveal
 // Stagger: each element in a group gets an incremental delay via data-delay attribute.
+// Also handles countUp animation for .stat-num elements.
 
 (function () {
   "use strict";
+
+  // Animate a counter from 0 to target over ~1.5s
+  function countUp(el) {
+    var target = parseInt(el.dataset.target || "0", 10);
+    var duration = 1500;
+    var start = performance.now();
+    function step(now) {
+      var elapsed = now - start;
+      var progress = Math.min(elapsed / duration, 1);
+      // ease-out cubic
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target);
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = target;
+      }
+    }
+    requestAnimationFrame(step);
+  }
 
   function initScrollReveal() {
     var observer = new IntersectionObserver(
@@ -32,6 +53,23 @@
         groups[key]++;
       }
       observer.observe(el);
+    });
+
+    // CountUp observer for .stat-num elements
+    var statObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            countUp(entry.target);
+            statObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    document.querySelectorAll(".stat-num").forEach(function (el) {
+      statObserver.observe(el);
     });
   }
 

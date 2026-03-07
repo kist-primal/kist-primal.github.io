@@ -59,9 +59,7 @@ p {
 .scroll-reveal {
   opacity: 0;
   transform: translateY(20px);
-  transition:
-    opacity 0.6s ease,
-    transform 0.6s ease;
+  transition: opacity 0.6s ease, transform 0.6s ease;
 
   &.revealed {
     opacity: 1;
@@ -1067,4 +1065,310 @@ footer.fixed-bottom {
       min-width: unset;
     }
   }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 17. STATS BAND (Home Page)
+// ─────────────────────────────────────────────────────────────────────────────
+
+.stats-band {
+  background: $text;
+  color: white;
+  padding: 2.5rem 1.5rem;
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    text-align: center;
+
+    @media (max-width: 640px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.stat-num-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.125rem;
+}
+
+.stat-num {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+  color: white;
+}
+
+.stat-plus {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 18. GALLERY PAGE
+// ─────────────────────────────────────────────────────────────────────────────
+
+.gallery-filter-tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.gallery-tab {
+  padding: 0.5rem 1.25rem;
+  border-radius: 20px;
+  border: 1px solid $border;
+  background: white;
+  color: $text-light;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: $transition;
+
+  &:hover {
+    background: $accent;
+    color: $primary;
+    border-color: $primary;
+  }
+
+  &.active {
+    background: $primary;
+    color: white;
+    border-color: $primary;
+  }
+}
+
+.gallery-grid {
+  columns: 3;
+  column-gap: 1.25rem;
+
+  @media (max-width: 900px) {
+    columns: 2;
+  }
+
+  @media (max-width: 540px) {
+    columns: 1;
+  }
+}
+
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 1.25rem;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+
+  &:hover .gallery-caption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &:hover .gallery-photo-wrap {
+    transform: scale(1.03);
+  }
+
+  &.hidden {
+    display: none;
+  }
+}
+
+.gallery-photo-wrap {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  transition: transform 0.4s ease;
+  overflow: hidden;
+  border-radius: 12px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.gallery-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+}
+
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.65));
+  color: white;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: all 0.3s ease;
+  border-radius: 0 0 12px 12px;
+
+  p {
+    margin: 0 0 0.2rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: white;
+  }
+
+  .gallery-date {
+    font-size: 0.75rem;
+    opacity: 0.75;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 19. EQUIPMENT & FACILITIES (Research Page)
+// ─────────────────────────────────────────────────────────────────────────────
+
+.equipment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.facility-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.equipment-card {
+  background: white;
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: $shadow-md;
+  transition: $transition;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: $shadow-lg;
+  }
+
+  .equipment-emoji {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: $accent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 0.875rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: $primary;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 0.875rem;
+    color: $text-muted;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 20. OPEN POSITIONS (Contact Page)
+// ─────────────────────────────────────────────────────────────────────────────
+
+.positions-section {
+  margin-top: 2.5rem;
+}
+
+.position-card {
+  background: white;
+  border-radius: 14px;
+  padding: 1.75rem;
+  box-shadow: $shadow-md;
+  border-left: 4px solid $primary;
+  margin-bottom: 1.25rem;
+  transition: $transition;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+  }
+
+  h3 {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: $primary;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: $text-light;
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+  }
+}
+
+.position-requirements {
+  padding-left: 1.25rem;
+  margin: 0 0 1rem;
+
+  li {
+    font-size: 0.875rem;
+    color: $text-muted;
+    line-height: 1.6;
+    margin-bottom: 0.25rem;
+  }
+}
+
+.position-apply-btn {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  background: $primary;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: $transition;
+
+  &:hover {
+    background: $primary-light;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 21. SEARCH MODAL (ninja-keys)
+// ─────────────────────────────────────────────────────────────────────────────
+
+ninja-keys {
+  --ninja-width: 640px;
+  --ninja-backdrop-filter: blur(8px);
+  --ninja-modal-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  --ninja-accent-color: #{$primary};
+  --ninja-selected-background: #{$accent};
 }

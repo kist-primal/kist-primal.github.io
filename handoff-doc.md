@@ -1,364 +1,295 @@
-# 연구실 홈페이지 디자인 종합 수정 지시서
+# 연구실 홈페이지 추가 기능 및 완성도 개선 지시서
 
-## 현재 상태 분석 및 전체 방향
-
-현재 사이트(`https://kist-primal.github.io`)는 기본 구조는 잡혔지만, 전체적으로 **디자인 퀄리티가 부족**합니다. 프로토타입(`DESIGN_PROTOTYPE.jsx`)의 세련된 느낌에 비해 밋밋하고, 깨지는 부분이 있으며, 인터랙션이 없습니다.
-
-**전체 디자인 방향**: 심플하면서도 세련된. 깔끔하되 생동감이 있는. 학술적 신뢰감은 유지하면서 현대적인 웹사이트 느낌.
+이 문서는 `CLAUDE_CODE_DESIGN_V2.md`에 추가로 적용할 내용입니다.
+기존 수정사항을 먼저 적용한 후, 아래 내용을 순차적으로 구현해주세요.
 
 ---
 
-## 1. 전체 공통 수정사항 (모든 페이지)
+## 8. Gallery (연구실 앨범) 페이지 신규 추가
 
-### 1-1. 인터랙션 & 애니메이션 추가
+### 8-1. 네비게이션 추가
 
-현재 사이트가 너무 정적입니다. 아래 인터랙션을 전역으로 추가해주세요:
-
-**스크롤 등장 애니메이션 (Scroll Reveal)**:
-- 페이지를 스크롤할 때 각 섹션/카드가 아래에서 위로 살짝 올라오면서 fade-in
-- CSS로 구현: `@keyframes fadeInUp` + Intersection Observer JS 또는 CSS `animation-timeline: view()`
-- 너무 과하지 않게: `translateY(20px)` → `translateY(0)`, `opacity: 0` → `opacity: 1`, `duration: 0.5s`
-- 카드가 여러 개일 때 순차적으로 등장 (stagger): 각 카드에 `animation-delay`를 0.1s씩 증가
-
-**호버 효과 강화**:
-- 모든 카드: `transform: translateY(-6px)` + `box-shadow` 강화 (현재보다 더 눈에 띄게)
-- 버튼: 배경색 전환 + 살짝 확대 (`scale(1.02)`)
-- 네비게이션 링크: 부드러운 밑줄 또는 배경색 전환
-- 모든 transition은 `0.3s ease` 또는 `0.3s cubic-bezier(0.4, 0, 0.2, 1)` 사용
-
-### 1-2. 타이포그래피 & 가독성
-
-- 본문 텍스트 line-height: `1.7` 이상
-- 섹션 제목: `font-weight: 800`, 충분한 margin-bottom
-- 작은 텍스트(설명, 역할 등)도 최소 `font-size: 0.85rem` 이상, 색상 `#555` (너무 흐리지 않게)
-
-### 1-3. 버튼 퀄리티 개선
-
-현재 버튼들이 기본 스타일이라 저퀄리티로 보입니다:
-- Hero CTA 버튼: `padding: 14px 32px`, `border-radius: 12px`, `font-weight: 600`, hover 시 `transform: translateY(-2px)` + `box-shadow: 0 4px 15px rgba(45, 58, 140, 0.3)`
-- Publications의 ABS/BIB/PDF/CODE 버튼: `border-radius: 8px`, `padding: 6px 14px`, `font-size: 0.8rem`, hover 시 `background: #2d3a8c`, `color: white`, `border-color: #2d3a8c` 전환
-- 모든 버튼에 `transition: all 0.25s ease` 적용
-
-### 1-4. 네비게이션 바
-
-현재 네비바가 프로토타입의 글래스모피즘 느낌이 약합니다:
-- `background: rgba(255,255,255,0.9)`, `backdrop-filter: blur(16px)`
-- `border-bottom: 1px solid rgba(0,0,0,0.06)` (현재 너무 진함)
-- "ARI Lab" 로고 텍스트에 그라데이션 효과: `background: linear-gradient(135deg, #2d3a8c, #5b6abf)`, `-webkit-background-clip: text`, `-webkit-text-fill-color: transparent`
-- "KAIST" 서브텍스트: `font-size: 0.75rem`, `color: #999`, `font-weight: 400`
-- 활성 탭: `background: #eef0ff`, `color: #2d3a8c`, `font-weight: 600`, `border-radius: 8px`
-- ctrl+k 검색 아이콘 스타일도 다듬기
-
-### 1-5. Footer
-
-- `background: #1a1a2e`
-- 텍스트 `color: rgba(255,255,255,0.5)` (현재 핑크색 링크 제거)
-- 링크 색상: `rgba(255,255,255,0.6)`, hover 시 `white`
-- footer 내부 여백 충분히 (`padding: 3rem 0`)
-
----
-
-## 2. Home 페이지 수정
-
-### 2-1. Hero 섹션
-
-현재 대체로 구조는 잡혔지만 디테일 부족:
-- "KAIST SCHOOL OF COMPUTING" 텍스트: `letter-spacing: 3px`, `font-size: 0.8rem`, `opacity: 0.7`
-- 메인 타이틀: `font-size: 2.8rem` (데스크탑), `font-weight: 800`, `line-height: 1.15`
-- 설명 텍스트: `font-size: 1.15rem`, `opacity: 0.85`, `max-width: 600px`, `line-height: 1.7`
-- 버튼 간격: 두 버튼 사이 `gap: 16px`
-- "Our Research →" 버튼: 흰색 배경, `color: #2d3a8c`, `font-weight: 600`, hover 시 `box-shadow` 추가
-- "Publications" 버튼: 투명 배경, `border: 2px solid rgba(255,255,255,0.4)`, `color: white`
-
-### 2-2. Research Areas 섹션
-
-현재 카드에 이모지가 아닌 아이콘이 사용되고 있는데, 아이콘이 너무 작고 밋밋함:
-- 아이콘 크기 키우기: `font-size: 2rem` 또는 아이콘 배경에 `width: 48px; height: 48px; border-radius: 12px; background: #eef0ff; display: flex; align-items: center; justify-content: center;` 로 감싸기
-- 카드 제목: `font-size: 1.1rem`, `font-weight: 700`, `color: #2d3a8c`
-- 카드에 hover 시 `border-left-color`가 밝아지는 효과 또는 전체 `box-shadow` 강화
-- 3열 그리드가 반응형으로 잘 동작하는지 확인
-
-### 2-3. News 섹션
-
-대체로 괜찮지만:
-- 날짜 색상 `#2d3a8c`, `font-weight: 600`
-- 각 뉴스 항목 사이 구분선: `border-bottom: 1px solid #eee`
-- 볼드 텍스트(학회명 등)가 너무 무겁지 않게: `font-weight: 600` (800이 아닌)
-
-### 2-4. Selected Publications 섹션
-
-- 논문 카드에 `border-radius: 14px`, `box-shadow` 통일
-- "slam_preview.pn..." 같은 깨진 이미지 처리: 이미지가 없을 때 graceful fallback (이미지 영역 숨기거나 플레이스홀더)
-
----
-
-## 3. Research 페이지 수정
-
-현재 세로 목록 형태인데 괜찮지만 디테일 부족:
-- 각 연구 카드의 왼쪽 보더: `4px solid #2d3a8c` (현재 적용되어 있지만 색이 연한 것 같으면 진하게)
-- "Representative:" 메타 정보 영역: 배경을 `#f8f9ff`로, `border-radius: 8px`, `padding: 10px 16px`
-- 카드 간 간격: `gap: 24px`
-- 각 카드에 스크롤 등장 애니메이션 적용
-- 아이콘 크기와 스타일 통일
-
----
-
-## 4. Publications 페이지 수정
-
-기능적으로는 잘 동작하지만 디자인 다듬기:
-- 각 논문 항목: `border-radius: 14px`, `padding: 24px`, `box-shadow: 0 2px 12px rgba(0,0,0,0.06)`
-- 학회 뱃지(RA-L, ICRA 등): 현재 초록색 배경인데, `background: #2d3a8c`, `color: white`, `border-radius: 6px`, `padding: 4px 12px`, `font-size: 0.75rem` 로 통일
-- ABS/BIB/PDF/CODE 버튼: 위 1-3에서 설명한 버튼 스타일 적용
-- "Type to filter" 검색바: `border-radius: 10px`, `border: 1px solid #e0e0e0`, `padding: 10px 16px`, focus 시 `border-color: #2d3a8c` + `box-shadow: 0 0 0 3px rgba(45,58,140,0.1)`
-- 연도 구분선: 현재 괜찮지만 `color: #ccc`로 너무 흐리지 않게
-- 깨진 이미지("slam_preview.pn...") 수정: preview 이미지가 없는 경우 해당 영역 숨기기
-
----
-
-## 5. Members 페이지 대폭 수정 (★ 중요)
-
-현재 기본 카드만 있는데, 구조를 크게 개편해야 합니다.
-
-### 5-1. 페이지 구조 재설계
-
-Members를 **2개의 별도 페이지**로 분리하고, 네비게이션 바에서 드롭다운으로 접근:
+네비바에 **"Gallery"** 항목 추가. 위치는 Contact 앞.
 
 ```
-네비바 "Members" (드롭다운)
-  ├── Advisor 페이지 (/people/advisor/) → 교수 한 분의 상세 프로필
-  └── Members 페이지 (/people/)         → 학생/인턴/졸업생 목록
+Home | Research | Publications | Members ▾ | Gallery | Contact
 ```
 
-Members 페이지(학생 목록) 내부 구조:
-```
-1. Ph.D. Students
-2. M.S. Students  
-3. Research Interns
-4. Undergraduate Students
-5. Alumni
-```
+### 8-2. 페이지 구조 (`_pages/gallery.md`, permalink: `/gallery/`)
 
-### 5-2. 네비게이션 드롭다운 구조 (★ 핵심)
-
-**"Members" 네비게이션 항목에 드롭다운 서브메뉴**를 만들어주세요:
+카테고리별로 사진을 분류해서 보여주는 페이지 (카테고리는 간결하게 유지):
 
 ```
-Members (hover 또는 click 시 드롭다운 열림)
-  ├── Advisor       → /people/advisor/   (교수 전용 페이지)
-  └── Members       → /people/           (학생 목록 페이지)
+Gallery
+├── Lab Life        (연구실 일상, 단체사진, 회식, 워크숍 등)
+└── Conferences     (학회 참석, 발표 사진)
 ```
 
-Al-Folio는 Bootstrap 기반이므로 Bootstrap의 dropdown nav 컴포넌트를 활용하면 됩니다. `_includes/header.liquid` 또는 네비바 관련 파일을 수정해서 "Members" 항목을 dropdown으로 변경해주세요.
+※ Equipment(장비)와 Facilities(연구실 공간)은 Gallery가 아닌 **Research 페이지** 하단에 배치합니다 (10-4 참고).
 
-드롭다운 스타일:
-- `border-radius: 10px`, `box-shadow: 0 4px 20px rgba(0,0,0,0.1)`
-- `background: white`, `backdrop-filter: blur(12px)`
-- 각 항목: `padding: 8px 20px`, hover 시 `background: #eef0ff`, `color: #2d3a8c`
-- 부드럽게 열리는 애니메이션 (fade + 살짝 아래로 슬라이드)
+### 8-3. 디자인 & 기능
 
-### 5-3. Advisor 페이지 (교수 전용 페이지)
+**필터 탭**: 상단에 카테고리 필터 버튼 (All / Lab Life / Conferences)
 
-`_pages/advisor.md` 또는 `_pages/people/advisor.md`로 만들어주세요. (`permalink: /people/advisor/`)
+- 탭 스타일: pill 형태 버튼, 활성 탭 `background: #2d3a8c`, `color: white`
+- 탭 클릭 시 해당 카테고리 사진만 필터링 (CSS + JS 또는 isotope/masonry 활용)
 
-이 페이지는 교수님 한 분만을 위한 **상세 프로필 페이지**입니다:
-- 상단: 큰 프로필 사진 (원형 또는 라운드 사각형) + 이름/직함/소속
-- 소개글 (Biography) 섹션
-- 연구 관심사 (Research Interests) 섹션
-- 주요 경력 (Career/Experience) 섹션
-- 수상 내역 (Awards & Honors) 섹션
-- 학력 (Education) 섹션
-- 연락처 (Contact) 섹션
-- Google Scholar, DBLP, GitHub 등 외부 링크 아이콘
+**사진 그리드**:
 
-디자인: 깔끔한 1컬럼 레이아웃, 각 섹션 사이에 충분한 여백, 프로필 사진은 상단 중앙 또는 좌측 배치
+- Masonry 레이아웃 (Al-Folio에 masonry.js가 이미 포함되어 있음)
+- 사진 hover 시: 살짝 확대(`scale(1.03)`) + 오버레이에 캡션 텍스트 표시
+- 사진 클릭 시: Lightbox로 큰 이미지 보기 (Al-Folio에 lightbox2가 이미 포함되어 있음)
+- 각 사진에 날짜 + 간단한 캡션
 
-### 5-4. Members 페이지 (학생 목록 페이지)
+**스타일**:
 
-`_pages/people.md`를 학생 목록 전용으로 수정. (`permalink: /people/`)
+- 사진 카드: `border-radius: 12px`, `overflow: hidden`
+- 이미지 위에 그라데이션 오버레이 (하단에서 올라오는): `linear-gradient(transparent 60%, rgba(0,0,0,0.6))`
+- 오버레이 위에 흰색 캡션 텍스트
 
-이 페이지에는 교수를 제외한 나머지 멤버만 표시:
-
-### 5-5. 학생 카드 (Ph.D. / M.S.)
-
-각 학생 카드에 들어갈 정보:
-- **프로필 사진** (원형, 100px)
-- **이름** (한글 + 영문)
-- **과정**: Ph.D. Student / M.S. Student / Ph.D. Candidate
-- **대학원**: 소속 대학원 (예: KAIST School of Computing)
-- **학부 출신**: 학부 대학 + 학과 (예: KAIST 전기및전자공학부)
-- **연구 분야**: 키워드 태그 형태 (예: `SLAM`, `Multi-Robot`, `3D Vision`)
-- **이메일** (선택)
-- **링크들** (Google Scholar, GitHub 등 - 아이콘으로)
-
-카드 레이아웃:
-- 2~3열 그리드 (반응형)
-- 프로필 사진 상단, 정보 하단 배치
-- 연구 분야 태그: `background: #eef0ff`, `color: #2d3a8c`, `border-radius: 20px`, `padding: 4px 12px`, `font-size: 0.75rem`
-
-### 5-6. Research Interns / Undergraduate Students
-
-- 학생 카드와 유사하지만 약간 간소화 (연구 분야, 학교 정도만)
-- 프로필 사진 포함
-
-### 5-7. Alumni 섹션
-
-- 사진 없이 **테이블 또는 심플한 리스트** 형태
-- 이름 | 학위 (M.S. 2024 등) | 현재 소속 (삼성전자, MIT Postdoc 등)
-- 깔끔한 테이블 스타일: `border-radius: 10px`, 줄마다 `hover: background: #f8f9ff`
-
-### 5-8. 스크롤 등장 인터랙션
-
-- 각 섹션(PI, Ph.D., M.S. 등)에 스크롤하면 카드들이 순차적으로 `fadeInUp` 등장
-- 개별 카드마다 `animation-delay`를 다르게 해서 물결치듯 나타나는 효과
-- 과하지 않게: `duration: 0.5s`, `delay` 간격 `0.08s~0.12s`
-- Intersection Observer API 사용하거나, 가벼운 CSS 기반 `animation-timeline` 사용
-
-### 5-9. 데이터 관리 구조
-
-학생 정보를 쉽게 관리할 수 있도록, `_data/members.yml` 파일로 관리하는 구조를 추천합니다:
+### 8-4. 데이터 관리 (`_data/gallery.yml`)
 
 ```yaml
-pi:
-  - name: Prof. Minjun Kim
-    name_ko: 김민준
-    role: Principal Investigator
-    image: /assets/img/members/pi.jpg
-    email: minjun@kaist.ac.kr
-    scholar: https://scholar.google.com/...
-    website: https://...
-    bio: "Brief bio here..."
+- image: /assets/img/gallery/lab_group_2025.jpg
+  caption: "2025 Lab Group Photo"
+  category: lab-life
+  date: 2025-03-01
 
-phd:
-  - name: Soyeon Park
-    name_ko: 박소연
-    role: Ph.D. Candidate
-    image: /assets/img/members/soyeon.jpg
-    grad_school: KAIST School of Computing
-    undergrad: KAIST 전기및전자공학부
-    research_areas: [SLAM, Visual Navigation, LiDAR]
-    email: soyeon@kaist.ac.kr
-    scholar: https://...
-    github: https://...
+- image: /assets/img/gallery/icra2025_presentation.jpg
+  caption: "ICRA 2025 Oral Presentation - Soyeon Park"
+  category: conferences
+  date: 2025-05-20
 
-ms:
-  - name: Minji Choi
-    name_ko: 최민지
-    role: M.S. Student
-    image: /assets/img/members/minji.jpg
-    grad_school: KAIST School of Computing
-    undergrad: 서울대학교 컴퓨터공학부
-    research_areas: [Multi-Robot Systems, Coverage Planning]
+- image: /assets/img/gallery/workshop_2024.jpg
+  caption: "2024 Lab Workshop in Jeju"
+  category: lab-life
+  date: 2024-12-15
 
-research_interns:
-  - name: Donghyun Kang
-    name_ko: 강동현
-    role: Research Intern
-    image: /assets/img/members/donghyun.jpg
-    school: KAIST 전산학부 4학년
-    research_areas: [3D Object Detection]
-
-undergrad:
-  - name: ...
-
-alumni:
-  - name: Dr. Jihoon Yoon
-    degree: "Ph.D. 2024"
-    current: "Postdoc @ MIT"
-  - name: Eunji Han
-    degree: "M.S. 2024"
-    current: "Samsung Research"
+- image: /assets/img/gallery/iros2024_group.jpg
+  caption: "IROS 2024 - Best Paper Award Ceremony"
+  category: conferences
+  date: 2024-10-18
 ```
-
-이 YAML 데이터를 읽어서 Members 페이지에 자동으로 렌더링하는 Jekyll 레이아웃을 만들어주세요. 이렇게 하면 멤버 추가/수정 시 YAML 파일만 편집하면 됩니다.
 
 ---
 
-## 6. Contact 페이지
+## 9. 검색 기능 활성화
 
-현재 대체로 괜찮지만 미세 조정:
-- 카드 `box-shadow` 강화: `0 4px 20px rgba(0,0,0,0.08)`
-- 카드 내부 여백 좀 더: `padding: 2rem`
-- 이메일 링크 색상: `#2d3a8c`, hover 시 밑줄
-- "Prospective Students" 섹션에 좀 더 눈에 띄는 스타일 (좌측에 accent 바 또는 배경색 `#f8f9ff`)
+### 9-1. 현재 상태
+
+네비바에 `ctrl+k` 검색 아이콘이 있지만 동작하지 않는 상태.
+
+### 9-2. 수정 방법
+
+Al-Folio는 검색 기능이 내장되어 있습니다. `_config.yml`에서:
+
+```yaml
+search_enabled: true # 이미 true로 설정되어 있을 것
+```
+
+검색이 동작하지 않는 원인을 확인해주세요:
+
+1. `assets/js/search/` 폴더의 JS 파일이 정상적으로 빌드되는지 확인
+2. `search.json` 또는 `search-data.json`이 빌드 시 생성되는지 확인
+3. 검색 모달/패널의 CSS가 `_custom.scss`에 의해 깨지지 않았는지 확인
+4. 혹시 JS minifier가 검색 관련 JS를 깨뜨린 것은 아닌지 확인
+
+### 9-3. 검색 모달 디자인 (동작 후 다듬기)
+
+검색 모달이 열리면:
+
+- `backdrop-filter: blur(8px)` 배경
+- 모달: `border-radius: 16px`, `box-shadow: 0 20px 60px rgba(0,0,0,0.15)`
+- 검색 입력창: 큰 글씨 (`font-size: 1.2rem`), `border: none`, `border-bottom: 2px solid #2d3a8c`
+- 검색 결과: 카드형 목록, hover 시 `background: #f8f9ff`
+- `Ctrl+K` 또는 `/` 키로 열리도록
 
 ---
 
-## 7. 기술 구현 참고사항
+## 10. 완성도 개선을 위한 추가 기능 제안
 
-### 스크롤 애니메이션 구현 (추천 방식)
+아래는 우수한 연구실 홈페이지들을 분석하여 도출한 추가 기능들입니다.
 
-SCSS에 추가:
-```scss
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  
-  &.revealed {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+### 10-1. Research 페이지에 장비 & 연구실 공간 섹션 추가
+
+현재 Research 페이지에 연구 분야 카드만 있는데, 하단에 추가 섹션을 넣어주세요:
+
+**Equipment & Platforms 섹션**:
+
+- 연구에 사용하는 로봇, 센서, 장비를 카드형으로 표시
+- 각 카드: 장비 사진 + 이름 + 간단한 스펙/설명
+- 예: "Velodyne VLP-16 LiDAR - 16채널 3D 라이다 센서", "Custom Mobile Robot Platform"
+- 2~3열 그리드, hover 시 확대 효과
+- `_data/equipment.yml`로 관리:
+
+```yaml
+- name: "Custom Mobile Robot Platform"
+  image: /assets/img/equipment/robot_platform.jpg
+  description: "자체 개발한 자율주행 로봇 플랫폼. ROS2 기반, LiDAR + 카메라 융합 센서 탑재."
+
+- name: "Velodyne VLP-16 LiDAR"
+  image: /assets/img/equipment/vlp16.jpg
+  description: "16채널 3D LiDAR 센서. 실시간 포인트 클라우드 획득."
+
+- name: "Intel RealSense D455"
+  image: /assets/img/equipment/realsense.jpg
+  description: "스테레오 뎁스 카메라. RGB-D 데이터 수집용."
 ```
 
-JS (assets/js/ 에 추가하거나 레이아웃에 inline):
-```javascript
-document.addEventListener('DOMContentLoaded', () => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
-      if (entry.isIntersecting) {
-        // stagger delay
-        const delay = entry.target.dataset.delay || 0;
-        setTimeout(() => {
-          entry.target.classList.add('revealed');
-        }, delay);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  
-  document.querySelectorAll('.scroll-reveal').forEach((el, i) => {
-    el.dataset.delay = i * 100; // 100ms stagger
-    observer.observe(el);
-  });
-});
+**Lab Facilities 섹션**:
+
+- 연구실 공간 사진 1~2장 + 간단한 설명
+- 넓은 이미지 카드 형태 (전체 폭 또는 2열)
+- "Main Lab - Room N1-123", "Robot Testing Area" 등
+
+이 두 섹션은 연구 분야 카드 아래에, 구분선 또는 섹션 타이틀과 함께 배치.
+
+### 10-2. Research 상세 서브페이지
+
+**Contact 페이지 내 또는 별도 섹션**으로 채용/모집 공고:
+
+- 현재 모집 중인 포지션 (Ph.D., M.S., Intern 등)
+- 각 포지션별: 연구 주제, 자격 요건, 지원 방법
+- 눈에 띄는 배너 또는 카드 디자인 (accent 색상 배경)
+- Home 페이지 News 위나 아래에 "We're Hiring!" 배너를 선택적으로 표시 가능
+
+구현: Contact 페이지 하단에 "Open Positions" 섹션 추가, `_data/positions.yml`로 관리
+
+```yaml
+positions:
+  - title: "Ph.D. Student in Multi-Robot Systems"
+    description: "We are looking for a motivated Ph.D. student..."
+    requirements: ["Strong programming skills in C++/Python", "Background in robotics or AI"]
+    open: true
+  - title: "Research Intern (Summer 2025)"
+    description: "6-month research internship position..."
+    open: true
 ```
 
-### 이미지 깨짐 방지
+### 10-4. Home 페이지에 동적 카운터/통계
 
-Publications의 preview 이미지가 없을 때:
-```scss
-.publication-preview {
-  img {
-    &[src=""], &:not([src]) {
-      display: none;
-    }
-  }
-}
+Hero 섹션 아래 또는 Research Areas 위에 연구실 통계 표시:
+
+```
+📄 50+ Publications  |  👥 12 Members  |  🏆 8 Awards  |  🤖 5 Robot Platforms
 ```
 
-### _config.yml 주의
+- 숫자가 스크롤 시 0에서 올라가는 카운트업 애니메이션
+- 스타일: 4열 그리드, 각 항목 중앙 정렬, 큰 숫자 + 작은 레이블
 
-- plugins 목록 절대 변경하지 말 것
-- baseurl은 비워둘 것
-- SCSS는 `@use` 모듈 시스템 사용 (`@import` 사용 금지)
+### 10-4. Research 페이지에 프로젝트 상세 서브페이지
+
+현재 Research 페이지는 3개 분야의 요약만 있는데, 각 연구 분야를 클릭하면 **상세 페이지**로 이동:
+
+- 연구 배경 및 목표 상세 설명
+- 관련 논문 목록 (자동 연결)
+- 관련 프로젝트 데모 영상 (YouTube embed)
+- 협력 기관/기업 로고
+- 사용 장비/기술 스택
+
+구현: `_projects/` 폴더에 각 연구 분야별 마크다운 파일 생성
+
+### 10-5. 논문 하이라이트 / Featured Research
+
+Home 페이지의 "Selected Publications" 위에 **Featured Research** 섹션:
+
+- 최근 대표 논문 1~2개를 큰 카드로 하이라이트
+- 논문 제목 + 한 줄 요약 + 대표 이미지/figure + 학회 뱃지
+- 링크: Paper, Code, Video, Project Page
+- 카드 디자인: 이미지 좌측, 텍스트 우측의 넓은 카드 형태
+
+### 10-6. 타임라인 / Lab History
+
+연구실의 주요 이정표를 타임라인으로 표시 (About 페이지 또는 별도 페이지):
+
+```
+2025 ── ICRA 2025 논문 2편 발표
+2024 ── IROS 2024 Best Paper Award
+2024 ── 첫 번째 로봇 플랫폼 완성
+2023 ── 연구실 설립
+```
+
+- 세로 타임라인 디자인 (가운데 선 + 좌우 교차 이벤트)
+- 스크롤 시 각 이벤트가 순차적으로 등장하는 애니메이션
+
+### 10-7. 소셜 미디어 / 외부 링크 강화
+
+Footer 또는 네비바에:
+
+- GitHub Organization 링크
+- Google Scholar 프로필
+- YouTube 채널 (데모 영상 등)
+- Twitter/X 계정 (선택)
+- 각 링크를 Font Awesome 아이콘으로 표시
+
+### 10-8. 반응형 & 모바일 최적화 확인
+
+모든 페이지가 모바일에서도 잘 보이는지 확인:
+
+- Hero 섹션: 모바일에서 타이틀 `font-size` 축소 (`1.6rem`)
+- 카드 그리드: 모바일에서 1열로
+- 네비바: 모바일 햄버거 메뉴 동작 확인 (드롭다운 포함)
+- Gallery: 모바일에서 2열 또는 1열 그리드
+- 테이블(Alumni): 모바일에서 스크롤 가능하도록
+
+### 10-9. SEO & 메타 태그
+
+- 각 페이지에 적절한 `title`, `description` meta 태그
+- Open Graph 이미지 설정 (SNS에서 링크 공유 시 미리보기)
+- `_config.yml`에서 `serve_og_meta: true` 활성화
+- 기본 OG 이미지: 연구실 로고 또는 대표 이미지를 `og_image`에 설정
+
+### 10-10. 404 에러 페이지 커스터마이징
+
+Al-Folio의 기본 404 페이지를 커스터마이징:
+
+- 연구실 브랜딩에 맞는 디자인
+- "홈으로 돌아가기" 버튼
+- 검색 기능 연결
 
 ---
 
-## 수정 우선순위
+## 네비게이션 최종 구조
 
-1. **전역 인터랙션 & 버튼 퀄리티** (모든 페이지에 영향)
-2. **Members 페이지 대폭 개편** (가장 큰 변화)
-3. **Home Hero 섹션 디테일**
-4. **Publications 디자인 다듬기**
-5. **Research 페이지 디테일**
-6. **Contact 미세 조정**
-7. **Footer 스타일**
+```
+Home | Research | Publications | Members ▾ | Gallery | Contact
+                                  ├── Advisor
+                                  └── Members
+```
+
+Research 페이지 내부 구조:
+
+```
+Research
+├── 연구 분야 카드 (3개, 각각 클릭 시 상세 서브페이지)
+├── Equipment & Platforms (장비 카드 그리드)
+└── Lab Facilities (연구실 공간 사진)
+```
 
 ---
 
-## 참고 파일
+## 구현 우선순위 (기존 V2 지시서 이후)
 
-- `DESIGN_PROTOTYPE.jsx`: 원본 디자인 프로토타입 (색상, 레이아웃, 구조 참고)
-- `CLAUDE_CODE_HANDOFF.md`: 프로젝트 전체 컨텍스트
-- `_sass/_custom.scss`: 현재 커스텀 스타일 (여기에 추가/수정)
+1. **검색 기능 활성화** (기존 기능 수리이므로 빠름)
+2. **Gallery 페이지** (Lab Life + Conferences)
+3. **Research 페이지에 Equipment & Facilities 섹션 추가**
+4. **Home 통계 카운터**
+5. **Open Positions 섹션** (Contact에 추가)
+6. **Research 상세 서브페이지**
+7. **타임라인** (선택)
+8. **SEO & 메타 태그**
+9. **404 페이지 커스터마이징**
+10. **반응형 모바일 최적화 최종 점검**
+
+---
+
+## 참고: 벤치마킹한 우수 연구실 홈페이지 특징
+
+분석 기반으로 도출한 공통 요소:
+
+- **일관된 색상 테마**: 모든 페이지에 동일한 primary color 적용
+- **풍부한 시각 자료**: 로봇/연구 관련 사진이 곳곳에 배치
+- **명확한 정보 계층**: 한눈에 연구실이 뭘 하는지, 누가 있는지, 어떤 성과가 있는지 파악 가능
+- **최신 뉴스 강조**: 홈에서 최근 논문 accept, 수상, 새 멤버 등을 바로 확인
+- **쉬운 콘텐츠 업데이트**: YAML/Markdown 기반으로 비개발자도 수정 가능
+- **빠른 로딩**: 이미지 최적화, lazy loading 활용

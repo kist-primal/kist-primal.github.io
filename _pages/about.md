@@ -27,6 +27,30 @@ social: false
   </div>
 </div>
 
+<!-- Stats Band -->
+<div class="stats-band">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-num-wrap"><span class="stat-num" data-target="50">0</span><span class="stat-plus">+</span></div>
+        <div class="stat-label">Publications</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num-wrap"><span class="stat-num" data-target="15">0</span><span class="stat-plus">+</span></div>
+        <div class="stat-label">Lab Members</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num-wrap"><span class="stat-num" data-target="10">0</span><span class="stat-plus">+</span></div>
+        <div class="stat-label">Research Projects</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num-wrap"><span class="stat-num" data-target="8">0</span><span class="stat-plus">+</span></div>
+        <div class="stat-label">Industry Partners</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Research Areas Preview Band -->
 <div class="research-areas">
   <div class="container">
@@ -52,5 +76,6 @@ social: false
       </div>
 
     </div>
+
   </div>
 </div>

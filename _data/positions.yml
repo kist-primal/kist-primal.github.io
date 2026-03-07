@@ -1,0 +1,24 @@
+positions:
+  - title: "Ph.D. / M.S. Student — Autonomous Navigation"
+    description: "We are looking for motivated graduate students to work on SLAM, motion planning, and sensor fusion for autonomous ground and aerial vehicles."
+    requirements:
+      - "Strong background in robotics, computer vision, or machine learning"
+      - "Proficiency in C++ and/or Python"
+      - "Experience with ROS/ROS2 preferred"
+    open: true
+
+  - title: "Ph.D. Student — Multi-Robot Systems"
+    description: "Join our team to develop decentralized coordination algorithms for heterogeneous robot fleets tackling large-scale exploration and coverage tasks."
+    requirements:
+      - "Background in control theory, graph algorithms, or distributed systems"
+      - "Strong mathematical fundamentals (linear algebra, optimization)"
+      - "Prior research experience is a plus"
+    open: true
+
+  - title: "Research Intern — 3D Scene Understanding"
+    description: "Summer internship opportunity for undergraduate or master's students to contribute to real-time 3D semantic mapping using point cloud deep learning."
+    requirements:
+      - "Enrolled in a BS/MS program in CS, EE, or related field"
+      - "Familiarity with PyTorch or TensorFlow"
+      - "Enthusiasm for robotics research"
+    open: true

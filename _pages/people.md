@@ -9,7 +9,9 @@ nav: false
 {% assign members = site.data.members %}
 
 <!-- ── Ph.D. Students ───────────────────────────────────────── -->
+
 {% if members.phd.size > 0 %}
+
 ## Ph.D. Students
 
 <div class="members-grid" data-reveal-group="phd">
@@ -59,7 +61,9 @@ nav: false
 ---
 
 <!-- ── M.S. Students ───────────────────────────────────────── -->
+
 {% if members.ms.size > 0 %}
+
 ## M.S. Students
 
 <div class="members-grid" data-reveal-group="ms">
@@ -109,7 +113,9 @@ nav: false
 ---
 
 <!-- ── Research Interns ────────────────────────────────────── -->
+
 {% if members.research_interns.size > 0 %}
+
 ## Research Interns
 
 <div class="members-grid" data-reveal-group="interns">
@@ -145,7 +151,9 @@ nav: false
 ---
 
 <!-- ── Alumni ──────────────────────────────────────────────── -->
+
 {% if members.alumni.size > 0 %}
+
 ## Alumni
 
 <div class="alumni-table-wrap scroll-reveal">
