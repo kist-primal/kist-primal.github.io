@@ -1,295 +1,169 @@
-# 연구실 홈페이지 추가 기능 및 완성도 개선 지시서
+# 최종 업데이트 지시서
 
-이 문서는 `CLAUDE_CODE_DESIGN_V2.md`에 추가로 적용할 내용입니다.
-기존 수정사항을 먼저 적용한 후, 아래 내용을 순차적으로 구현해주세요.
-
----
-
-## 8. Gallery (연구실 앨범) 페이지 신규 추가
-
-### 8-1. 네비게이션 추가
-
-네비바에 **"Gallery"** 항목 추가. 위치는 Contact 앞.
-
-```
-Home | Research | Publications | Members ▾ | Gallery | Contact
-```
-
-### 8-2. 페이지 구조 (`_pages/gallery.md`, permalink: `/gallery/`)
-
-카테고리별로 사진을 분류해서 보여주는 페이지 (카테고리는 간결하게 유지):
-
-```
-Gallery
-├── Lab Life        (연구실 일상, 단체사진, 회식, 워크숍 등)
-└── Conferences     (학회 참석, 발표 사진)
-```
-
-※ Equipment(장비)와 Facilities(연구실 공간)은 Gallery가 아닌 **Research 페이지** 하단에 배치합니다 (10-4 참고).
-
-### 8-3. 디자인 & 기능
-
-**필터 탭**: 상단에 카테고리 필터 버튼 (All / Lab Life / Conferences)
-
-- 탭 스타일: pill 형태 버튼, 활성 탭 `background: #2d3a8c`, `color: white`
-- 탭 클릭 시 해당 카테고리 사진만 필터링 (CSS + JS 또는 isotope/masonry 활용)
-
-**사진 그리드**:
-
-- Masonry 레이아웃 (Al-Folio에 masonry.js가 이미 포함되어 있음)
-- 사진 hover 시: 살짝 확대(`scale(1.03)`) + 오버레이에 캡션 텍스트 표시
-- 사진 클릭 시: Lightbox로 큰 이미지 보기 (Al-Folio에 lightbox2가 이미 포함되어 있음)
-- 각 사진에 날짜 + 간단한 캡션
-
-**스타일**:
-
-- 사진 카드: `border-radius: 12px`, `overflow: hidden`
-- 이미지 위에 그라데이션 오버레이 (하단에서 올라오는): `linear-gradient(transparent 60%, rgba(0,0,0,0.6))`
-- 오버레이 위에 흰색 캡션 텍스트
-
-### 8-4. 데이터 관리 (`_data/gallery.yml`)
-
-```yaml
-- image: /assets/img/gallery/lab_group_2025.jpg
-  caption: "2025 Lab Group Photo"
-  category: lab-life
-  date: 2025-03-01
-
-- image: /assets/img/gallery/icra2025_presentation.jpg
-  caption: "ICRA 2025 Oral Presentation - Soyeon Park"
-  category: conferences
-  date: 2025-05-20
-
-- image: /assets/img/gallery/workshop_2024.jpg
-  caption: "2024 Lab Workshop in Jeju"
-  category: lab-life
-  date: 2024-12-15
-
-- image: /assets/img/gallery/iros2024_group.jpg
-  caption: "IROS 2024 - Best Paper Award Ceremony"
-  category: conferences
-  date: 2024-10-18
-```
+이 문서는 기존 지시서(V2, V3)에 추가/수정되는 내용입니다.
+**이 문서의 내용이 기존 지시서와 충돌할 경우, 이 문서를 우선합니다.**
 
 ---
 
-## 9. 검색 기능 활성화
+## 1. 연구실 기본 정보 변경 (전체 사이트 반영)
 
-### 9-1. 현재 상태
+### 연구실 이름 변경
 
-네비바에 `ctrl+k` 검색 아이콘이 있지만 동작하지 않는 상태.
+- **약칭**: PIER Lab
+- **정식 명칭**: Physical Intelligence & Embodied Robotics Laboratory
+  - (원래 "Embodied"를 살리되, "Intelligence"를 형용사가 아닌 명사로 두어 자연스럽게 구성)
+  - 대안 후보 (Claude Code가 판단해서 가장 자연스러운 것 선택 가능):
+    - Physical Intelligence & Embodied Robotics Laboratory
+    - Physical Intelligence for Embodied Robotics Laboratory
+    - Physically Intelligent Embodied Robotics Laboratory
+  - **핵심: "PIER"의 약어가 자연스럽게 성립해야 함**
 
-### 9-2. 수정 방법
+### 소속 기관 변경
 
-Al-Folio는 검색 기능이 내장되어 있습니다. `_config.yml`에서:
+- **KAIST가 아닌 KIST** (Korea Institute of Science and Technology, 한국과학기술연구원)
+- KIST는 대학이 아닌 **정부출연 연구기관**입니다
+- 따라서 "School of Computing" 같은 표현은 부적절
+- Hero 섹션 소속 텍스트: "KIST (Korea Institute of Science and Technology)" 또는 적절한 센터/부서명으로 변경
+- footer, contact, 기타 모든 곳에서 KAIST → KIST로 일괄 변경
+- 주소도 KIST 주소로 변경: "5 Hwarang-ro 14-gil, Seongbuk-gu, Seoul 02792, South Korea"
 
-```yaml
-search_enabled: true # 이미 true로 설정되어 있을 것
-```
+### 변경해야 할 파일들
 
-검색이 동작하지 않는 원인을 확인해주세요:
-
-1. `assets/js/search/` 폴더의 JS 파일이 정상적으로 빌드되는지 확인
-2. `search.json` 또는 `search-data.json`이 빌드 시 생성되는지 확인
-3. 검색 모달/패널의 CSS가 `_custom.scss`에 의해 깨지지 않았는지 확인
-4. 혹시 JS minifier가 검색 관련 JS를 깨뜨린 것은 아닌지 확인
-
-### 9-3. 검색 모달 디자인 (동작 후 다듬기)
-
-검색 모달이 열리면:
-
-- `backdrop-filter: blur(8px)` 배경
-- 모달: `border-radius: 16px`, `box-shadow: 0 20px 60px rgba(0,0,0,0.15)`
-- 검색 입력창: 큰 글씨 (`font-size: 1.2rem`), `border: none`, `border-bottom: 2px solid #2d3a8c`
-- 검색 결과: 카드형 목록, hover 시 `background: #f8f9ff`
-- `Ctrl+K` 또는 `/` 키로 열리도록
-
----
-
-## 10. 완성도 개선을 위한 추가 기능 제안
-
-아래는 우수한 연구실 홈페이지들을 분석하여 도출한 추가 기능들입니다.
-
-### 10-1. Research 페이지에 장비 & 연구실 공간 섹션 추가
-
-현재 Research 페이지에 연구 분야 카드만 있는데, 하단에 추가 섹션을 넣어주세요:
-
-**Equipment & Platforms 섹션**:
-
-- 연구에 사용하는 로봇, 센서, 장비를 카드형으로 표시
-- 각 카드: 장비 사진 + 이름 + 간단한 스펙/설명
-- 예: "Velodyne VLP-16 LiDAR - 16채널 3D 라이다 센서", "Custom Mobile Robot Platform"
-- 2~3열 그리드, hover 시 확대 효과
-- `_data/equipment.yml`로 관리:
-
-```yaml
-- name: "Custom Mobile Robot Platform"
-  image: /assets/img/equipment/robot_platform.jpg
-  description: "자체 개발한 자율주행 로봇 플랫폼. ROS2 기반, LiDAR + 카메라 융합 센서 탑재."
-
-- name: "Velodyne VLP-16 LiDAR"
-  image: /assets/img/equipment/vlp16.jpg
-  description: "16채널 3D LiDAR 센서. 실시간 포인트 클라우드 획득."
-
-- name: "Intel RealSense D455"
-  image: /assets/img/equipment/realsense.jpg
-  description: "스테레오 뎁스 카메라. RGB-D 데이터 수집용."
-```
-
-**Lab Facilities 섹션**:
-
-- 연구실 공간 사진 1~2장 + 간단한 설명
-- 넓은 이미지 카드 형태 (전체 폭 또는 2열)
-- "Main Lab - Room N1-123", "Robot Testing Area" 등
-
-이 두 섹션은 연구 분야 카드 아래에, 구분선 또는 섹션 타이틀과 함께 배치.
-
-### 10-2. Research 상세 서브페이지
-
-**Contact 페이지 내 또는 별도 섹션**으로 채용/모집 공고:
-
-- 현재 모집 중인 포지션 (Ph.D., M.S., Intern 등)
-- 각 포지션별: 연구 주제, 자격 요건, 지원 방법
-- 눈에 띄는 배너 또는 카드 디자인 (accent 색상 배경)
-- Home 페이지 News 위나 아래에 "We're Hiring!" 배너를 선택적으로 표시 가능
-
-구현: Contact 페이지 하단에 "Open Positions" 섹션 추가, `_data/positions.yml`로 관리
-
-```yaml
-positions:
-  - title: "Ph.D. Student in Multi-Robot Systems"
-    description: "We are looking for a motivated Ph.D. student..."
-    requirements: ["Strong programming skills in C++/Python", "Background in robotics or AI"]
-    open: true
-  - title: "Research Intern (Summer 2025)"
-    description: "6-month research internship position..."
-    open: true
-```
-
-### 10-4. Home 페이지에 동적 카운터/통계
-
-Hero 섹션 아래 또는 Research Areas 위에 연구실 통계 표시:
-
-```
-📄 50+ Publications  |  👥 12 Members  |  🏆 8 Awards  |  🤖 5 Robot Platforms
-```
-
-- 숫자가 스크롤 시 0에서 올라가는 카운트업 애니메이션
-- 스타일: 4열 그리드, 각 항목 중앙 정렬, 큰 숫자 + 작은 레이블
-
-### 10-4. Research 페이지에 프로젝트 상세 서브페이지
-
-현재 Research 페이지는 3개 분야의 요약만 있는데, 각 연구 분야를 클릭하면 **상세 페이지**로 이동:
-
-- 연구 배경 및 목표 상세 설명
-- 관련 논문 목록 (자동 연결)
-- 관련 프로젝트 데모 영상 (YouTube embed)
-- 협력 기관/기업 로고
-- 사용 장비/기술 스택
-
-구현: `_projects/` 폴더에 각 연구 분야별 마크다운 파일 생성
-
-### 10-5. 논문 하이라이트 / Featured Research
-
-Home 페이지의 "Selected Publications" 위에 **Featured Research** 섹션:
-
-- 최근 대표 논문 1~2개를 큰 카드로 하이라이트
-- 논문 제목 + 한 줄 요약 + 대표 이미지/figure + 학회 뱃지
-- 링크: Paper, Code, Video, Project Page
-- 카드 디자인: 이미지 좌측, 텍스트 우측의 넓은 카드 형태
-
-### 10-6. 타임라인 / Lab History
-
-연구실의 주요 이정표를 타임라인으로 표시 (About 페이지 또는 별도 페이지):
-
-```
-2025 ── ICRA 2025 논문 2편 발표
-2024 ── IROS 2024 Best Paper Award
-2024 ── 첫 번째 로봇 플랫폼 완성
-2023 ── 연구실 설립
-```
-
-- 세로 타임라인 디자인 (가운데 선 + 좌우 교차 이벤트)
-- 스크롤 시 각 이벤트가 순차적으로 등장하는 애니메이션
-
-### 10-7. 소셜 미디어 / 외부 링크 강화
-
-Footer 또는 네비바에:
-
-- GitHub Organization 링크
-- Google Scholar 프로필
-- YouTube 채널 (데모 영상 등)
-- Twitter/X 계정 (선택)
-- 각 링크를 Font Awesome 아이콘으로 표시
-
-### 10-8. 반응형 & 모바일 최적화 확인
-
-모든 페이지가 모바일에서도 잘 보이는지 확인:
-
-- Hero 섹션: 모바일에서 타이틀 `font-size` 축소 (`1.6rem`)
-- 카드 그리드: 모바일에서 1열로
-- 네비바: 모바일 햄버거 메뉴 동작 확인 (드롭다운 포함)
-- Gallery: 모바일에서 2열 또는 1열 그리드
-- 테이블(Alumni): 모바일에서 스크롤 가능하도록
-
-### 10-9. SEO & 메타 태그
-
-- 각 페이지에 적절한 `title`, `description` meta 태그
-- Open Graph 이미지 설정 (SNS에서 링크 공유 시 미리보기)
-- `_config.yml`에서 `serve_og_meta: true` 활성화
-- 기본 OG 이미지: 연구실 로고 또는 대표 이미지를 `og_image`에 설정
-
-### 10-10. 404 에러 페이지 커스터마이징
-
-Al-Folio의 기본 404 페이지를 커스터마이징:
-
-- 연구실 브랜딩에 맞는 디자인
-- "홈으로 돌아가기" 버튼
-- 검색 기능 연결
+- `_config.yml`: title, first_name, last_name, description, footer_text, url 관련
+- `_pages/about.md`: Hero 섹션 텍스트 전체
+- `_pages/contact.md`: 주소, 이메일
+- `_sass/_custom.scss`: 주석 등
+- `_data/members.yml`: 소속 정보
+- 네비바 로고 텍스트: "PIER Lab" + "KIST" 서브텍스트
+- 모든 파일에서 "ARI Lab" → "PIER Lab", "KAIST" → "KIST" 일괄 치환
 
 ---
 
-## 네비게이션 최종 구조
+## 2. 전체 톤 & 분위기 조정
 
-```
-Home | Research | Publications | Members ▾ | Gallery | Contact
-                                  ├── Advisor
-                                  └── Members
-```
+### 장난스럽지 않은 전문적 톤
 
-Research 페이지 내부 구조:
+현재 사이트에 이모지(🤖🔗🌐📢📍📬🎓 등)가 많이 사용되고 있는데, **이모지를 제거하거나 최소화**하세요.
 
-```
-Research
-├── 연구 분야 카드 (3개, 각각 클릭 시 상세 서브페이지)
-├── Equipment & Platforms (장비 카드 그리드)
-└── Lab Facilities (연구실 공간 사진)
-```
+**제거할 것들**:
 
----
+- Research 카드의 이모지 아이콘 → 대신 Font Awesome 또는 SVG 아이콘 사용 (선이 깔끔한 아이콘)
+- News 섹션의 📢 이모지 → 섹션 제목만으로 충분
+- Contact의 📍📬🎓 이모지 → Font Awesome 아이콘으로 교체 (`fa-map-marker-alt`, `fa-envelope`, `fa-user-graduate`)
+- favicon의 🤖 이모지 → PIER Lab 텍스트 로고 또는 심플한 아이콘으로 변경
 
-## 구현 우선순위 (기존 V2 지시서 이후)
+**유지할 톤**:
 
-1. **검색 기능 활성화** (기존 기능 수리이므로 빠름)
-2. **Gallery 페이지** (Lab Life + Conferences)
-3. **Research 페이지에 Equipment & Facilities 섹션 추가**
-4. **Home 통계 카운터**
-5. **Open Positions 섹션** (Contact에 추가)
-6. **Research 상세 서브페이지**
-7. **타임라인** (선택)
-8. **SEO & 메타 태그**
-9. **404 페이지 커스터마이징**
-10. **반응형 모바일 최적화 최종 점검**
+- 학술적이고 신뢰감 있는 느낌
+- 색상은 기존 팔레트 유지 (`#2d3a8c` 계열) — 충분히 전문적임
+- 폰트, 여백, 카드 스타일은 기존 프로토타입 느낌 유지
+- 인터랙션은 부드럽고 절제된 수준으로 (과하지 않게)
 
 ---
 
-## 참고: 벤치마킹한 우수 연구실 홈페이지 특징
+## 3. Members 페이지 레이아웃 변경
 
-분석 기반으로 도출한 공통 요소:
+### 한 행에 한 명 (1열 레이아웃)
 
-- **일관된 색상 테마**: 모든 페이지에 동일한 primary color 적용
-- **풍부한 시각 자료**: 로봇/연구 관련 사진이 곳곳에 배치
-- **명확한 정보 계층**: 한눈에 연구실이 뭘 하는지, 누가 있는지, 어떤 성과가 있는지 파악 가능
-- **최신 뉴스 강조**: 홈에서 최근 논문 accept, 수상, 새 멤버 등을 바로 확인
-- **쉬운 콘텐츠 업데이트**: YAML/Markdown 기반으로 비개발자도 수정 가능
-- **빠른 로딩**: 이미지 최적화, lazy loading 활용
+기존 지시서(V2)에서 2~3열 카드 그리드로 지시했지만, **1열 레이아웃으로 변경**합니다.
+
+**Ph.D. / M.S. 학생 카드 레이아웃**:
+
+- 한 행에 한 명씩, 전체 너비 카드
+- 카드 내부: 좌측에 프로필 사진 (원형, 약 120px) + 우측에 정보
+- 정보 영역: 이름, 과정, 대학원, 학부 출신, 연구 분야 태그, 링크 아이콘
+- `max-width: 700px~800px`, 중앙 정렬
+- 카드 간 간격: `margin-bottom: 24px`
+
+```
+┌─────────────────────────────────────────────────┐
+│  ┌──────┐  이름 (한글 + 영문)                      │
+│  │ 사진  │  Ph.D. Candidate                       │
+│  │      │  KIST | 학부: OO대학교 OO학과              │
+│  └──────┘  연구: [SLAM] [Visual Nav] [LiDAR]      │
+│            📧 🎓 🐙                               │
+└─────────────────────────────────────────────────┘
+```
+
+(위 이모지는 실제로는 Font Awesome 아이콘으로: `fa-envelope`, `fa-graduation-cap`, `fa-github`)
+
+**Research Interns / Undergraduate도 동일한 1열 레이아웃** (정보는 약간 간소화)
+
+### 스크롤 인터랙션 (1열에 최적화)
+
+1열 레이아웃이므로 스크롤 시 한 명씩 자연스럽게 등장하는 효과가 더 잘 어울림:
+
+- 각 카드가 `opacity: 0`, `transform: translateY(30px)` 상태에서
+- 뷰포트에 들어오면 `opacity: 1`, `transform: translateY(0)` 으로 전환
+- `transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1)`
+- 카드가 하나씩 나타나므로 stagger delay 불필요 (자연스럽게 스크롤에 따라 등장)
+- 과하지 않고 부드럽게. 한 번 등장한 카드는 다시 사라지지 않음 (observer.unobserve)
+
+### Alumni는 기존대로
+
+- 사진 없이 테이블 또는 심플 리스트
+- 1열 레이아웃과 자연스럽게 이어지도록
+
+---
+
+## 4. 검색 기능 반드시 동작하게
+
+### 중요도: 높음
+
+상단 네비바의 검색 (`ctrl+k`)이 **반드시 실제로 동작**해야 합니다.
+
+확인 및 수정 순서:
+
+1. `_config.yml`에서 `search_enabled: true` 확인
+2. 빌드 시 `assets/js/search/` 관련 파일들이 정상 생성되는지 확인
+3. `search.json` 데이터 파일이 빌드 output에 포함되는지 확인
+4. 검색 모달이 열리는 JS 이벤트 바인딩 확인
+5. `_custom.scss`가 검색 모달의 CSS를 덮어쓰지 않는지 확인
+6. 콘솔 에러 확인 (빌드 후 로컬 테스트 권장)
+
+검색 대상: Publications 논문 제목/저자, News, 페이지 제목/내용 등
+
+### Publications 필터도 동작 확인
+
+Publications 페이지의 "Type to filter" 검색바도 실제로 동작해야 합니다:
+
+- 논문 제목, 저자, 학회명으로 필터링
+- 입력 시 실시간으로 목록이 필터링되는지 확인
+
+---
+
+## 5. 샘플 데이터 참고사항
+
+현재 모든 콘텐츠는 샘플이며 나중에 실제 데이터로 교체 예정입니다.
+하지만 샘플 데이터도 **PIER Lab / KIST에 맞게 일관성 있게** 작성해주세요:
+
+- 연구 분야: Embodied AI, Robot Manipulation, Sensor Fusion 등 (Physical Intelligence 관련)
+- 학회: IEEE RA-L, ICRA, IROS, CoRL, RSS 등
+- 소속: KIST
+- 이메일 도메인: `@kist.re.kr`
+
+---
+
+## 6. 변경된 내용 요약 (기존 지시서 대비)
+
+| 항목          | 기존                                          | 변경                                                 |
+| ------------- | --------------------------------------------- | ---------------------------------------------------- |
+| 연구실 이름   | ARI Lab                                       | PIER Lab                                             |
+| 정식 명칭     | Autonomous Robotics & Intelligence Laboratory | Physical Intelligence & Embodied Robotics Laboratory |
+| 소속 기관     | KAIST (대학)                                  | KIST (연구기관)                                      |
+| 이모지 사용   | 많음                                          | 제거, Font Awesome 아이콘으로 교체                   |
+| Members 카드  | 2~3열 그리드                                  | 1열 (한 행에 한 명)                                  |
+| 스크롤 효과   | stagger delay                                 | 스크롤에 따라 한 명씩 자연스럽게 등장                |
+| 전체 톤       | 캐주얼                                        | 전문적, 학술적 신뢰감                                |
+| 검색 기능     | 있으면 좋겠음                                 | 반드시 동작해야 함                                   |
+| 이메일 도메인 | @kaist.ac.kr                                  | @kist.re.kr                                          |
+
+---
+
+## 최종 전달 시 Claude Code에 강조할 점
+
+1. **모든 파일에서 ARI Lab → PIER Lab, KAIST → KIST 일괄 치환**
+2. **이모지 전부 제거 → Font Awesome 아이콘으로 교체**
+3. **Members 1열 레이아웃 + 스크롤 시 한 명씩 등장**
+4. **검색 기능(ctrl+k, Publications 필터) 반드시 동작하도록**
+5. **전문적이고 절제된 톤 유지**
