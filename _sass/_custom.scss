@@ -1,82 +1,132 @@
 // =============================================================================
-// ARI Lab Custom Theme — Al-Folio Override
-// Compatible with @use module system
+// ARI Lab — Custom Theme
+// Loaded last in main.scss via @use "custom";
+// Overrides al-folio defaults to match DESIGN_PROTOTYPE.jsx exactly.
 // =============================================================================
 
-// --- Color Variables ---
-$lab-primary: #2d3a8c;
-$lab-primary-light: #5b6abf;
-$lab-accent: #eef0ff;
-$lab-bg: #fafbfe;
-$lab-text: #1a1a2e;
-$lab-text-light: #555;
-$lab-border: #e8eaf0;
+// ─────────────────────────────────────────────────────────────────────────────
+// 0. DESIGN TOKENS
+// ─────────────────────────────────────────────────────────────────────────────
 
-// --- Shared card mixin ---
-@mixin card-base {
-  background: white;
-  border-radius: 14px;
-  padding: 1.75rem;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-  transition: transform 0.2s ease;
-  border: none;
+$primary: #2d3a8c;
+$primary-light: #5b6abf;
+$accent: #eef0ff;
+$bg: #fafbfe;
+$text: #1a1a2e;
+$text-light: #555;
+$text-muted: #666;
+$border: #e8eaf0;
+$shadow-sm: 0 1px 8px rgba(0, 0, 0, 0.05);
+$shadow-md: 0 2px 12px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 2px 16px rgba(0, 0, 0, 0.08);
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 1. OVERRIDE AL-FOLIO CSS CUSTOM PROPERTIES (light theme)
+//    Must match specificity of html[data-theme="light"] in _themes.scss
+// ─────────────────────────────────────────────────────────────────────────────
+
+html[data-theme="light"] {
+  --global-bg-color: #{$bg};
+  --global-text-color: #{$text};
+  --global-text-color-light: #{$text-light};
+  --global-theme-color: #{$primary};
+  --global-hover-color: #{$primary-light};
+  --global-hover-text-color: #fff;
+  --global-divider-color: #{$border};
+  --global-footer-bg-color: #{$text}; // #1a1a2e
+  --global-footer-text-color: rgba(255, 255, 255, 0.6);
+  --global-footer-link-color: rgba(255, 255, 255, 0.75);
 }
 
-// --- Global ---
+// ─────────────────────────────────────────────────────────────────────────────
+// 2. GLOBAL
+// ─────────────────────────────────────────────────────────────────────────────
+
 body {
   font-family: "Segoe UI", system-ui, -apple-system, sans-serif !important;
-  color: $lab-text;
-  background: $lab-bg;
+  background-color: $bg;
+  color: $text;
 }
 
-// --- Navbar (glassmorphism) ---
+// ─────────────────────────────────────────────────────────────────────────────
+// 3. NAVIGATION BAR
+//    Prototype: sticky, glassmorphism, "ARI Lab" gradient + "KAIST" small text,
+//    pill-button nav items, 60px height
+// ─────────────────────────────────────────────────────────────────────────────
+
 header.fixed-top,
 nav.navbar {
-  background: rgba(255, 255, 255, 0.85) !important;
+  background: rgba(255, 255, 255, 0.88) !important;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid $lab-border;
+  border-bottom: 1px solid $border !important;
   box-shadow: none !important;
+  min-height: 60px;
 
+  // "ARI Lab" — gradient text
   .navbar-brand {
     font-weight: 700;
-    font-size: 1.15rem;
-    background: linear-gradient(135deg, $lab-primary, $lab-primary-light);
+    font-size: 1.125rem; // 18px
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, $primary, $primary-light);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
+    padding-right: 0;
+
+    // "· KAIST" affiliation text appended via CSS
+    &::after {
+      content: "KAIST";
+      font-size: 0.75rem; // 12px
+      font-weight: 400;
+      letter-spacing: 0;
+      color: #888;
+      margin-left: 0.5rem;
+      background: none;
+      -webkit-background-clip: unset;
+      -webkit-text-fill-color: #888;
+      background-clip: unset;
+    }
   }
 
+  // Nav links — pill buttons
   .navbar-nav .nav-item .nav-link {
-    color: $lab-text-light;
+    font-size: 0.875rem; // 14px
     font-weight: 400;
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
+    color: $text-light;
+    padding: 0.5rem 1rem; // 8px 16px
     border-radius: 8px;
-    transition: all 0.2s ease;
+    transition: background 0.15s ease, color 0.15s ease, font-weight 0.15s ease;
 
-    &:hover,
-    &.active {
-      color: $lab-primary;
-      font-weight: 600;
-      background: $lab-accent;
+    &:hover {
+      color: $primary;
+      background: $accent;
     }
+  }
+
+  .navbar-nav .nav-item.active > .nav-link,
+  .navbar-nav .nav-item .nav-link.active {
+    color: $primary !important;
+    font-weight: 600 !important;
+    background: $accent;
   }
 }
 
-// =============================================================================
-// HOME PAGE
-// These elements render directly in <body> (outside .container),
-// so no calc() tricks are needed — they naturally fill the viewport.
-// =============================================================================
+// ─────────────────────────────────────────────────────────────────────────────
+// 4. HERO SECTION
+//    Rendered directly in <body> via home.liquid (outside .container).
+//    Inner .container constrains content to max-width.
+//    Prototype: linear-gradient 135deg, padding 80px/70px,
+//    h1 42px/800, desc 18px, two CTA buttons in flex row.
+// ─────────────────────────────────────────────────────────────────────────────
 
-// --- Hero Section ---
 .hero-section {
-  background: linear-gradient(135deg, #1a1a2e 0%, $lab-primary 50%, $lab-primary-light 100%);
+  background: linear-gradient(135deg, #1a1a2e 0%, $primary 50%, $primary-light 100%);
   color: white;
-  padding: 80px 0 70px;
+  padding: 80px 1.5rem 70px;
 
   .hero-subtitle {
-    font-size: 0.85rem;
+    font-size: 0.875rem; // 14px
     letter-spacing: 2px;
     text-transform: uppercase;
     opacity: 0.7;
@@ -84,7 +134,7 @@ nav.navbar {
   }
 
   h1 {
-    font-size: 2.6rem;
+    font-size: 2.625rem; // 42px
     font-weight: 800;
     line-height: 1.2;
     margin-bottom: 1rem;
@@ -93,23 +143,27 @@ nav.navbar {
   }
 
   .hero-desc {
-    font-size: 1.1rem;
+    font-size: 1.125rem; // 18px
     opacity: 0.85;
     max-width: 600px;
     line-height: 1.6;
     margin-bottom: 2rem;
   }
 
+  .hero-buttons {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
   .hero-btn {
     display: inline-block;
-    padding: 12px 28px;
+    padding: 0.75rem 1.75rem; // 12px 28px
     border-radius: 10px;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.9375rem; // 15px
     text-decoration: none;
-    transition: transform 0.2s;
-    margin-right: 0.75rem;
-    margin-bottom: 0.5rem;
+    transition: transform 0.2s ease;
 
     &:hover {
       transform: translateY(-2px);
@@ -118,7 +172,7 @@ nav.navbar {
 
     &.primary {
       background: white;
-      color: $lab-primary;
+      color: $primary;
     }
 
     &.secondary {
@@ -129,16 +183,20 @@ nav.navbar {
   }
 }
 
-// --- Research Areas (home page full-width band) ---
+// ─────────────────────────────────────────────────────────────────────────────
+// 5. HOME PAGE — RESEARCH AREAS PREVIEW BAND
+//    Prototype: bg #f0f2f8, padding 48px, 3-col grid, cards WITHOUT left border
+// ─────────────────────────────────────────────────────────────────────────────
+
 .research-areas {
   background: #f0f2f8;
-  padding: 3rem 0 3.5rem;
+  padding: 3rem 1.5rem;
 
   .section-title {
-    font-size: 1.5rem;
+    font-size: 1.5rem; // 24px
     font-weight: 700;
     margin-bottom: 1.5rem;
-    color: $lab-text;
+    color: $text;
   }
 
   .research-grid {
@@ -148,178 +206,273 @@ nav.navbar {
   }
 }
 
-// --- Research Card (shared: home preview + research page) ---
-.research-card {
-  @include card-base;
-  border-left: 4px solid $lab-primary;
+// Research preview cards on home page — NO left border
+.research-preview-card {
+  background: white;
+  border-radius: 14px;
+  padding: 1.75rem; // 28px
+  box-shadow: $shadow-md;
+  transition: transform 0.2s ease;
+  cursor: default;
 
   &:hover {
     transform: translateY(-4px);
   }
 
   .research-icon {
-    font-size: 1.75rem;
+    font-size: 2rem; // 32px
     margin-bottom: 0.75rem;
   }
 
   h3 {
-    font-size: 1.05rem;
+    font-size: 1.0625rem; // 17px
     font-weight: 700;
-    color: $lab-primary;
+    color: $primary;
     margin-bottom: 0.5rem;
   }
 
   p {
-    font-size: 0.9rem;
-    color: $lab-text-light;
+    font-size: 0.875rem; // 14px
+    color: $text-muted;
     line-height: 1.6;
     margin: 0;
   }
 }
 
-// --- Home sections (news / selected papers) ---
-.home-sections {
-  padding-top: 2rem;
-  padding-bottom: 3rem;
+// ─────────────────────────────────────────────────────────────────────────────
+// 6. HOME PAGE — NEWS & SELECTED PAPERS CONTAINER
+// ─────────────────────────────────────────────────────────────────────────────
 
-  h2 {
-    font-size: 1.4rem;
+.home-sections {
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+
+  .home-section-title {
+    font-size: 1.5rem; // 24px
     font-weight: 700;
-    color: $lab-text;
-    margin-bottom: 1.25rem;
+    color: $text;
+    margin-bottom: 1.5rem;
 
     a {
       color: inherit;
       text-decoration: none;
 
       &:hover {
-        color: $lab-primary;
+        color: $primary;
       }
     }
   }
 }
 
-// --- News Section ---
+// News table — match prototype (date | text rows)
 .news {
-  table {
-    td {
-      border-bottom: 1px solid #eee;
-      padding: 0.75rem 0;
-    }
+  .table-responsive {
+    border: none;
+  }
 
-    .date {
-      font-size: 0.85rem;
-      color: $lab-primary;
-      font-weight: 600;
-      min-width: 90px;
+  .table {
+    margin-bottom: 0;
+
+    tr {
+      border-bottom: 1px solid #eee;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      th[scope="row"] {
+        font-size: 0.8125rem; // 13px
+        color: $primary;
+        font-weight: 600;
+        white-space: nowrap;
+        padding: 0.75rem 1rem 0.75rem 0;
+        border: none;
+        vertical-align: middle;
+      }
+
+      td {
+        font-size: 0.9375rem; // 15px
+        color: #333;
+        padding: 0.75rem 0;
+        border: none;
+        vertical-align: middle;
+
+        a.news-title {
+          color: $text;
+          text-decoration: none;
+          font-weight: 500;
+
+          &:hover {
+            color: $primary;
+          }
+        }
+      }
     }
   }
 }
 
-// =============================================================================
-// RESEARCH PAGE
-// =============================================================================
+// ─────────────────────────────────────────────────────────────────────────────
+// 7. RESEARCH PAGE (projects.md)
+//    Prototype: vertical flex cards, borderLeft 4px solid, icon+title in row
+// ─────────────────────────────────────────────────────────────────────────────
 
-.research-page-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.25rem;
-  margin-top: 1.5rem;
+.research-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
 }
 
-// =============================================================================
-// PUBLICATIONS
-// =============================================================================
+.research-detail-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem; // 32px
+  box-shadow: $shadow-lg;
+  border-left: 4px solid $primary;
+
+  .research-detail-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; // 12px
+    margin-bottom: 0.75rem;
+
+    .research-detail-icon {
+      font-size: 1.75rem; // 28px
+      line-height: 1;
+    }
+
+    h3 {
+      font-size: 1.25rem; // 20px
+      font-weight: 700;
+      color: $primary;
+      margin: 0;
+    }
+  }
+
+  .research-detail-desc {
+    font-size: 0.9375rem; // 15px
+    color: $text-light;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .research-detail-meta {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem; // 12px 16px
+    background: #f8f9ff;
+    border-radius: 8px;
+    font-size: 0.8125rem; // 13px
+    color: $text-muted;
+    line-height: 1.5;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 8. PUBLICATIONS PAGE
+//    Prototype: white card, borderRadius 12, padding 24px 28px,
+//    title 16px/700, authors 14px/#666, venue 13px/#2d3a8c/500,
+//    tag badge (Journal: blue, Conference: green), action buttons
+// ─────────────────────────────────────────────────────────────────────────────
 
 .publications {
   .bibliography {
-    li {
-      @include card-base;
-      padding: 1.5rem 1.75rem;
+    padding-left: 0;
+    list-style: none;
+
+    > li {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem; // 24px 28px
       margin-bottom: 1rem;
+      box-shadow: $shadow-sm;
+      border: none;
 
-      .title {
-        font-weight: 700;
-        color: $lab-text;
-      }
+      // Thumbnail column
+      .col.abbr {
+        display: flex;
+        align-items: flex-start;
+        padding-top: 0.25rem;
 
-      .author {
-        color: $lab-text-light;
-        font-size: 0.9rem;
-      }
-
-      .abbr {
-        abbr {
-          font-size: 0.75rem;
+        abbr.badge {
+          font-size: 0.75rem; // 12px
+          font-weight: 600;
           padding: 0.25rem 0.75rem;
           border-radius: 20px;
-          font-weight: 600;
+          color: white !important;
+          text-decoration: none;
+
+          a {
+            color: white !important;
+            text-decoration: none;
+          }
         }
       }
 
-      .links a,
-      .links button {
-        font-size: 0.75rem;
-        padding: 0.25rem 0.75rem;
-        border-radius: 6px;
-        border: 1px solid #ddd;
-        background: white;
-        color: $lab-text-light;
-        transition: all 0.2s;
+      // Title
+      .title {
+        font-size: 1rem; // 16px
+        font-weight: 700;
+        color: $text;
+        margin-bottom: 0.375rem;
+        line-height: 1.4;
+      }
 
-        &:hover {
-          border-color: $lab-primary;
-          color: $lab-primary;
+      // Authors
+      .author {
+        font-size: 0.875rem; // 14px
+        color: $text-muted;
+        margin-bottom: 0.25rem;
+
+        // Highlight self (PI) in bold
+        em {
+          font-style: normal;
+          font-weight: 700;
+          color: $text;
+        }
+      }
+
+      // Venue / periodical
+      .periodical {
+        font-size: 0.8125rem; // 13px
+        color: $primary;
+        font-weight: 500;
+        margin-bottom: 0.75rem;
+      }
+
+      // Action buttons
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-top: 0.75rem;
+
+        a.btn,
+        button.btn {
+          font-size: 0.75rem; // 12px
+          padding: 0.25rem 0.75rem; // 4px 12px
+          border-radius: 6px;
+          border: 1px solid #ddd;
+          background: white;
+          color: $text-light;
+          transition: border-color 0.15s, color 0.15s;
+          box-shadow: none;
+
+          &:hover {
+            border-color: $primary;
+            color: $primary;
+          }
         }
       }
     }
   }
 }
 
-// =============================================================================
-// MEMBERS PAGE
-// =============================================================================
+// ─────────────────────────────────────────────────────────────────────────────
+// 9. MEMBERS PAGE
+//    Prototype: grid auto-fill minmax(200px), card 80px emoji avatar,
+//    name 15px/700, role 13px/#2d3a8c
+// ─────────────────────────────────────────────────────────────────────────────
 
-.people-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1.25rem;
-  margin-bottom: 2rem;
-
-  .person-card {
-    @include card-base;
-    text-align: center;
-    padding: 1.5rem;
-
-    &:hover {
-      transform: translateY(-4px);
-    }
-
-    .avatar {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 0 auto 1rem;
-      display: block;
-      background: linear-gradient(135deg, $lab-accent, #d8dcf0);
-    }
-
-    .name {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: $lab-text;
-      margin-bottom: 0.25rem;
-    }
-
-    .role {
-      font-size: 0.8rem;
-      color: $lab-primary;
-    }
-  }
-}
-
-// --- PI card: single centered card ---
 .pi-grid {
   display: flex;
   justify-content: flex-start;
@@ -330,32 +483,81 @@ nav.navbar {
   }
 }
 
-// =============================================================================
-// CONTACT PAGE
-// =============================================================================
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
 
-.contact-card {
-  @include card-base;
-  padding: 1.75rem;
+.person-card {
+  background: white;
+  border-radius: 14px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: $shadow-md;
+  transition: transform 0.2s ease;
 
   &:hover {
-    transform: none;
+    transform: translateY(-4px);
   }
 
-  h3 {
-    font-size: 1.05rem;
+  // Real photo avatar
+  .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 1rem;
+  }
+
+  // Emoji / placeholder avatar (gradient circle with centered emoji)
+  .avatar-emoji {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, $accent, #d8dcf0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.25rem; // 36px
+    margin: 0 auto 1rem;
+  }
+
+  .name {
+    font-size: 0.9375rem; // 15px
     font-weight: 700;
-    color: $lab-primary;
-    margin-bottom: 1rem;
+    color: $text;
+    margin-bottom: 0.25rem;
   }
 
-  p {
-    font-size: 0.9rem;
-    color: $lab-text-light;
-    line-height: 1.8;
-    margin: 0;
+  .role {
+    font-size: 0.8125rem; // 13px
+    color: $primary;
+    margin-bottom: 0;
+  }
+
+  .links-row {
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: $text-muted;
+
+    a {
+      color: $text-muted;
+      text-decoration: none;
+
+      &:hover {
+        color: $primary;
+      }
+    }
   }
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 10. CONTACT PAGE
+//     Prototype: grid auto-fit minmax(280px), card white/14 radius/28 padding
+// ─────────────────────────────────────────────────────────────────────────────
 
 .contact-grid {
   display: grid;
@@ -363,19 +565,48 @@ nav.navbar {
   gap: 1.5rem;
 }
 
-// =============================================================================
-// FOOTER
-// =============================================================================
+.contact-card {
+  background: white;
+  border-radius: 14px;
+  padding: 1.75rem; // 28px
+  box-shadow: $shadow-md;
 
-footer {
-  background: #1a1a2e !important;
-  color: rgba(255, 255, 255, 0.6) !important;
-  padding: 2rem;
-  text-align: center;
-  font-size: 0.85rem;
+  h3 {
+    font-size: 1.0625rem; // 17px
+    font-weight: 700;
+    color: $primary;
+    margin-bottom: 1rem; // 16px
+  }
+
+  p {
+    font-size: 0.875rem; // 14px
+    color: $text-light;
+    line-height: 1.8;
+    margin: 0;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 11. FOOTER
+//     Prototype: bg #1a1a2e, rgba(255,255,255,0.6) text, 13px, centered
+// ─────────────────────────────────────────────────────────────────────────────
+
+footer.sticky-bottom,
+footer.fixed-bottom {
+  background-color: $text !important; // #1a1a2e
+  border-top: none !important;
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+
+  .container {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-size: 0.8125rem; // 13px
+    text-align: center;
+  }
 
   a {
-    color: rgba(255, 255, 255, 0.7) !important;
+    color: rgba(255, 255, 255, 0.75) !important;
+    text-decoration: none;
 
     &:hover {
       color: white !important;
@@ -383,34 +614,45 @@ footer {
   }
 }
 
-// =============================================================================
-// PAGE TITLES
-// =============================================================================
+// ─────────────────────────────────────────────────────────────────────────────
+// 12. PAGE TITLES (for non-home pages using layout: page)
+// ─────────────────────────────────────────────────────────────────────────────
 
-.post-title,
-.page-title {
+.post-title {
+  font-size: 2rem; // 32px
   font-weight: 800 !important;
-  color: $lab-text;
+  color: $text;
+  margin-bottom: 0.5rem;
 }
 
 .post-description {
-  color: $lab-text-light;
+  font-size: 1rem;
+  color: $text-muted;
+  margin-bottom: 2.25rem; // 36px
 }
 
-// =============================================================================
-// RESPONSIVE
-// =============================================================================
+// ─────────────────────────────────────────────────────────────────────────────
+// 13. RESPONSIVE
+// ─────────────────────────────────────────────────────────────────────────────
 
 @media (max-width: 768px) {
   .hero-section {
-    padding: 48px 0 40px;
+    padding: 3rem 1.25rem 2.5rem;
 
     h1 {
-      font-size: 1.8rem;
+      font-size: 1.75rem;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
     }
   }
 
   .people-grid {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .research-detail-card {
+    padding: 1.25rem;
   }
 }

@@ -1,3 +1,39 @@
+# IEEE Robotics Journals (blue — matches lab primary)
+"RA-L":
+  url: https://www.ieee.org/publications/rights/index.html
+  color: "#2d3a8c"
+
+"T-RO":
+  url: https://www.ieee.org/publications/rights/index.html
+  color: "#2d3a8c"
+
+"IJRR":
+  color: "#2d3a8c"
+
+# Robotics Conferences (green)
+"ICRA":
+  color: "#2a7a2a"
+
+"IROS":
+  color: "#2a7a2a"
+
+"CoRL":
+  color: "#2a7a2a"
+
+"RSS":
+  color: "#2a7a2a"
+
+# Vision/ML Conferences
+"CVPR":
+  color: "#7a4f2a"
+
+"ICCV":
+  color: "#7a4f2a"
+
+"NeurIPS":
+  color: "#7a2a2a"
+
+# Template defaults
 "AJP":
   url: https://aapt.scitation.org/journal/ajp
   color: "#00369f"

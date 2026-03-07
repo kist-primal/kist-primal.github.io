@@ -10,16 +10,16 @@
     {% include header.liquid %}
 
     {%- comment -%}
-      Hero and full-width sections rendered directly in <body>,
-      outside any container, so they can span the full viewport width.
+      Hero and research-areas are full-width bands rendered directly in <body>,
+      outside any .container, so they naturally span the full viewport width.
     {%- endcomment -%}
     {{ content }}
 
     <div class="container home-sections" role="main">
       {% if page.announcements and page.announcements.enabled %}
-        <section class="home-news mt-4">
-          <h2>
-            <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
+        <section class="home-news">
+          <h2 class="home-section-title">
+            <a href="{{ '/news/' | relative_url }}">📢 News</a>
           </h2>
           {% include news.liquid limit=true %}
         </section>
@@ -27,10 +27,8 @@
 
       {% if page.selected_papers %}
         <section class="home-publications mt-5">
-          <h2>
-            <a href="{{ '/publications/' | relative_url }}" style="color: inherit"
-              >selected publications</a
-            >
+          <h2 class="home-section-title">
+            <a href="{{ '/publications/' | relative_url }}">Selected Publications</a>
           </h2>
           {% include selected_papers.liquid %}
         </section>

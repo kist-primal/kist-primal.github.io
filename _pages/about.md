@@ -20,32 +20,32 @@ social: false
       We build intelligent robots that perceive, reason, and act
       in complex real-world environments.
     </p>
-    <div>
+    <div class="hero-buttons">
       <a href="/research/" class="hero-btn primary">Our Research →</a>
       <a href="/publications/" class="hero-btn secondary">Publications</a>
     </div>
   </div>
 </div>
 
-<!-- Research Areas Preview -->
+<!-- Research Areas Preview Band -->
 <div class="research-areas">
   <div class="container">
     <h2 class="section-title">Research Areas</h2>
     <div class="research-grid">
 
-      <div class="research-card">
+      <div class="research-preview-card">
         <div class="research-icon">🤖</div>
         <h3>Autonomous Navigation</h3>
         <p>Self-driving systems for complex urban environments using LiDAR and vision fusion.</p>
       </div>
 
-      <div class="research-card">
+      <div class="research-preview-card">
         <div class="research-icon">🔗</div>
         <h3>Multi-Robot Systems</h3>
         <p>Cooperative planning and communication for heterogeneous robot teams.</p>
       </div>
 
-      <div class="research-card">
+      <div class="research-preview-card">
         <div class="research-icon">🌐</div>
         <h3>3D Scene Understanding</h3>
         <p>Real-time semantic mapping and object recognition from point clouds.</p>
