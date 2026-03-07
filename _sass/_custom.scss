@@ -249,13 +249,14 @@ nav.navbar {
     }
 
     &.secondary {
-      border: 2px solid rgba(255, 255, 255, 0.75);
-      background: rgba(255, 255, 255, 0.08);
-      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.85) !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+      color: white !important;
 
       &:hover {
-        background: rgba(255, 255, 255, 0.18);
-        border-color: white;
+        background: rgba(255, 255, 255, 0.22) !important;
+        border-color: white !important;
+        color: white !important;
       }
     }
   }
@@ -642,7 +643,7 @@ nav.navbar {
 .members-list {
   display: flex;
   flex-direction: column;
-  max-width: 960px;
+  max-width: 1100px;
   margin: 0 auto 2rem;
   gap: 1.5rem;
 }
@@ -650,8 +651,8 @@ nav.navbar {
 .member-row-card {
   background: white;
   border-radius: 16px;
-  padding: 28px 36px;
-  min-height: 200px;
+  padding: 32px 40px;
+  min-height: 240px;
   box-shadow: $shadow-md;
   display: flex;
   flex-direction: row;
@@ -674,8 +675,8 @@ nav.navbar {
   }
 
   .member-photo {
-    width: 150px;
-    height: 185px;
+    width: 180px;
+    height: 225px;
     border-radius: 12px;
     object-fit: cover;
     object-position: center top;
@@ -683,14 +684,14 @@ nav.navbar {
   }
 
   .member-initials-avatar {
-    width: 150px;
-    height: 185px;
+    width: 180px;
+    height: 225px;
     border-radius: 12px;
     background: linear-gradient(135deg, $primary, $primary-light);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
+    font-size: 2.25rem;
     font-weight: 700;
     color: white;
     letter-spacing: 0.05em;
@@ -1258,21 +1259,21 @@ footer.fixed-bottom {
 }
 
 .gallery-grid {
-  columns: 3;
-  column-gap: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
 
   @media (max-width: 900px) {
-    columns: 2;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   @media (max-width: 540px) {
-    columns: 1;
+    grid-template-columns: 1fr;
   }
 }
 
 .gallery-item {
-  break-inside: avoid;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0;
   border-radius: 12px;
   overflow: hidden;
   position: relative;
@@ -1336,31 +1337,40 @@ footer.fixed-bottom {
 
   .gallery-date {
     font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.85);
-    opacity: 1;
+    color: rgba(255, 255, 255, 0.85) !important;
+    opacity: 1 !important;
     display: block;
     margin-top: 0.15rem;
   }
 }
 
-// Lightbox2 caption styling
-.lb-data {
-  .lb-details {
-    background: rgba(0, 0, 0, 0.75);
-    padding: 0.75rem 1.25rem;
-    border-radius: 0 0 8px 8px;
+// Lightbox2 — caption styled as overlay on the bottom of the image area
+#lightbox {
+  .lb-outerContainer {
+    margin-bottom: 0 !important;
   }
 
-  .lb-caption {
-    font-size: 0.9375rem;
-    color: white !important;
-    font-weight: 500;
-    line-height: 1.5;
+  .lb-dataContainer {
+    background: rgba(10, 10, 25, 0.82);
+    border-radius: 0 0 10px 10px;
+    margin-top: 0;
+    padding: 0.6rem 1rem;
   }
 
-  .lb-number {
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.65) !important;
+  .lb-data {
+    .lb-caption {
+      font-size: 0.9375rem;
+      color: white !important;
+      font-weight: 500;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .lb-number {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.55) !important;
+      text-align: center;
+    }
   }
 }
 
@@ -1509,14 +1519,15 @@ ninja-keys {
   text-decoration: none !important;
 
   .navbar-logo-img {
-    height: 46px;
+    height: 54px;
     width: auto;
   }
 
   .navbar-logo-text {
     font-weight: 700;
-    font-size: 1.25rem;
-    color: $primary;
+    font-size: 1.4rem;
+    color: $primary !important;
+    -webkit-text-fill-color: $primary !important;
     letter-spacing: 0.5px;
   }
 
