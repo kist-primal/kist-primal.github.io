@@ -6,51 +6,50 @@
 % 4. preview={파일명.png} → assets/img/publication_preview/ 에 썸네일
 % =============================================================================
 
-@article{kim2025slam,
-  title     = {Robust LiDAR-Visual SLAM in Dynamic Environments},
+@article{kim2025manipulation,
+  title     = {Tactile-Guided Dexterous Manipulation in Cluttered Environments},
   author    = {Kim, Minjun and Park, Soyeon and Lee, Hyunwoo},
   journal   = {IEEE Robotics and Automation Letters (RA-L)},
   year      = {2025},
   abbr      = {RA-L},
   selected  = {true},
   bibtex_show = {true},
-  pdf       = {kim2025slam.pdf},
-  abstract  = {We propose a novel LiDAR-visual SLAM framework that maintains robust performance in highly dynamic environments by leveraging semantic segmentation for dynamic object filtering.},
-  preview   = {slam_preview.png}
+  pdf       = {kim2025manipulation.pdf},
+  abstract  = {We present a tactile-guided manipulation framework that combines dense tactile feedback with model-based grasp planning, enabling robust handling of objects with unknown geometry in cluttered scenes.}
 }
 
-@inproceedings{park2025cooperative,
-  title     = {Cooperative Path Planning for Multi-UAV Coverage},
+@inproceedings{park2025embodied,
+  title     = {Language-Conditioned Manipulation via Physical Interaction Learning},
   author    = {Park, Soyeon and Choi, Minji},
   booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
   year      = {2025},
   abbr      = {ICRA},
   selected  = {true},
   bibtex_show = {true},
-  pdf       = {park2025cooperative.pdf},
-  code      = {https://github.com/ari-lab/multi-uav-coverage},
-  abstract  = {We present a decentralized cooperative path planning algorithm for multi-UAV coverage tasks that achieves near-optimal area coverage while minimizing communication overhead.}
+  pdf       = {park2025embodied.pdf},
+  code      = {https://github.com/pier-lab/lang-manip},
+  abstract  = {We propose a language-conditioned policy learning framework where a robot acquires manipulation skills from human demonstrations annotated with natural language instructions, enabling zero-shot generalization to novel task descriptions.}
 }
 
-@inproceedings{lee2024detection,
-  title     = {Real-time 3D Object Detection on Edge Devices},
+@inproceedings{lee2024perception,
+  title     = {Real-time Multi-modal 3D Perception for Contact-Rich Manipulation},
   author    = {Lee, Hyunwoo and Kim, Minjun and Seo, Yujin},
   booktitle = {IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
   year      = {2024},
   abbr      = {IROS},
   selected  = {true},
   bibtex_show = {true},
-  pdf       = {lee2024detection.pdf},
-  abstract  = {We introduce a lightweight 3D object detection architecture optimized for deployment on edge computing platforms, achieving real-time inference with minimal accuracy loss.}
+  pdf       = {lee2024perception.pdf},
+  abstract  = {We introduce a lightweight multi-modal perception architecture that fuses LiDAR, RGB-D, and tactile data for real-time 3D state estimation during contact-rich robot manipulation tasks.}
 }
 
-@article{choi2024semantic,
-  title     = {Semantic Map Merging for Multi-Robot Exploration},
+@article{choi2024simtoreal,
+  title     = {Sim-to-Real Transfer for Deformable Object Manipulation},
   author    = {Choi, Minji and Park, Soyeon},
   journal   = {IEEE Transactions on Robotics (T-RO)},
   year      = {2024},
   abbr      = {T-RO},
   bibtex_show = {true},
-  pdf       = {choi2024semantic.pdf},
-  abstract  = {We propose a semantic-aware map merging framework that enables multiple robots to collaboratively build a unified semantic map of unknown environments.}
+  pdf       = {choi2024simtoreal.pdf},
+  abstract  = {We propose a domain randomization and adaptation framework for transferring manipulation policies trained in simulation to real robotic systems with minimal fine-tuning on physical deformable objects.}
 }

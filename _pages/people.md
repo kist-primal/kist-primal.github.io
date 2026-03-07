@@ -14,14 +14,16 @@ nav: false
 
 ## Ph.D. Students
 
-<div class="members-grid" data-reveal-group="phd">
+<div class="members-list">
   {% for person in members.phd %}
-  <div class="member-card scroll-reveal">
+  <div class="member-row-card scroll-reveal">
     <div class="member-avatar">
       {% if person.image %}
         <img src="{{ person.image | relative_url }}" alt="{{ person.name }}" class="member-photo">
       {% else %}
-        <div class="member-emoji-avatar">{{ person.emoji }}</div>
+        <div class="member-initials-avatar">
+          {{- person.name | split: " " | first | slice: 0 -}}{{- person.name | split: " " | last | slice: 0 -}}
+        </div>
       {% endif %}
     </div>
     <div class="member-info">
@@ -32,7 +34,7 @@ nav: false
         <div class="member-school">{{ person.grad_school }}</div>
       {% endif %}
       {% if person.undergrad %}
-        <div class="member-undergrad">{{ person.undergrad }}</div>
+        <div class="member-undergrad">B.S. {{ person.undergrad }}</div>
       {% endif %}
       {% if person.research_areas %}
         <div class="member-tags">
@@ -43,13 +45,19 @@ nav: false
       {% endif %}
       <div class="member-links">
         {% if person.email %}
-          <a href="mailto:{{ person.email }}" class="member-link" title="Email">✉</a>
+          <a href="mailto:{{ person.email }}" class="member-link" title="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
         {% endif %}
         {% if person.scholar %}
-          <a href="{{ person.scholar }}" target="_blank" rel="noopener" class="member-link" title="Google Scholar">S</a>
+          <a href="{{ person.scholar }}" target="_blank" rel="noopener" class="member-link" title="Google Scholar">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </a>
         {% endif %}
         {% if person.github %}
-          <a href="{{ person.github }}" target="_blank" rel="noopener" class="member-link" title="GitHub">G</a>
+          <a href="{{ person.github }}" target="_blank" rel="noopener" class="member-link" title="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
         {% endif %}
       </div>
     </div>
@@ -66,14 +74,16 @@ nav: false
 
 ## M.S. Students
 
-<div class="members-grid" data-reveal-group="ms">
+<div class="members-list">
   {% for person in members.ms %}
-  <div class="member-card scroll-reveal">
+  <div class="member-row-card scroll-reveal">
     <div class="member-avatar">
       {% if person.image %}
         <img src="{{ person.image | relative_url }}" alt="{{ person.name }}" class="member-photo">
       {% else %}
-        <div class="member-emoji-avatar">{{ person.emoji }}</div>
+        <div class="member-initials-avatar">
+          {{- person.name | split: " " | first | slice: 0 -}}{{- person.name | split: " " | last | slice: 0 -}}
+        </div>
       {% endif %}
     </div>
     <div class="member-info">
@@ -84,7 +94,7 @@ nav: false
         <div class="member-school">{{ person.grad_school }}</div>
       {% endif %}
       {% if person.undergrad %}
-        <div class="member-undergrad">{{ person.undergrad }}</div>
+        <div class="member-undergrad">B.S. {{ person.undergrad }}</div>
       {% endif %}
       {% if person.research_areas %}
         <div class="member-tags">
@@ -95,13 +105,19 @@ nav: false
       {% endif %}
       <div class="member-links">
         {% if person.email %}
-          <a href="mailto:{{ person.email }}" class="member-link" title="Email">✉</a>
+          <a href="mailto:{{ person.email }}" class="member-link" title="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
         {% endif %}
         {% if person.scholar %}
-          <a href="{{ person.scholar }}" target="_blank" rel="noopener" class="member-link" title="Google Scholar">S</a>
+          <a href="{{ person.scholar }}" target="_blank" rel="noopener" class="member-link" title="Google Scholar">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </a>
         {% endif %}
         {% if person.github %}
-          <a href="{{ person.github }}" target="_blank" rel="noopener" class="member-link" title="GitHub">G</a>
+          <a href="{{ person.github }}" target="_blank" rel="noopener" class="member-link" title="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
         {% endif %}
       </div>
     </div>
@@ -118,14 +134,16 @@ nav: false
 
 ## Research Interns
 
-<div class="members-grid" data-reveal-group="interns">
+<div class="members-list">
   {% for person in members.research_interns %}
-  <div class="member-card scroll-reveal">
+  <div class="member-row-card scroll-reveal">
     <div class="member-avatar">
       {% if person.image %}
         <img src="{{ person.image | relative_url }}" alt="{{ person.name }}" class="member-photo">
       {% else %}
-        <div class="member-emoji-avatar">{{ person.emoji }}</div>
+        <div class="member-initials-avatar">
+          {{- person.name | split: " " | first | slice: 0 -}}{{- person.name | split: " " | last | slice: 0 -}}
+        </div>
       {% endif %}
     </div>
     <div class="member-info">

@@ -2,7 +2,7 @@
 layout: page
 title: Contact
 permalink: /contact/
-description: Get in touch with our lab.
+description: Get in touch with the PIER Lab at KIST.
 nav: true
 nav_order: 5
 ---
@@ -10,31 +10,32 @@ nav_order: 5
 <div class="contact-grid">
 
   <div class="contact-card scroll-reveal">
-    <h3>📍 Location</h3>
+    <h3><i class="fa-solid fa-location-dot" style="margin-right: 0.5rem; color: #2d3a8c;"></i>Location</h3>
     <p>
-      Room N1-123, Building N1<br>
-      KAIST, 291 Daehak-ro<br>
-      Yuseong-gu, Daejeon 34141<br>
+      PIER Lab, KIST<br>
+      5 Hwarang-ro 14-gil<br>
+      Seongbuk-gu, Seoul 02792<br>
       South Korea
     </p>
   </div>
 
   <div class="contact-card scroll-reveal">
-    <h3>📬 Email</h3>
+    <h3><i class="fa-solid fa-envelope" style="margin-right: 0.5rem; color: #2d3a8c;"></i>Email</h3>
     <p>
-      General: <a href="mailto:ari-lab@kaist.ac.kr">ari-lab@kaist.ac.kr</a><br>
-      Prof. Kim: <a href="mailto:minjun@kaist.ac.kr">minjun@kaist.ac.kr</a>
+      General: <a href="mailto:pier-lab@kist.re.kr">pier-lab@kist.re.kr</a><br>
+      Prof. Kim: <a href="mailto:minjun@kist.re.kr">minjun@kist.re.kr</a>
     </p>
   </div>
 
 </div>
 
 <div class="prospective-box scroll-reveal" style="margin-top: 2rem;">
-  <h3>🎓 Prospective Students</h3>
+  <h3><i class="fa-solid fa-graduation-cap" style="margin-right: 0.5rem;"></i>Prospective Students</h3>
   <p>
-    We are always looking for motivated students interested in robotics and autonomous systems.
-    If you are interested in joining our lab as a Ph.D. or M.S. student, please send your CV
-    and transcripts to <a href="mailto:minjun@kaist.ac.kr">Prof. Kim</a>.
+    We are always looking for motivated students and researchers interested in robot manipulation,
+    embodied AI, and physical perception. If you are interested in joining our lab as a Ph.D. or
+    M.S. student through KIST/UST, please send your CV and transcripts to
+    <a href="mailto:minjun@kist.re.kr">Prof. Kim</a>.
   </p>
 </div>
 
@@ -56,7 +57,7 @@ nav_order: 5
       {% endfor %}
     </ul>
     {% endif %}
-    <a href="mailto:minjun@kaist.ac.kr" class="position-apply-btn">Apply →</a>
+    <a href="mailto:minjun@kist.re.kr" class="position-apply-btn">Apply</a>
   </div>
   {% endfor %}
 </div>

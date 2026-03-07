@@ -1,24 +1,24 @@
 positions:
-  - title: "Ph.D. / M.S. Student — Autonomous Navigation"
-    description: "We are looking for motivated graduate students to work on SLAM, motion planning, and sensor fusion for autonomous ground and aerial vehicles."
+  - title: "Ph.D. / M.S. Student — Robot Manipulation"
+    description: "We seek motivated graduate students to work on dexterous manipulation, tactile sensing, and contact-rich robot control at KIST/UST."
     requirements:
-      - "Strong background in robotics, computer vision, or machine learning"
+      - "Background in robotics, mechanical engineering, or computer science"
       - "Proficiency in C++ and/or Python"
-      - "Experience with ROS/ROS2 preferred"
+      - "Experience with ROS/ROS2 and real robot platforms preferred"
     open: true
 
-  - title: "Ph.D. Student — Multi-Robot Systems"
-    description: "Join our team to develop decentralized coordination algorithms for heterogeneous robot fleets tackling large-scale exploration and coverage tasks."
+  - title: "Ph.D. Student — Embodied AI"
+    description: "Join our team to develop learning algorithms for robots that acquire physical skills through interaction, imitation, and language grounding."
     requirements:
-      - "Background in control theory, graph algorithms, or distributed systems"
-      - "Strong mathematical fundamentals (linear algebra, optimization)"
-      - "Prior research experience is a plus"
+      - "Strong background in machine learning or reinforcement learning"
+      - "Familiarity with PyTorch and deep learning frameworks"
+      - "Prior research experience (publications a plus)"
     open: true
 
-  - title: "Research Intern — 3D Scene Understanding"
-    description: "Summer internship opportunity for undergraduate or master's students to contribute to real-time 3D semantic mapping using point cloud deep learning."
+  - title: "Research Intern — Physical Perception"
+    description: "Summer internship for undergraduate or master's students to contribute to multi-modal 3D perception research for robotic manipulation."
     requirements:
-      - "Enrolled in a BS/MS program in CS, EE, or related field"
-      - "Familiarity with PyTorch or TensorFlow"
-      - "Enthusiasm for robotics research"
+      - "Enrolled in a BS/MS program in CS, EE, ME, or related field"
+      - "Familiarity with point cloud processing or computer vision"
+      - "Enthusiasm for hands-on robotics research"
     open: true

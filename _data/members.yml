@@ -2,30 +2,30 @@ pi:
   - name: Prof. Minjun Kim
     name_ko: 김민준
     role: Principal Investigator
-    emoji: "👨‍🔬"
     image: # /assets/img/members/pi.jpg
-    email: minjun@kaist.ac.kr
+    email: minjun@kist.re.kr
     scholar: https://scholar.google.com/
     website: https://kist-primal.github.io/
     bio: >
-      Prof. Minjun Kim leads the Autonomous Robotics & Intelligence (ARI) Lab at KAIST
-      School of Computing. His research focuses on autonomous navigation, multi-robot
-      coordination, and 3D scene understanding for real-world robotic systems.
+      Prof. Minjun Kim leads the Physical Intelligence & Embodied Robotics (PIER) Lab at KIST
+      (Korea Institute of Science and Technology). His research focuses on robot manipulation,
+      embodied AI, and multi-modal perception for real-world robotic systems that physically
+      interact with complex environments.
     research_interests:
-      - Autonomous Navigation & SLAM
-      - Multi-Robot Systems
-      - 3D Scene Understanding
-      - Edge AI for Robotics
+      - Robot Manipulation & Dexterous Grasping
+      - Embodied AI & Learning from Interaction
+      - Physical Perception & Sensor Fusion
+      - Sim-to-Real Transfer
     education:
       - degree: Ph.D. in Computer Science
         institution: Carnegie Mellon University
         year: "2015"
       - degree: B.S. in Electrical Engineering
-        institution: KAIST
+        institution: Seoul National University
         year: "2010"
     career:
-      - title: Assistant Professor
-        institution: KAIST School of Computing
+      - title: Principal Researcher
+        institution: KIST (Korea Institute of Science and Technology)
         period: "2018 – Present"
       - title: Postdoctoral Researcher
         institution: MIT CSAIL
@@ -39,24 +39,22 @@ phd:
   - name: Soyeon Park
     name_ko: 박소연
     role: Ph.D. Candidate
-    emoji: "👩‍💻"
     image: # /assets/img/members/soyeon.jpg
-    grad_school: KAIST School of Computing
-    undergrad: KAIST 전기및전자공학부
-    research_areas: [SLAM, Visual Navigation, LiDAR]
-    email: soyeon@kaist.ac.kr
+    grad_school: KIST / UST (University of Science and Technology)
+    undergrad: Seoul National University, Electrical Engineering
+    research_areas: [Robot Manipulation, Tactile Sensing, Grasping]
+    email: soyeon@kist.re.kr
     scholar:
     github:
 
   - name: Hyunwoo Lee
     name_ko: 이현우
     role: Ph.D. Student
-    emoji: "👨‍💻"
     image: # /assets/img/members/hyunwoo.jpg
-    grad_school: KAIST School of Computing
-    undergrad: 서울대학교 컴퓨터공학부
-    research_areas: [Multi-Robot Systems, Coverage Planning]
-    email: hyunwoo@kaist.ac.kr
+    grad_school: KIST / UST (University of Science and Technology)
+    undergrad: POSTECH, Computer Science
+    research_areas: [Embodied AI, Language-Conditioned Manipulation]
+    email: hyunwoo@kist.re.kr
     scholar:
     github:
 
@@ -64,24 +62,22 @@ ms:
   - name: Minji Choi
     name_ko: 최민지
     role: M.S. Student
-    emoji: "👩‍🎓"
     image: # /assets/img/members/minji.jpg
-    grad_school: KAIST School of Computing
-    undergrad: 포항공과대학교 컴퓨터공학과
-    research_areas: [3D Object Detection, Semantic Mapping]
-    email: minji@kaist.ac.kr
+    grad_school: KIST / UST (University of Science and Technology)
+    undergrad: Yonsei University, Computer Science
+    research_areas: [3D Perception, Sensor Fusion]
+    email: minji@kist.re.kr
     scholar:
     github:
 
   - name: Yujin Seo
     name_ko: 서유진
     role: M.S. Student
-    emoji: "👨‍🎓"
     image: # /assets/img/members/yujin.jpg
-    grad_school: KAIST School of Computing
-    undergrad: 연세대학교 전기전자공학부
-    research_areas: [Multi-Agent Communication, Cooperative Planning]
-    email: yujin@kaist.ac.kr
+    grad_school: KIST / UST (University of Science and Technology)
+    undergrad: Hanyang University, Electrical Engineering
+    research_areas: [Sim-to-Real Transfer, Reinforcement Learning]
+    email: yujin@kist.re.kr
     scholar:
     github:
 
@@ -89,15 +85,14 @@ research_interns:
   - name: Donghyun Kang
     name_ko: 강동현
     role: Research Intern
-    emoji: "🧑‍💻"
     image: # /assets/img/members/donghyun.jpg
-    school: KAIST 전산학부 4학년
-    research_areas: [3D Object Detection]
+    school: KAIST, Computer Science (4th year)
+    research_areas: [Robot Perception, 3D Object Detection]
 
 alumni:
   - name: Dr. Jihoon Yoon
     degree: Ph.D. 2024
-    current: Postdoc @ MIT
+    current: Postdoc @ MIT CSAIL
   - name: Eunji Han
     degree: M.S. 2024
-    current: Samsung Research
+    current: Hyundai Motor Group, AI Research

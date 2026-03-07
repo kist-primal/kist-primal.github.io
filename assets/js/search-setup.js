@@ -7,7 +7,8 @@ if (searchTheme === "dark") {
   ninjaKeys.classList.remove("dark");
 }
 
-const openSearchModal = () => {
+// Expose as global so onclick="openSearchModal()" in header works
+window.openSearchModal = () => {
   // collapse navbarNav if expanded on mobile
   const $navbarNav = $("#navbarNav");
   if ($navbarNav.hasClass("show")) {

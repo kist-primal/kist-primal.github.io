@@ -2,7 +2,7 @@
 layout: page
 permalink: /publications/
 title: Publications
-description: Publications by ARI Lab, in reversed chronological order.
+description: Publications by PIER Lab, in reversed chronological order.
 nav: true
 nav_order: 2
 ---

@@ -2,7 +2,7 @@
 layout: page
 title: Advisor
 permalink: /people/advisor/
-description: Principal Investigator of ARI Lab.
+description: Principal Investigator of PIER Lab.
 nav: false
 ---
 
@@ -15,23 +15,31 @@ nav: false
       {% if pi.image %}
         <img src="{{ pi.image | relative_url }}" alt="{{ pi.name }}" class="advisor-photo">
       {% else %}
-        <div class="advisor-emoji-avatar">{{ pi.emoji }}</div>
+        <div class="advisor-initials-avatar">
+          {{ pi.name | split: " " | first | slice: 0 }}{{ pi.name | split: " " | last | slice: 0 }}
+        </div>
       {% endif %}
     </div>
     <div class="advisor-info">
       <h1 class="advisor-name">{{ pi.name }}</h1>
       <p class="advisor-name-ko">{{ pi.name_ko }}</p>
       <p class="advisor-role">{{ pi.role }}</p>
-      <p class="advisor-affil">KAIST School of Computing</p>
+      <p class="advisor-affil">KIST (Korea Institute of Science and Technology)</p>
       <div class="advisor-links">
         {% if pi.email %}
-          <a href="mailto:{{ pi.email }}" class="advisor-link-btn">✉ Email</a>
+          <a href="mailto:{{ pi.email }}" class="advisor-link-btn">
+            <i class="fa-solid fa-envelope"></i> Email
+          </a>
         {% endif %}
         {% if pi.scholar %}
-          <a href="{{ pi.scholar }}" target="_blank" rel="noopener" class="advisor-link-btn">Scholar</a>
+          <a href="{{ pi.scholar }}" target="_blank" rel="noopener" class="advisor-link-btn">
+            <i class="fa-solid fa-graduation-cap"></i> Scholar
+          </a>
         {% endif %}
         {% if pi.website %}
-          <a href="{{ pi.website }}" target="_blank" rel="noopener" class="advisor-link-btn">Website</a>
+          <a href="{{ pi.website }}" target="_blank" rel="noopener" class="advisor-link-btn">
+            <i class="fa-solid fa-globe"></i> Website
+          </a>
         {% endif %}
       </div>
     </div>

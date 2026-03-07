@@ -2,18 +2,18 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: ARI Lab # the website title (if blank, full name will be used instead)
-first_name: Autonomous Robotics &
+title: PIER Lab # the website title (if blank, full name will be used instead)
+first_name: Physical Intelligence &
 middle_name:
-last_name: Intelligence Laboratory
+last_name: Embodied Robotics Laboratory
 contact_note: >
   Feel free to reach out to us via email.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  We build intelligent robots that perceive, reason, and act in complex real-world environments.
+  We study physical intelligence — enabling robots to manipulate, perceive, and reason in the real world through embodied interaction.
 footer_text: >
-  © 2025 Autonomous Robotics & Intelligence Laboratory, KAIST.
+  © 2025 Physical Intelligence & Embodied Robotics Laboratory, KIST.
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
-keywords: robotics, autonomous-systems, KAIST, research-lab
+keywords: robotics, embodied-AI, physical-intelligence, KIST, research-lab
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: 🤖 # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
