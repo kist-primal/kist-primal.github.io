@@ -16,7 +16,7 @@ social: false
   <div class="container">
     <p class="hero-subtitle">KIST (Korea Institute of Science and Technology) · Center for Humanoid Research, Artificial Intelligence and Robot Institute</p>
     <div class="hero-title-wrap">
-      <img src="/assets/img/logo.png" alt="PIER Lab" class="hero-logo" onerror="this.style.display='none'">
+      <img src="/assets/img/logo.png" alt="PIER Lab" class="hero-logo" width="120" height="120" style="width:120px;height:auto;flex-shrink:0;" onerror="this.style.display='none'">
       <h1><span class="pier-accent">P</span>hysical <span class="pier-accent">I</span>ntelligence &amp;<br><span class="pier-accent">E</span>mbodied <span class="pier-accent">R</span>obotics Lab</h1>
     </div>
     <p class="hero-desc">

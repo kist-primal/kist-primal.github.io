@@ -2,14 +2,17 @@
   <!-- Nav Bar -->
   <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}" role="navigation">
     <div class="container">
-      <a class="navbar-brand pier-navbar-brand" href="{{ '/' | relative_url }}">
+      <a class="navbar-brand pier-navbar-brand" href="{{ '/' | relative_url }}" style="display:flex;align-items:center;gap:8px;text-decoration:none;">
         <img
           src="{{ '/assets/img/logo2.png' | relative_url }}"
           alt="PIER Lab"
           class="navbar-logo-img"
+          height="36"
+          width="36"
+          style="height:36px;width:36px;object-fit:contain;flex-shrink:0;"
           onerror="this.style.display='none'"
         >
-        <span class="navbar-logo-text">PIER LAB</span>
+        <span class="navbar-logo-text" style="font-weight:700;font-size:1.05rem;letter-spacing:0.5px;">PIER LAB</span>
       </a>
       <!-- Navbar Toggle -->
       <button
