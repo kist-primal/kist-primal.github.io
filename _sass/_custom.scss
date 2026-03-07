@@ -1,7 +1,7 @@
 // =============================================================================
-// ARI Lab Custom Theme - Al-Folio Override
+// ARI Lab Custom Theme - Al-Folio Override (v2 - @use compatible)
 // 이 파일을 _sass/_custom.scss 로 저장하세요.
-// 그리고 _sass/_base.scss 맨 끝에 @import "custom"; 추가
+// assets/css/main.scss 맨 끝에 @use "custom"; 추가
 // =============================================================================
 
 // --- Color Variables ---
@@ -13,20 +13,31 @@ $lab-text: #1a1a2e;
 $lab-text-light: #555;
 $lab-border: #e8eaf0;
 
+// --- Shared card mixin (@extend 대신 mixin 사용) ---
+@mixin card-base {
+  background: white;
+  border-radius: 14px;
+  padding: 1.75rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease;
+  border: none;
+}
+
 // --- Global ---
 body {
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif !important;
   color: $lab-text;
   background: $lab-bg;
 }
 
 // --- Navbar 스타일 (glassmorphism 느낌) ---
-header.fixed-top {
+header.fixed-top,
+nav.navbar {
   background: rgba(255, 255, 255, 0.85) !important;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid $lab-border;
-  box-shadow: none;
+  box-shadow: none !important;
 
   .navbar-brand {
     font-weight: 700;
@@ -58,7 +69,13 @@ header.fixed-top {
   background: linear-gradient(135deg, #1a1a2e 0%, $lab-primary 50%, $lab-primary-light 100%);
   color: white;
   padding: 80px 0 70px;
+  margin-top: -1rem;
   margin-bottom: 2rem;
+  // 전체 폭으로 확장
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
 
   .hero-subtitle {
     font-size: 0.85rem;
@@ -74,6 +91,7 @@ header.fixed-top {
     line-height: 1.2;
     margin-bottom: 1rem;
     max-width: 700px;
+    color: white;
   }
 
   .hero-desc {
@@ -93,9 +111,11 @@ header.fixed-top {
     text-decoration: none;
     transition: transform 0.2s;
     margin-right: 0.75rem;
+    margin-bottom: 0.5rem;
 
     &:hover {
       transform: translateY(-2px);
+      text-decoration: none;
     }
 
     &.primary {
@@ -134,46 +154,47 @@ header.fixed-top {
   }
 }
 
-// --- Card Components (Research, Projects) ---
-.card-item {
-  background: white;
-  border-radius: 14px;
-  padding: 1.75rem;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-  transition: transform 0.2s ease;
-  border: none;
-
-  &:hover {
-    transform: translateY(-4px);
-  }
-
-  h3 {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: $lab-primary;
-    margin-bottom: 0.5rem;
-  }
-
-  p {
-    font-size: 0.9rem;
-    color: $lab-text-light;
-    line-height: 1.6;
-  }
-}
-
 // --- Research Area Cards ---
 .research-areas {
   background: #f0f2f8;
   padding: 3rem 0;
   margin: 2rem 0;
+  // 전체 폭 확장
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
 
   .research-card {
-    @extend .card-item;
+    @include card-base;
     border-left: 4px solid $lab-primary;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
 
     .research-icon {
       font-size: 1.75rem;
       margin-bottom: 0.75rem;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: $lab-primary;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+      color: $lab-text-light;
+      line-height: 1.6;
     }
 
     .research-meta {
@@ -191,12 +212,9 @@ header.fixed-top {
 .publications {
   .bibliography {
     li {
-      background: white;
-      border-radius: 12px;
+      @include card-base;
       padding: 1.5rem 1.75rem;
-      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
       margin-bottom: 1rem;
-      border: none;
 
       .title {
         font-weight: 700;
@@ -208,7 +226,6 @@ header.fixed-top {
         font-size: 0.9rem;
       }
 
-      // Journal/Conference 뱃지
       .abbr {
         abbr {
           font-size: 0.75rem;
@@ -218,7 +235,6 @@ header.fixed-top {
         }
       }
 
-      // PDF, BibTeX 버튼 스타일
       .links a,
       .links button {
         font-size: 0.75rem;
@@ -243,11 +259,16 @@ header.fixed-top {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1.25rem;
+  margin-bottom: 2rem;
 
   .person-card {
-    @extend .card-item;
+    @include card-base;
     text-align: center;
     padding: 1.5rem;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
 
     .avatar {
       width: 80px;
@@ -274,8 +295,12 @@ header.fixed-top {
 
 // --- Contact 페이지 ---
 .contact-card {
-  @extend .card-item;
+  @include card-base;
   padding: 1.75rem;
+
+  &:hover {
+    transform: none;
+  }
 
   h3 {
     font-size: 1.05rem;
@@ -292,20 +317,30 @@ header.fixed-top {
 }
 
 // --- Footer ---
-footer.fixed-bottom,
 footer {
   background: #1a1a2e !important;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.6) !important;
   padding: 2rem;
   text-align: center;
   font-size: 0.85rem;
 
   a {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.7) !important;
     &:hover {
-      color: white;
+      color: white !important;
     }
   }
+}
+
+// --- 페이지 제목 스타일 ---
+.post-title,
+.page-title {
+  font-weight: 800 !important;
+  color: $lab-text;
+}
+
+.post-description {
+  color: $lab-text-light;
 }
 
 // --- 반응형 조정 ---
