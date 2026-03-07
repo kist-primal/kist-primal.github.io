@@ -7,7 +7,7 @@ nav: true
 nav_order: 4
 ---
 
-<div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:1.5rem;">
+<div class="contact-grid">
 
   <div class="contact-card">
     <h3>📍 Location</h3>
@@ -25,10 +25,10 @@ nav_order: 4
       General: <a href="mailto:ari-lab@kaist.ac.kr">ari-lab@kaist.ac.kr</a><br>
       Prof. Kim: <a href="mailto:minjun@kaist.ac.kr">minjun@kaist.ac.kr</a>
     </p>
-    <h3 style="margin-top:1.5rem;">🎓 Prospective Students</h3>
+    <h3 style="margin-top: 1.5rem;">🎓 Prospective Students</h3>
     <p>
-      We are always looking for motivated students interested in 
-      robotics and autonomous systems. Please send your CV and 
+      We are always looking for motivated students interested in
+      robotics and autonomous systems. Please send your CV and
       transcripts to Prof. Kim.
     </p>
   </div>

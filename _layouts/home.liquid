@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="{{ site.lang }}">
+  <head>
+    {% include head.liquid %}
+  </head>
+
+  <body
+    class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}"
+  >
+    {% include header.liquid %}
+
+    {%- comment -%}
+      Hero and full-width sections rendered directly in <body>,
+      outside any container, so they can span the full viewport width.
+    {%- endcomment -%}
+    {{ content }}
+
+    <div class="container home-sections" role="main">
+      {% if page.announcements and page.announcements.enabled %}
+        <section class="home-news mt-4">
+          <h2>
+            <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
+          </h2>
+          {% include news.liquid limit=true %}
+        </section>
+      {% endif %}
+
+      {% if page.selected_papers %}
+        <section class="home-publications mt-5">
+          <h2>
+            <a href="{{ '/publications/' | relative_url }}" style="color: inherit"
+              >selected publications</a
+            >
+          </h2>
+          {% include selected_papers.liquid %}
+        </section>
+      {% endif %}
+
+      {% if page.social %}
+        <div class="social mt-4">
+          <div class="contact-icons">{% social_links %}</div>
+          <div class="contact-note">{{ site.contact_note }}</div>
+        </div>
+      {% endif %}
+    </div>
+
+    {% include footer.liquid %}
+    {% include scripts.liquid %}
+  </body>
+</html>

@@ -9,14 +9,14 @@ nav_order: 3
 
 ## Principal Investigator
 
-<div class="people-grid" style="grid-template-columns: 1fr; max-width: 300px;">
+<div class="pi-grid">
   <div class="person-card">
     <img class="avatar" src="/assets/img/members/pi.jpg" alt="Prof. Minjun Kim">
     <div class="name">Prof. Minjun Kim</div>
     <div class="role">Principal Investigator</div>
     <p style="font-size:0.8rem; color:#666; margin-top:0.5rem;">
-      <a href="mailto:minjun@kaist.ac.kr">Email</a> · 
-      <a href="https://scholar.google.com/">Scholar</a>
+      <a href="mailto:minjun@kaist.ac.kr">Email</a> ·
+      <a href="https://scholar.google.com/" target="_blank">Scholar</a>
     </p>
   </div>
 </div>
@@ -72,6 +72,6 @@ nav_order: 3
 ## Alumni
 
 | Name | Degree | Current Position |
-|------|--------|-----------------|
+| ---- | ------ | ---------------- |
 | Dr. Jihoon Yoon | Ph.D. 2024 | Postdoc @ MIT |
 | Eunji Han | M.S. 2024 | Samsung Research |

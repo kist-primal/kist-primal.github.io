@@ -1,14 +1,7 @@
 ---
-layout: about
+layout: home
 title: Home
 permalink: /
-subtitle:
-
-profile:
-  align:
-  image:
-  image_circular: false
-  more_info:
 
 announcements:
   enabled: true
@@ -24,7 +17,7 @@ social: false
     <p class="hero-subtitle">KAIST School of Computing</p>
     <h1>Autonomous Robotics &<br>Intelligence Laboratory</h1>
     <p class="hero-desc">
-      We build intelligent robots that perceive, reason, and act 
+      We build intelligent robots that perceive, reason, and act
       in complex real-world environments.
     </p>
     <div>
@@ -37,8 +30,8 @@ social: false
 <!-- Research Areas Preview -->
 <div class="research-areas">
   <div class="container">
-    <h2 style="font-size:1.5rem; font-weight:700; margin-bottom:1.5rem;">Research Areas</h2>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:1.25rem;">
+    <h2 class="section-title">Research Areas</h2>
+    <div class="research-grid">
 
       <div class="research-card">
         <div class="research-icon">🤖</div>

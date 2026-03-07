@@ -1,7 +1,6 @@
 // =============================================================================
-// ARI Lab Custom Theme - Al-Folio Override (v2 - @use compatible)
-// 이 파일을 _sass/_custom.scss 로 저장하세요.
-// assets/css/main.scss 맨 끝에 @use "custom"; 추가
+// ARI Lab Custom Theme — Al-Folio Override
+// Compatible with @use module system
 // =============================================================================
 
 // --- Color Variables ---
@@ -13,7 +12,7 @@ $lab-text: #1a1a2e;
 $lab-text-light: #555;
 $lab-border: #e8eaf0;
 
-// --- Shared card mixin (@extend 대신 mixin 사용) ---
+// --- Shared card mixin ---
 @mixin card-base {
   background: white;
   border-radius: 14px;
@@ -25,12 +24,12 @@ $lab-border: #e8eaf0;
 
 // --- Global ---
 body {
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif !important;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif !important;
   color: $lab-text;
   background: $lab-bg;
 }
 
-// --- Navbar 스타일 (glassmorphism 느낌) ---
+// --- Navbar (glassmorphism) ---
 header.fixed-top,
 nav.navbar {
   background: rgba(255, 255, 255, 0.85) !important;
@@ -64,18 +63,17 @@ nav.navbar {
   }
 }
 
-// --- Hero Section (about 페이지 상단) ---
+// =============================================================================
+// HOME PAGE
+// These elements render directly in <body> (outside .container),
+// so no calc() tricks are needed — they naturally fill the viewport.
+// =============================================================================
+
+// --- Hero Section ---
 .hero-section {
   background: linear-gradient(135deg, #1a1a2e 0%, $lab-primary 50%, $lab-primary-light 100%);
   color: white;
   padding: 80px 0 70px;
-  margin-top: -1rem;
-  margin-bottom: 2rem;
-  // 전체 폭으로 확장
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-  padding-left: calc(50vw - 50%);
-  padding-right: calc(50vw - 50%);
 
   .hero-subtitle {
     font-size: 0.85rem;
@@ -131,14 +129,78 @@ nav.navbar {
   }
 }
 
-// --- News Section ---
-.news {
-  h2 {
+// --- Research Areas (home page full-width band) ---
+.research-areas {
+  background: #f0f2f8;
+  padding: 3rem 0 3.5rem;
+
+  .section-title {
     font-size: 1.5rem;
     font-weight: 700;
+    margin-bottom: 1.5rem;
     color: $lab-text;
   }
 
+  .research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+// --- Research Card (shared: home preview + research page) ---
+.research-card {
+  @include card-base;
+  border-left: 4px solid $lab-primary;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  .research-icon {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: $lab-primary;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: $lab-text-light;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+// --- Home sections (news / selected papers) ---
+.home-sections {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+
+  h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: $lab-text;
+    margin-bottom: 1.25rem;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        color: $lab-primary;
+      }
+    }
+  }
+}
+
+// --- News Section ---
+.news {
   table {
     td {
       border-bottom: 1px solid #eee;
@@ -154,61 +216,21 @@ nav.navbar {
   }
 }
 
-// --- Research Area Cards ---
-.research-areas {
-  background: #f0f2f8;
-  padding: 3rem 0;
-  margin: 2rem 0;
-  // 전체 폭 확장
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-  padding-left: calc(50vw - 50%);
-  padding-right: calc(50vw - 50%);
+// =============================================================================
+// RESEARCH PAGE
+// =============================================================================
 
-  h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-  }
-
-  .research-card {
-    @include card-base;
-    border-left: 4px solid $lab-primary;
-
-    &:hover {
-      transform: translateY(-4px);
-    }
-
-    .research-icon {
-      font-size: 1.75rem;
-      margin-bottom: 0.75rem;
-    }
-
-    h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: $lab-primary;
-      margin-bottom: 0.5rem;
-    }
-
-    p {
-      font-size: 0.9rem;
-      color: $lab-text-light;
-      line-height: 1.6;
-    }
-
-    .research-meta {
-      margin-top: 1rem;
-      padding: 0.75rem 1rem;
-      background: #f8f9ff;
-      border-radius: 8px;
-      font-size: 0.8rem;
-      color: #666;
-    }
-  }
+.research-page-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
 }
 
-// --- Publications 스타일 ---
+// =============================================================================
+// PUBLICATIONS
+// =============================================================================
+
 .publications {
   .bibliography {
     li {
@@ -254,7 +276,10 @@ nav.navbar {
   }
 }
 
-// --- People / Members 페이지 ---
+// =============================================================================
+// MEMBERS PAGE
+// =============================================================================
+
 .people-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -276,6 +301,7 @@ nav.navbar {
       border-radius: 50%;
       object-fit: cover;
       margin: 0 auto 1rem;
+      display: block;
       background: linear-gradient(135deg, $lab-accent, #d8dcf0);
     }
 
@@ -293,7 +319,21 @@ nav.navbar {
   }
 }
 
-// --- Contact 페이지 ---
+// --- PI card: single centered card ---
+.pi-grid {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 2rem;
+
+  .person-card {
+    max-width: 220px;
+  }
+}
+
+// =============================================================================
+// CONTACT PAGE
+// =============================================================================
+
 .contact-card {
   @include card-base;
   padding: 1.75rem;
@@ -313,10 +353,20 @@ nav.navbar {
     font-size: 0.9rem;
     color: $lab-text-light;
     line-height: 1.8;
+    margin: 0;
   }
 }
 
-// --- Footer ---
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+// =============================================================================
+// FOOTER
+// =============================================================================
+
 footer {
   background: #1a1a2e !important;
   color: rgba(255, 255, 255, 0.6) !important;
@@ -326,13 +376,17 @@ footer {
 
   a {
     color: rgba(255, 255, 255, 0.7) !important;
+
     &:hover {
       color: white !important;
     }
   }
 }
 
-// --- 페이지 제목 스타일 ---
+// =============================================================================
+// PAGE TITLES
+// =============================================================================
+
 .post-title,
 .page-title {
   font-weight: 800 !important;
@@ -343,7 +397,10 @@ footer {
   color: $lab-text-light;
 }
 
-// --- 반응형 조정 ---
+// =============================================================================
+// RESPONSIVE
+// =============================================================================
+
 @media (max-width: 768px) {
   .hero-section {
     padding: 48px 0 40px;
