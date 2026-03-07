@@ -9,24 +9,29 @@ pi:
     scholar: "https://scholar.google.com/citations?user=WveMircAAAAJ&hl=ko"
     website: ""
     bio: >
-      Dr. Keunwoo Jang is a Senior Researcher and Principal Investigator at the
-      Humanoid Research Division, Korea Institute of Science and Technology (KIST).
-      His research focuses on whole-body control of humanoid and mobile manipulator systems,
-      hierarchical quadratic programming (HQP) for multi-objective constraint satisfaction,
-      and physically intelligent robotic systems for robust real-world interaction.
+      Dr. Keunwoo Jang is a Senior Researcher and Principal Investigator at the Center for Humanoid
+      Research, Korea Institute of Science and Technology (KIST). He received his Ph.D. in
+      Transdisciplinary Studies from Seoul National University in 2023, where he was a member of
+      the DYROS (Dynamic Robotic Systems) Lab. He received his B.S. in Mechanical Engineering from
+      Korea University in 2016. His research focuses on whole-body control of humanoid and mobile
+      manipulator systems, hierarchical quadratic programming (HQP) for multi-objective constraint
+      satisfaction, and physically intelligent robotic systems for robust real-world interaction.
     research_interests:
       - Whole-Body Control & HQP Optimization
       - Physical Embodiment & Force-Aware Control
       - Visuomotor Policy Learning
       - Mobile Manipulation & Dynamic Locomotion
     education:
-      - degree: "[TBD]"
-        institution: "[TBD]"
-        year: "[TBD]"
+      - degree: "Ph.D. in Transdisciplinary Studies (Robotics)"
+        institution: "Seoul National University (DYROS Lab)"
+        year: "2016.03 – 2023.02"
+      - degree: "B.S. in Mechanical Engineering"
+        institution: "Korea University"
+        year: "2009.03 – 2016.02"
     career:
       - title: "Senior Researcher"
-        institution: "Humanoid Research Division, KIST (Korea Institute of Science and Technology)"
-        period: "[TBD] – Present"
+        institution: "Center for Humanoid Research, KIST (Korea Institute of Science and Technology)"
+        period: "2023.04 – Present"
     awards: []
 
 # Ph.D. Students — 현재 없음. 추후 추가 시 아래 형식으로 작성

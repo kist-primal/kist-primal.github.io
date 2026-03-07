@@ -178,14 +178,14 @@ nav.navbar {
 
 .hero-section {
   background: linear-gradient(135deg, #1a1a2e 0%, $primary 50%, $primary-light 100%);
-  color: white;
+  color: white !important;
   padding: 80px 1.5rem 70px;
 
   .hero-subtitle {
     font-size: 0.8rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.88);
+    color: rgba(255, 255, 255, 0.88) !important;
     margin-bottom: 1rem;
   }
 
@@ -195,15 +195,28 @@ nav.navbar {
     line-height: 1.15;
     margin-bottom: 1rem;
     max-width: 700px;
-    color: white;
+    color: white !important;
   }
 
   .hero-desc {
     font-size: 1.05rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.9) !important;
     max-width: 720px;
     line-height: 1.8;
     margin-bottom: 2rem;
+  }
+
+  .hero-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 1rem;
+  }
+
+  .hero-logo {
+    width: 120px;
+    height: auto;
+    flex-shrink: 0;
   }
 
   .hero-buttons {
@@ -629,7 +642,7 @@ nav.navbar {
 .members-list {
   display: flex;
   flex-direction: column;
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto 2rem;
   gap: 1.5rem;
 }
@@ -637,7 +650,8 @@ nav.navbar {
 .member-row-card {
   background: white;
   border-radius: 16px;
-  padding: 24px 32px;
+  padding: 28px 36px;
+  min-height: 160px;
   box-shadow: $shadow-md;
   display: flex;
   flex-direction: row;
@@ -660,22 +674,23 @@ nav.navbar {
   }
 
   .member-photo {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
+    width: 120px;
+    height: 150px;
+    border-radius: 12px;
     object-fit: cover;
+    object-position: center top;
     display: block;
   }
 
   .member-initials-avatar {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
+    width: 120px;
+    height: 150px;
+    border-radius: 12px;
     background: linear-gradient(135deg, $primary, $primary-light);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     font-weight: 700;
     color: white;
     letter-spacing: 0.05em;
@@ -762,9 +777,9 @@ nav.navbar {
 
 // Advisor initials avatar
 .advisor-initials-avatar {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
+  width: 160px;
+  height: 200px;
+  border-radius: 12px;
   background: linear-gradient(135deg, $primary, $primary-light);
   display: flex;
   align-items: center;
@@ -862,10 +877,11 @@ nav.navbar {
 }
 
 .advisor-photo {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
+  width: 160px;
+  height: 200px;
+  border-radius: 12px;
   object-fit: cover;
+  object-position: center top;
   flex-shrink: 0;
 }
 
@@ -1456,4 +1472,79 @@ ninja-keys {
   --ninja-modal-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
   --ninja-accent-color: #{$primary};
   --ninja-selected-background: #{$accent};
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 22. NAVBAR LOGO
+// ─────────────────────────────────────────────────────────────────────────────
+
+.pier-navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none !important;
+
+  .navbar-logo-img {
+    height: 36px;
+    width: auto;
+  }
+
+  .navbar-logo-text {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: $primary;
+    letter-spacing: 0.5px;
+  }
+
+  &:hover {
+    opacity: 0.85;
+    text-decoration: none !important;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 23. GALLERY — Real Image Styles
+// ─────────────────────────────────────────────────────────────────────────────
+
+// Remove default link styles from gallery items
+.gallery-item a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+// Lightbox2 overrides — ensure navigation arrows are visible
+.lb-prev,
+.lb-next {
+  opacity: 0.8 !important;
+
+  &:hover {
+    opacity: 1 !important;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 24. HERO LOGO — Responsive
+// ─────────────────────────────────────────────────────────────────────────────
+
+@media (max-width: 768px) {
+  .hero-title-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .hero-logo {
+    width: 80px;
+  }
+
+  .pier-navbar-brand .navbar-logo-text {
+    font-size: 0.95rem;
+  }
+
+  .member-row-card {
+    padding: 1.25rem;
+    gap: 1.25rem;
+    min-height: unset;
+  }
 }

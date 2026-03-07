@@ -5,6 +5,8 @@ permalink: /gallery/
 description: Photos from lab life, field experiments, and conferences.
 nav: true
 nav_order: 4
+images:
+  lightbox2: true
 ---
 
 <!-- Filter Tabs -->
@@ -18,15 +20,19 @@ nav_order: 4
 <div class="gallery-grid" id="gallery-grid">
   {% for photo in site.data.gallery.photos %}
   <div class="gallery-item scroll-reveal" data-cat="{{ photo.category }}">
-    <div class="gallery-photo-wrap">
-      <div class="gallery-placeholder" style="font-size: 4rem; display: flex; align-items: center; justify-content: center; height: 100%; background: linear-gradient(135deg, #eef0ff, #d8dcf0);">
-        {{ photo.emoji }}
+    <a href="{{ photo.image | relative_url }}"
+       data-lightbox="gallery"
+       data-title="{{ photo.caption }} — {{ photo.date }}">
+      <div class="gallery-photo-wrap">
+        <img src="{{ photo.image | relative_url }}"
+             alt="{{ photo.caption }}"
+             loading="lazy">
       </div>
-    </div>
-    <div class="gallery-caption">
-      <p>{{ photo.caption }}</p>
-      <span class="gallery-date">{{ photo.date }}</span>
-    </div>
+      <div class="gallery-caption">
+        <p>{{ photo.caption }}</p>
+        <span class="gallery-date">{{ photo.date }}</span>
+      </div>
+    </a>
   </div>
   {% endfor %}
 </div>

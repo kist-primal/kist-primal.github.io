@@ -14,8 +14,11 @@ social: false
 <!-- Hero Section -->
 <div class="hero-section">
   <div class="container">
-    <p class="hero-subtitle">KIST (Korea Institute of Science and Technology) · Humanoid Research Division</p>
-    <h1><span class="pier-accent">P</span>hysical <span class="pier-accent">I</span>ntelligence &amp;<br><span class="pier-accent">E</span>mbodied <span class="pier-accent">R</span>obotics Lab</h1>
+    <p class="hero-subtitle">KIST (Korea Institute of Science and Technology) · Center for Humanoid Research, Artificial Intelligence and Robot Institute</p>
+    <div class="hero-title-wrap">
+      <img src="/assets/img/logo.png" alt="PIER Lab" class="hero-logo" onerror="this.style.display='none'">
+      <h1><span class="pier-accent">P</span>hysical <span class="pier-accent">I</span>ntelligence &amp;<br><span class="pier-accent">E</span>mbodied <span class="pier-accent">R</span>obotics Lab</h1>
+    </div>
     <p class="hero-desc">
       We study how robots can physically interact with, perceive, and reason about the real world—bridging
       the gap between AI and embodied intelligence by integrating physical embodiment through force-aware
@@ -25,30 +28,6 @@ social: false
     <div class="hero-buttons">
       <a href="/research/" class="hero-btn primary">Our Research</a>
       <a href="/publications/" class="hero-btn secondary">Publications</a>
-    </div>
-  </div>
-</div>
-
-<!-- Stats Band -->
-<div class="stats-band">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stat-item">
-        <div class="stat-num-wrap"><span class="stat-num" data-target="50">0</span><span class="stat-plus">+</span></div>
-        <div class="stat-label">Publications</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num-wrap"><span class="stat-num" data-target="15">0</span><span class="stat-plus">+</span></div>
-        <div class="stat-label">Lab Members</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num-wrap"><span class="stat-num" data-target="10">0</span><span class="stat-plus">+</span></div>
-        <div class="stat-label">Research Projects</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num-wrap"><span class="stat-num" data-target="8">0</span><span class="stat-plus">+</span></div>
-        <div class="stat-label">Industry Partners</div>
-      </div>
     </div>
   </div>
 </div>
