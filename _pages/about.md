@@ -1,34 +1,61 @@
 ---
 layout: about
-title: about
+title: Home
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: KAIST School of Computing
 
+# 프로필 이미지 대신 Hero 섹션을 사용합니다
 profile:
-  align: right
-  image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
-  more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+  align:
+  image:
+  image_circular: false
+  more_info:
 
-selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
-
-announcements:
-  enabled: true # includes a list of news items
-  scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: 5 # leave blank to include all the news in the `_news` folder
-
-latest_posts:
-  enabled: true
-  scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-  limit: 3 # leave blank to include all the blog posts
+news: true
+selected_papers: true
+social: false
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](https://www.reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+<!-- Hero Section -->
+<div class="hero-section">
+  <div class="container">
+    <p class="hero-subtitle">KAIST School of Computing</p>
+    <h1>Autonomous Robotics &<br>Intelligence Laboratory</h1>
+    <p class="hero-desc">
+      We build intelligent robots that perceive, reason, and act 
+      in complex real-world environments.
+    </p>
+    <div>
+      <a href="/research/" class="hero-btn primary">Our Research →</a>
+      <a href="/publications/" class="hero-btn secondary">Publications</a>
+    </div>
+  </div>
+</div>
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+<!-- Research Areas Preview -->
+<div class="research-areas">
+  <div class="container">
+    <h2 style="font-size:1.5rem; font-weight:700; margin-bottom:1.5rem;">Research Areas</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:1.25rem;">
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+      <div class="research-card">
+        <div class="research-icon">🤖</div>
+        <h3>Autonomous Navigation</h3>
+        <p>Self-driving systems for complex urban environments using LiDAR and vision fusion.</p>
+      </div>
+
+      <div class="research-card">
+        <div class="research-icon">🔗</div>
+        <h3>Multi-Robot Systems</h3>
+        <p>Cooperative planning and communication for heterogeneous robot teams.</p>
+      </div>
+
+      <div class="research-card">
+        <div class="research-icon">🌐</div>
+        <h3>3D Scene Understanding</h3>
+        <p>Real-time semantic mapping and object recognition from point clouds.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
