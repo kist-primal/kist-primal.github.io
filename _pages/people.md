@@ -4,7 +4,7 @@ title: Members
 permalink: /people/
 description: Our team of researchers and students.
 nav: true
-nav_order: 4
+nav_order: 3
 ---
 
 ## Principal Investigator

@@ -4,7 +4,7 @@ title: Contact
 permalink: /contact/
 description: Get in touch with our lab.
 nav: true
-nav_order: 5
+nav_order: 4
 ---
 
 <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:1.5rem;">

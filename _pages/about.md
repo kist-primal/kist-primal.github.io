@@ -2,16 +2,18 @@
 layout: about
 title: Home
 permalink: /
-subtitle: KAIST School of Computing
+subtitle:
 
-# 프로필 이미지 대신 Hero 섹션을 사용합니다
 profile:
   align:
   image:
   image_circular: false
   more_info:
 
-news: true
+announcements:
+  enabled: true
+  scrollable: true
+  limit: 5
 selected_papers: true
 social: false
 ---
