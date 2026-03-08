@@ -1,8 +1,13 @@
 facilities:
   - name: "Living Room Data Collection Studio"
-    emoji: "🏠"
-    description: "Home-environment replica space (upcoming) for in-domain robot learning and behavior cloning data collection in daily-life manipulation scenarios."
+    badge: "Upcoming"
+    image: /assets/img/lab-equipment/living_room_studio.jpg
+    description: "Home-environment replica space for in-domain robot learning and behavior cloning data collection in daily-life manipulation scenarios."
 
   - name: "GPU Server Cluster"
-    emoji: "🖥️"
-    description: "High-performance compute infrastructure for large-scale deep learning training: NVIDIA RTX 3090 ×2 · RTX 4000 ×3 · RTX PRO 6000 (Blackwell) ×8 · A6000 ×10."
+    image: /assets/img/lab-equipment/gpu_server.jpg
+    specs:
+      - "RTX 3090 × 2EA"
+      - "RTX 4000 × 3EA"
+      - "RTX PRO 6000 (Blackwell) × 8EA"
+      - "A6000 × 10EA"

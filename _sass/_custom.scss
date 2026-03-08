@@ -1147,7 +1147,7 @@ footer.fixed-bottom {
   }
 
   .footer-logo-img {
-    height: 72px;
+    height: 160px;
     width: auto;
     flex-shrink: 0;
     filter: brightness(0) invert(1); // render as white silhouette on dark footer
@@ -1176,7 +1176,7 @@ footer.fixed-bottom {
   }
 
   .footer-copy {
-    color: rgba(255, 255, 255, 0.45);
+    color: rgba(255, 255, 255, 0.9);
     font-size: 0.8125rem;
     text-align: right;
   }
@@ -1562,53 +1562,124 @@ span.gallery-date {
 
 .equipment-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
 }
 
 .facility-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 1.5rem;
 }
 
 .equipment-card {
   background: white;
   border-radius: 14px;
-  padding: 1.5rem;
+  overflow: hidden;
   box-shadow: $shadow-md;
   transition: $transition;
+  display: flex;
+  flex-direction: column;
 
   &:hover {
     transform: translateY(-6px);
     box-shadow: $shadow-lg;
   }
+}
 
-  .equipment-emoji {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    background: $accent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    margin-bottom: 0.875rem;
+.equipment-card-img-wrap {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: #f0f2f8;
+  flex-shrink: 0;
+}
+
+.equipment-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+
+  .equipment-card:hover & {
+    transform: scale(1.04);
   }
+}
+
+.equipment-card-body {
+  padding: 1rem 1.25rem 1.25rem;
+  flex: 1;
 
   h3 {
     font-size: 1rem;
     font-weight: 700;
     color: $primary;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.375rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
+}
 
-  p {
+.equipment-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffc107;
+  border-radius: 6px;
+  padding: 1px 7px;
+  letter-spacing: 0.3px;
+  vertical-align: middle;
+}
+
+.equipment-desc {
+  font-size: 0.875rem;
+  color: $text-muted;
+  line-height: 1.6;
+  margin: 0 0 0.5rem;
+}
+
+.equipment-specs {
+  list-style: none;
+  padding: 0;
+  margin: 0.25rem 0 0;
+
+  li {
     font-size: 0.875rem;
     color: $text-muted;
-    line-height: 1.6;
-    margin: 0;
+    padding: 0.2rem 0;
+    border-bottom: 1px solid $border;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &::before {
+      content: "—";
+      margin-right: 0.4rem;
+      color: $primary-light;
+      font-weight: 700;
+    }
   }
+}
+
+// legacy emoji fallback
+.equipment-card .equipment-emoji {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: $accent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 1rem 1.25rem 0;
+}
+
+.equipment-card > .equipment-emoji + * {
+  padding-top: 0.75rem;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

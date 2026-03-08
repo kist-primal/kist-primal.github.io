@@ -1,44 +1,48 @@
 equipment:
   - name: "Unitree G1"
-    emoji: "🤖"
-    description: "Full-size humanoid robot platform for whole-body control and manipulation research. (×3)"
+    image: /assets/img/lab-equipment/unitree_g1.jpg
+    description: "×3"
 
   - name: "Franka FR3"
-    emoji: "🦾"
-    description: "High-precision 7-DOF research robot arm. Available in Bimanual and Single Arm configurations."
+    image: /assets/img/lab-equipment/franka_fr3.jpg
+    description: "Bimanual / Single Arm"
 
   - name: "LeadArm"
-    emoji: "🦿"
-    description: "Bimanual teleoperation arm based on the FACTR framework for dexterous manipulation research."
+    image: /assets/img/lab-equipment/leadarm.jpg
+    description: "FACTR-based Bimanual"
 
   - name: "Vive Teleoperation"
-    emoji: "🕹️"
-    description: "HTC Vive-based 6-DOF teleoperation system for intuitive whole-body and bimanual robot control."
+    image: /assets/img/lab-equipment/vive_teleoperation.jpg
+    description: ""
 
   - name: "Meta Quest Teleoperation"
-    emoji: "🥽"
-    description: "Meta Quest-based VR teleoperation system for hand-tracking and imitation learning data collection."
+    image: /assets/img/lab-equipment/meta_quest.jpg
+    description: "Meta Quest 3"
 
   - name: "Hyundai Motors Robotics Gripper"
-    emoji: "✊"
-    description: "Collaborative robotic gripper developed in partnership with Hyundai Motor Company for dexterous grasping tasks."
+    image: /assets/img/lab-equipment/hyundai_gripper.jpg
+    description: ""
 
-  - name: "Motion Capture System"
-    emoji: "📡"
-    description: "Multi-camera marker-based motion capture setup for high-fidelity ground-truth pose tracking of robots and objects."
+  - name: "Inspire Dexterous Hands"
+    image: /assets/img/lab-equipment/inspire_hands.jpg
+    description: "FTP Model"
+
+  - name: "Motion Capture"
+    image: /assets/img/lab-equipment/motion_capture.jpg
+    description: ""
 
   - name: "IGRIS-C"
-    emoji: "⚙️"
-    description: "Custom cable-driven robot platform for hybrid locomotion and whole-body control experiments."
+    image: /assets/img/lab-equipment/igris_c.jpg
+    description: ""
 
-  - name: "Mobile Manipulation Platform"
-    emoji: "🚗"
-    description: "FR3 robotic arm mounted on Summit XL Steel mobile base for autonomous navigation and manipulation research."
+  - name: "Mobile Manipulation"
+    image: /assets/img/lab-equipment/mobile_manipulation.jpg
+    description: "FR3 + Summit XL Steel"
 
   - name: "Automated Process Testbed"
-    emoji: "🏭"
-    description: "Structured workstation for evaluating robotic automation in repetitive industrial assembly and process tasks."
+    image: /assets/img/lab-equipment/automated_process.jpg
+    description: ""
 
   - name: "RGB-D Camera Suite"
-    emoji: "👁️"
-    description: "Multi-model depth camera fleet for perception and dataset collection: Intel RealSense D405, D455, L515, D435i · Orbbec Gemini 335L · GoPro action cameras."
+    image: /assets/img/lab-equipment/rgb_d_cameras.jpg
+    description: "D405 · D455 · L515 · D435i · Gemini 335L · GoPro"

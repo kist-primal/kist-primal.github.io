@@ -11,9 +11,19 @@ nav: false
 <div class="equipment-grid" data-reveal-group="equipment">
   {% for item in site.data.equipment.equipment %}
   <div class="equipment-card scroll-reveal">
-    <div class="equipment-emoji">{{ item.emoji }}</div>
-    <h3>{{ item.name }}</h3>
-    <p>{{ item.description }}</p>
+    {% if item.image %}
+      <div class="equipment-card-img-wrap">
+        <img src="{{ item.image | relative_url }}" alt="{{ item.name }}" class="equipment-card-img" loading="lazy">
+      </div>
+    {% else %}
+      <div class="equipment-emoji">{{ item.emoji }}</div>
+    {% endif %}
+    <div class="equipment-card-body">
+      <h3>{{ item.name }}</h3>
+      {% if item.description and item.description != "" %}
+        <p class="equipment-desc">{{ item.description }}</p>
+      {% endif %}
+    </div>
   </div>
   {% endfor %}
 </div>
@@ -25,9 +35,29 @@ nav: false
 <div class="facility-grid" data-reveal-group="facilities">
   {% for item in site.data.facilities.facilities %}
   <div class="equipment-card scroll-reveal">
-    <div class="equipment-emoji">{{ item.emoji }}</div>
-    <h3>{{ item.name }}</h3>
-    <p>{{ item.description }}</p>
+    {% if item.image %}
+      <div class="equipment-card-img-wrap">
+        <img src="{{ item.image | relative_url }}" alt="{{ item.name }}" class="equipment-card-img" loading="lazy">
+      </div>
+    {% else %}
+      <div class="equipment-emoji">{{ item.emoji }}</div>
+    {% endif %}
+    <div class="equipment-card-body">
+      <h3>
+        {{ item.name }}
+        {% if item.badge %}<span class="equipment-badge">{{ item.badge }}</span>{% endif %}
+      </h3>
+      {% if item.description and item.description != "" %}
+        <p class="equipment-desc">{{ item.description }}</p>
+      {% endif %}
+      {% if item.specs %}
+        <ul class="equipment-specs">
+          {% for spec in item.specs %}
+            <li>{{ spec }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
   </div>
   {% endfor %}
 </div>
