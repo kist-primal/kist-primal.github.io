@@ -19,6 +19,43 @@
 "IROS":
   color: "#2d3a8c"
 
+"ICRA-W":
+  color: "#2d3a8c"
+
+"ICARM":
+  color: "#2d3a8c"
+
+"T-Mech":
+  url: https://www.ieee.org/publications/rights/index.html
+  color: "#2d3a8c"
+
+"IJSR":
+  color: "#2d3a8c"
+
+"ISR":
+  color: "#2d3a8c"
+
+"Sensors":
+  color: "#2d3a8c"
+
+"JKROS":
+  color: "#2d3a8c"
+
+"KSME":
+  color: "#2d3a8c"
+
+"KROC":
+  color: "#2d3a8c"
+
+"arXiv":
+  color: "#2d3a8c"
+
+"Thesis":
+  color: "#2d3a8c"
+
+"Book":
+  color: "#2d3a8c"
+
 "CoRL":
   color: "#2d3a8c"
 

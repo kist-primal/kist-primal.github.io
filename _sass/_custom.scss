@@ -567,7 +567,9 @@ nav.navbar {
           color: white !important;
           text-decoration: none;
 
-          a {
+          a,
+          div,
+          span {
             color: white !important;
             text-decoration: none;
           }

@@ -90,7 +90,8 @@ research_interns:
     name_ko: "표수현"
     role: "Intern Researcher"
     education:
-      - "[TBD]"
+      - "M.S. Department of Artificial Intelligence, Ajou University (Graduated: 2025)"
+      - "B.S. Department of AI Convergence, Ajou University (Graduated: 2023)"
     research_areas:
       - "Large Language Models (LLM)"
     email: "0926108@kist.re.kr"
