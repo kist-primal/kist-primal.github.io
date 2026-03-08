@@ -89,7 +89,6 @@ research_interns:
   - name_en: "Suhyeon Pyo"
     name_ko: "표수현"
     role: "Intern Researcher"
-    image: /assets/img/members/suhyeon_pyo.jpg
     education:
       - "[TBD]"
     research_areas:
@@ -100,7 +99,6 @@ undergrad:
   - name_en: "Junsoo Park"
     name_ko: "박준수"
     role: "Undergraduate Student Researcher"
-    image: /assets/img/members/junsoo_park.jpg
     education:
       - "School of Mechanical Engineering, Sungkyunkwan University"
     research_areas:
@@ -111,7 +109,6 @@ undergrad:
   - name_en: "Changwoo Shin"
     name_ko: "신창우"
     role: "Undergraduate Student Researcher"
-    image: /assets/img/members/changwoo_shin.jpg
     education:
       - "School of Mechanical Engineering, Korea University"
     research_areas:
@@ -122,7 +119,6 @@ undergrad:
   - name_en: "Byeol Nam"
     name_ko: "남별"
     role: "Undergraduate Student Researcher"
-    image: /assets/img/members/byeol_nam.jpg
     education:
       - "Division of Mechanical and Biomedical Engineering, Ewha Womans University"
     research_areas:
@@ -133,7 +129,6 @@ undergrad:
   - name_en: "Taehyun Lee"
     name_ko: "이태현"
     role: "Undergraduate Student Researcher"
-    image: /assets/img/members/taehyun_lee.jpg
     education:
       - "Department of Mechanical and Information Engineering, University of Seoul"
     research_areas:
