@@ -1147,9 +1147,11 @@ footer.fixed-bottom {
   }
 
   .footer-logo-img {
-    height: 48px;
+    height: 72px;
     width: auto;
     flex-shrink: 0;
+    filter: brightness(0) invert(1); // render as white silhouette on dark footer
+    opacity: 0.9;
   }
 
   .footer-logo-text {

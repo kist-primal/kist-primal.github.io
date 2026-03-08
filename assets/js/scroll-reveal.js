@@ -49,7 +49,9 @@
       var key = parent ? parent.dataset.revealGroup || parent.className : "default";
       if (!groups[key]) groups[key] = 0;
       if (!el.dataset.delay) {
-        el.dataset.delay = groups[key] * 60;
+        // Cap at 180ms (3 items × 60ms) so last-row items never wait too long
+        var rawDelay = groups[key] * 60;
+        el.dataset.delay = Math.min(rawDelay, 180);
         groups[key]++;
       }
       observer.observe(el);

@@ -1,24 +1,44 @@
 equipment:
-  - name: "Unitree Go2 Quadruped"
-    emoji: "🐕"
-    description: "Agile legged robot for outdoor terrain traversal and multi-modal sensing experiments."
+  - name: "Unitree G1"
+    emoji: "🤖"
+    description: "Full-size humanoid robot platform for whole-body control and manipulation research. (×3)"
 
-  - name: "DJI Matrice 300 RTK"
-    emoji: "🚁"
-    description: "Professional UAV platform with dual-gimbal payload for aerial 3D mapping and inspection."
+  - name: "Franka FR3"
+    emoji: "🦾"
+    description: "High-precision 7-DOF research robot arm. Available in Bimanual and Single Arm configurations."
 
-  - name: "Velodyne VLP-32C LiDAR"
-    emoji: "🔴"
-    description: "32-channel rotating LiDAR providing 360° dense point clouds at 20 Hz for SLAM research."
+  - name: "LeadArm"
+    emoji: "🦿"
+    description: "Bimanual teleoperation arm based on the FACTR framework for dexterous manipulation research."
 
-  - name: "NVIDIA Jetson AGX Orin"
-    emoji: "⚡"
-    description: "Edge AI compute platform enabling real-time neural inference on all robot platforms."
+  - name: "Vive Teleoperation"
+    emoji: "🕹️"
+    description: "HTC Vive-based 6-DOF teleoperation system for intuitive whole-body and bimanual robot control."
 
-  - name: "OptiTrack Motion Capture"
+  - name: "Meta Quest Teleoperation"
+    emoji: "🥽"
+    description: "Meta Quest-based VR teleoperation system for hand-tracking and imitation learning data collection."
+
+  - name: "Hyundai Motors Robotics Gripper"
+    emoji: "✊"
+    description: "Collaborative robotic gripper developed in partnership with Hyundai Motor Company for dexterous grasping tasks."
+
+  - name: "Motion Capture System"
     emoji: "📡"
-    description: "12-camera 360° tracking system for precise ground-truth pose estimation in the indoor arena."
+    description: "Multi-camera marker-based motion capture setup for high-fidelity ground-truth pose tracking of robots and objects."
 
-  - name: "RealSense D455 Depth Array"
+  - name: "IGRIS-C"
+    emoji: "⚙️"
+    description: "Custom cable-driven robot platform for hybrid locomotion and whole-body control experiments."
+
+  - name: "Mobile Manipulation Platform"
+    emoji: "🚗"
+    description: "FR3 robotic arm mounted on Summit XL Steel mobile base for autonomous navigation and manipulation research."
+
+  - name: "Automated Process Testbed"
+    emoji: "🏭"
+    description: "Structured workstation for evaluating robotic automation in repetitive industrial assembly and process tasks."
+
+  - name: "RGB-D Camera Suite"
     emoji: "👁️"
-    description: "Fleet of Intel RealSense cameras for stereo-depth and RGB-D dataset collection."
+    description: "Multi-model depth camera fleet for perception and dataset collection: Intel RealSense D405, D455, L515, D435i · Orbbec Gemini 335L · GoPro action cameras."

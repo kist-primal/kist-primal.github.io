@@ -1,16 +1,8 @@
 facilities:
-  - name: "Indoor Robotics Arena"
-    emoji: "🏟️"
-    description: "400 m² motion-capture arena with configurable obstacles for safe indoor robot testing."
+  - name: "Living Room Data Collection Studio"
+    emoji: "🏠"
+    description: "Home-environment replica space (upcoming) for in-domain robot learning and behavior cloning data collection in daily-life manipulation scenarios."
 
-  - name: "High-Performance Compute Cluster"
+  - name: "GPU Server Cluster"
     emoji: "🖥️"
-    description: "12-node GPU cluster (6× A100, 6× RTX 4090) for large-scale deep learning training."
-
-  - name: "Electronics & Fabrication Workshop"
-    emoji: "🔧"
-    description: "PCB design, soldering stations, 3D printing (FDM + SLA), and CNC milling for rapid prototyping."
-
-  - name: "Outdoor Test Field"
-    emoji: "🌳"
-    description: "Dedicated 2,000 m² outdoor area on the KAIST campus for autonomous vehicle and UAV experiments."
+    description: "High-performance compute infrastructure for large-scale deep learning training: NVIDIA RTX 3090 ×2 · RTX 4000 ×3 · RTX PRO 6000 (Blackwell) ×8 · A6000 ×10."
