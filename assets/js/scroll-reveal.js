@@ -39,7 +39,7 @@
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0, rootMargin: "0px 0px 60px 0px" }
     );
 
     // Assign stagger delays to sibling groups, then observe
@@ -49,7 +49,7 @@
       var key = parent ? parent.dataset.revealGroup || parent.className : "default";
       if (!groups[key]) groups[key] = 0;
       if (!el.dataset.delay) {
-        el.dataset.delay = groups[key] * 100;
+        el.dataset.delay = groups[key] * 60;
         groups[key]++;
       }
       observer.observe(el);

@@ -14,20 +14,24 @@ social: false
 <!-- Hero Section -->
 <div class="hero-section">
   <div class="container">
-    <p class="hero-subtitle" style="color:rgba(255,255,255,0.88);">KIST (Korea Institute of Science and Technology) · Center for Humanoid Research, Artificial Intelligence and Robot Institute</p>
-    <div class="hero-title-wrap">
-      <img src="/assets/img/logo.png" alt="PIER Lab" class="hero-logo" width="120" height="120" style="width:120px;height:auto;flex-shrink:0;" onerror="this.style.display='none'">
-      <h1><span class="pier-accent">P</span>hysical <span class="pier-accent">I</span>ntelligence &amp;<br><span class="pier-accent">E</span>mbodied <span class="pier-accent">R</span>obotics Lab</h1>
-    </div>
-    <p class="hero-desc" style="color:rgba(255,255,255,0.9);">
-      We study how robots can physically interact with, perceive, and reason about the real world—bridging
-      the gap between AI and embodied intelligence by integrating physical embodiment through force-aware
-      sensing, visuomotor policies driven by imitation learning and VLA, and coordinated whole-body control
-      for agile, contact-rich interaction.
-    </p>
-    <div class="hero-buttons">
-      <a href="/research/" class="hero-btn primary">Our Research</a>
-      <a href="/publications/" class="hero-btn primary">Publications</a>
+    <div class="hero-layout">
+      <div class="hero-left">
+        <p class="hero-subtitle" style="color:rgba(255,255,255,0.88);">KIST (Korea Institute of Science and Technology) · Center for Humanoid Research, Artificial Intelligence and Robot Institute</p>
+        <h1><span class="pier-accent">P</span>hysical <span class="pier-accent">I</span>ntelligence &amp;<br><span class="pier-accent">E</span>mbodied <span class="pier-accent">R</span>obotics Lab</h1>
+        <p class="hero-desc" style="color:rgba(255,255,255,0.9);">
+          We study how robots can physically interact with, perceive, and reason about the real world—bridging
+          the gap between AI and embodied intelligence by integrating physical embodiment through force-aware
+          sensing, visuomotor policies driven by imitation learning and VLA, and coordinated whole-body control
+          for agile, contact-rich interaction.
+        </p>
+        <div class="hero-buttons">
+          <a href="/research/" class="hero-btn primary">Our Research</a>
+          <a href="/publications/" class="hero-btn primary">Publications</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <img src="/assets/img/logo.png" alt="PIER Lab" class="hero-logo-right" onerror="this.style.display='none'">
+      </div>
     </div>
   </div>
 </div>

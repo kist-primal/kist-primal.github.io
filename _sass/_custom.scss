@@ -78,7 +78,7 @@ nav.navbar {
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
   box-shadow: none !important;
-  min-height: 96px;
+  min-height: 88px;
 
   .navbar-brand {
     font-weight: 700;
@@ -206,6 +206,32 @@ nav.navbar {
     margin-bottom: 2rem;
   }
 
+  // Two-column layout: text left, logo right
+  .hero-layout {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .hero-left {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .hero-right {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-logo-right {
+    width: 260px;
+    height: auto;
+    filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.35));
+  }
+
+  // Legacy (kept for reference, no longer in DOM)
   .hero-title-wrap {
     display: flex;
     align-items: center;
@@ -1660,6 +1686,19 @@ ninja-keys {
 // ─────────────────────────────────────────────────────────────────────────────
 
 @media (max-width: 768px) {
+  .hero-layout {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .hero-right {
+    order: -1; // logo above text on mobile
+  }
+
+  .hero-logo-right {
+    width: 140px;
+  }
+
   .hero-title-wrap {
     flex-direction: column;
     align-items: flex-start;
