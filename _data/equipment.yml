@@ -1,7 +1,7 @@
 equipment:
   - name: "Unitree G1"
     image: /assets/img/lab-equipment/unitree_g1.jpg
-    description: "×3"
+    description: "3EA"
 
   - name: "Franka FR3"
     image: /assets/img/lab-equipment/franka_fr3.jpg
