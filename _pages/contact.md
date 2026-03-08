@@ -12,18 +12,18 @@ nav_order: 5
   <div class="contact-card scroll-reveal">
     <h3><i class="fa-solid fa-location-dot" style="margin-right: 0.5rem; color: #2d3a8c;"></i>Location</h3>
     <p>
-      PIER Lab, KIST<br>
-      5 Hwarang-ro 14-gil<br>
-      Seongbuk-gu, Seoul 02792<br>
-      South Korea
+      PIER Lab (Physical Intelligence &amp; Embodied Robotics Laboratory)<br>
+      Center for Humanoid Research, KIST<br>
+      5 Hwarang-ro 14-gil, Seongbuk-gu<br>
+      Seoul 02792, Republic of Korea
     </p>
   </div>
 
   <div class="contact-card scroll-reveal">
     <h3><i class="fa-solid fa-envelope" style="margin-right: 0.5rem; color: #2d3a8c;"></i>Email</h3>
     <p>
-      General: <a href="mailto:pier-lab@kist.re.kr">pier-lab@kist.re.kr</a><br>
-      Prof. Kim: <a href="mailto:minjun@kist.re.kr">minjun@kist.re.kr</a>
+      PI: <a href="mailto:jang90@kist.re.kr">jang90@kist.re.kr</a><br>
+      <span style="font-size:0.88rem;color:#666;">(Dr. Keunwoo Jang · 장근우)</span>
     </p>
   </div>
 
@@ -32,11 +32,16 @@ nav_order: 5
 <div class="prospective-box scroll-reveal" style="margin-top: 2rem;">
   <h3><i class="fa-solid fa-graduation-cap" style="margin-right: 0.5rem;"></i>Prospective Students</h3>
   <p>
-    We are always looking for motivated students and researchers interested in robot manipulation,
-    embodied AI, and physical perception. If you are interested in joining our lab as a Ph.D. or
-    M.S. student through KIST/UST, please send your CV and transcripts to
-    <a href="mailto:minjun@kist.re.kr">Prof. Kim</a>.
+    We are actively looking for motivated students and researchers passionate about physical intelligence and embodied robotics. Our lab works on <strong>whole-body control of humanoid and mobile manipulator systems</strong>, <strong>visuomotor policy learning</strong>, <strong>imitation learning and teleoperation</strong>, and <strong>physically intelligent robotic systems</strong> for real-world deployment.
   </p>
+  <p style="margin-top:0.75rem;">
+    Openings are available for <strong>M.S. / Ph.D. students</strong> (through UST — Korea University of Science and Technology) and <strong>undergraduate / intern researchers</strong>. If you are interested, please send the following to <a href="mailto:jang90@kist.re.kr">jang90@kist.re.kr</a>:
+  </p>
+  <ul style="margin-top:0.5rem; padding-left:1.25rem;">
+    <li>CV / résumé</li>
+    <li>Academic transcripts</li>
+    <li>Brief statement of research interest</li>
+  </ul>
 </div>
 
 <!-- Open Positions -->
@@ -57,7 +62,7 @@ nav_order: 5
       {% endfor %}
     </ul>
     {% endif %}
-    <a href="mailto:minjun@kist.re.kr" class="position-apply-btn">Apply</a>
+    <a href="mailto:jang90@kist.re.kr" class="position-apply-btn">Apply</a>
   </div>
   {% endfor %}
 </div>

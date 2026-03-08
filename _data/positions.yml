@@ -1,24 +1,26 @@
 positions:
-  - title: "Ph.D. / M.S. Student — Robot Manipulation"
-    description: "We seek motivated graduate students to work on dexterous manipulation, tactile sensing, and contact-rich robot control at KIST/UST."
+  - title: "M.S. / Ph.D. Student — Humanoid & Whole-Body Control"
+    description: "We seek graduate students to work on whole-body motion generation, hierarchical control, and physically intelligent interaction for humanoid and mobile manipulator systems. Research involves HQP-based control, real robot deployment with Unitree G1 and Franka FR3."
     requirements:
-      - "Background in robotics, mechanical engineering, or computer science"
-      - "Proficiency in C++ and/or Python"
-      - "Experience with ROS/ROS2 and real robot platforms preferred"
+      - "Background in mechanical engineering, electrical engineering, robotics, or related field"
+      - "Proficiency in C++ and/or Python; familiarity with ROS/ROS2"
+      - "Interest in control theory, optimization, or real robot experimentation"
+      - "Enrollment through UST (Korea University of Science and Technology)"
     open: true
 
-  - title: "Ph.D. Student — Embodied AI"
-    description: "Join our team to develop learning algorithms for robots that acquire physical skills through interaction, imitation, and language grounding."
+  - title: "M.S. / Ph.D. Student — Visuomotor Policy & Imitation Learning"
+    description: "Join our team to develop data-driven visuomotor policies for robot manipulation. Research includes behavior cloning, learning from teleoperation demonstrations, and vision-language-action (VLA) models for dexterous tasks in daily-life environments."
     requirements:
-      - "Strong background in machine learning or reinforcement learning"
-      - "Familiarity with PyTorch and deep learning frameworks"
-      - "Prior research experience (publications a plus)"
+      - "Background in machine learning, computer science, or robotics"
+      - "Experience with PyTorch or similar deep learning frameworks"
+      - "Interest in robot learning, imitation learning, or foundation models"
+      - "Enrollment through UST (Korea University of Science and Technology)"
     open: true
 
-  - title: "Research Intern — Physical Perception"
-    description: "Summer internship for undergraduate or master's students to contribute to multi-modal 3D perception research for robotic manipulation."
+  - title: "Undergraduate / Intern Researcher"
+    description: "Undergraduate and intern researcher positions are available for students interested in gaining hands-on experience with real robotic systems. Projects span robot control, teleoperation, hardware integration, and learning-based manipulation."
     requirements:
-      - "Enrolled in a BS/MS program in CS, EE, ME, or related field"
-      - "Familiarity with point cloud processing or computer vision"
-      - "Enthusiasm for hands-on robotics research"
+      - "Enrolled in a B.S. program in mechanical engineering, electrical engineering, computer science, or related field"
+      - "Enthusiasm for robotics and willingness to work with real hardware"
+      - "Basic programming skills (Python and/or C++)"
     open: true
