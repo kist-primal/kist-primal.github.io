@@ -45,12 +45,10 @@ nav: false
           {% endfor %}
         </div>
       {% endif %}
+      {% if person.email and person.email != "" %}
+        <div class="member-email"><i class="fa-solid fa-envelope"></i> {{ person.email }}</div>
+      {% endif %}
       <div class="member-links">
-        {% if person.email and person.email != "" %}
-          <a href="mailto:{{ person.email }}" class="member-link" title="Email">
-            <i class="fa-solid fa-envelope"></i>
-          </a>
-        {% endif %}
         {% if person.scholar %}
           <a href="{{ person.scholar }}" target="_blank" rel="noopener" class="member-link" title="Google Scholar">
             <i class="fa-solid fa-graduation-cap"></i>
@@ -104,13 +102,9 @@ nav: false
           {% endfor %}
         </div>
       {% endif %}
-      <div class="member-links">
-        {% if person.email and person.email != "" %}
-          <a href="mailto:{{ person.email }}" class="member-link" title="Email">
-            <i class="fa-solid fa-envelope"></i>
-          </a>
-        {% endif %}
-      </div>
+      {% if person.email and person.email != "" %}
+        <div class="member-email"><i class="fa-solid fa-envelope"></i> {{ person.email }}</div>
+      {% endif %}
     </div>
   </div>
   {% endfor %}
@@ -153,13 +147,9 @@ nav: false
           {% endfor %}
         </div>
       {% endif %}
-      <div class="member-links">
-        {% if person.email and person.email != "" %}
-          <a href="mailto:{{ person.email }}" class="member-link" title="Email">
-            <i class="fa-solid fa-envelope"></i>
-          </a>
-        {% endif %}
-      </div>
+      {% if person.email and person.email != "" %}
+        <div class="member-email"><i class="fa-solid fa-envelope"></i> {{ person.email }}</div>
+      {% endif %}
     </div>
   </div>
   {% endfor %}

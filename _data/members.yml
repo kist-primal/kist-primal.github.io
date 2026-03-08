@@ -60,7 +60,7 @@ ms:
       - "World Model"
       - "Reinforcement Learning"
       - "Model-based Control"
-    email: ""
+    email: "dkapqef@kist.re.kr"
 
   - name_en: "Namyoon Kim"
     name_ko: "김남윤"
@@ -72,7 +72,7 @@ ms:
     research_areas:
       - "Visuomotor Policy"
       - "Teleoperation"
-    email: ""
+    email: "knykist@kist.re.kr"
 
 research_interns:
   - name_en: "Seungwon Jang"
@@ -84,7 +84,7 @@ research_interns:
     research_areas:
       - "Imitation Learning"
       - "Reinforcement Learning"
-    email: ""
+    email: "0926106@kist.re.kr"
 
   - name_en: "Suhyeon Pyo"
     name_ko: "표수현"
@@ -94,7 +94,7 @@ research_interns:
       - "[TBD]"
     research_areas:
       - "Large Language Models (LLM)"
-    email: ""
+    email: "0926108@kist.re.kr"
 
 undergrad:
   - name_en: "Junsoo Park"
@@ -106,7 +106,7 @@ undergrad:
     research_areas:
       - "Imitation Learning"
       - "Multi-modality"
-    email: ""
+    email: "t25345@kist.re.kr"
 
   - name_en: "Changwoo Shin"
     name_ko: "신창우"
@@ -117,7 +117,7 @@ undergrad:
     research_areas:
       - "Vision-Language-Action (VLA)"
       - "Foundation Models"
-    email: ""
+    email: "t25668@kist.re.kr"
 
   - name_en: "Byeol Nam"
     name_ko: "남별"
@@ -128,7 +128,7 @@ undergrad:
     research_areas:
       - "Medical Robotics"
       - "Teleoperation"
-    email: ""
+    email: "u260134@kist.re.kr"
 
   - name_en: "Taehyun Lee"
     name_ko: "이태현"
@@ -138,7 +138,7 @@ undergrad:
       - "Department of Mechanical and Information Engineering, University of Seoul"
     research_areas:
       - "Hardware Design and Systems"
-    email: ""
+    email: "taehyeon@kist.re.kr"
 
 alumni:
   intern_alumni:

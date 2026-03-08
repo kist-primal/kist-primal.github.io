@@ -39,7 +39,7 @@
           }
         });
       },
-      { threshold: 0, rootMargin: "0px 0px 60px 0px" }
+      { threshold: 0, rootMargin: "0px 0px 200px 0px" }
     );
 
     // Assign stagger delays to sibling groups, then observe
