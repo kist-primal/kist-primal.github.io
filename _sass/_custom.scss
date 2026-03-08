@@ -78,7 +78,7 @@ nav.navbar {
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
   box-shadow: none !important;
-  min-height: 76px;
+  min-height: 96px;
 
   .navbar-brand {
     font-weight: 700;
@@ -1615,13 +1615,13 @@ ninja-keys {
   text-decoration: none !important;
 
   .navbar-logo-img {
-    height: 64px;
+    height: 80px;
     width: auto;
   }
 
   .navbar-logo-text {
     font-weight: 700;
-    font-size: 1.6rem;
+    font-size: 2.4rem;
     color: $primary !important;
     -webkit-text-fill-color: $primary !important;
     letter-spacing: 0.5px;
@@ -1671,12 +1671,59 @@ ninja-keys {
   }
 
   .pier-navbar-brand .navbar-logo-text {
-    font-size: 1.05rem;
+    font-size: 1.4rem;
   }
 
   .member-row-card {
     padding: 1.25rem;
     gap: 1.25rem;
     min-height: unset;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 25. GALLERY PAGINATION
+// ─────────────────────────────────────────────────────────────────────────────
+
+.gallery-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.gallery-pages {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.gallery-page-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1.5px solid $border;
+  background: white;
+  color: $text-light;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: $transition;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+
+  &:hover {
+    border-color: $primary;
+    color: $primary;
+    background: $accent;
+  }
+
+  &.active {
+    background: $primary;
+    border-color: $primary;
+    color: white;
+    font-weight: 700;
   }
 }

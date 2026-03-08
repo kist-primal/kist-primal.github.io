@@ -1,8 +1,83 @@
 // Gallery Filter — PIER Lab
-// Handles category filter tab clicks and shows/hides gallery items
+// Handles category filter tabs, pagination (15 items / page), and lightbox caption overlay
 
 (function () {
   "use strict";
+
+  var COLS = 3;
+  var ROWS_PER_PAGE = 5;
+  var ITEMS_PER_PAGE = COLS * ROWS_PER_PAGE; // 15
+
+  var currentCategory = "all";
+  var currentPage = 1;
+
+  function getFilteredItems(cat) {
+    var all = document.querySelectorAll(".gallery-item");
+    var result = [];
+    all.forEach(function (item) {
+      if (cat === "all" || item.dataset.cat === cat) {
+        result.push(item);
+      }
+    });
+    return result;
+  }
+
+  function renderGallery() {
+    var items = document.querySelectorAll(".gallery-item");
+    var filtered = getFilteredItems(currentCategory);
+    var start = (currentPage - 1) * ITEMS_PER_PAGE;
+    var end = start + ITEMS_PER_PAGE;
+    var visible = new Set();
+    filtered.slice(start, end).forEach(function (item) {
+      visible.add(item);
+    });
+
+    items.forEach(function (item) {
+      if (visible.has(item)) {
+        item.classList.remove("hidden");
+      } else {
+        item.classList.add("hidden");
+      }
+    });
+  }
+
+  function renderPagination() {
+    var container = document.getElementById("gallery-pagination");
+    if (!container) return;
+
+    var filtered = getFilteredItems(currentCategory);
+    var totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
+
+    container.innerHTML = "";
+    if (totalPages <= 1) return;
+
+    var wrap = document.createElement("div");
+    wrap.className = "gallery-pages";
+
+    for (var i = 1; i <= totalPages; i++) {
+      var btn = document.createElement("button");
+      btn.className = "gallery-page-btn" + (i === currentPage ? " active" : "");
+      btn.textContent = i;
+      btn.dataset.page = i;
+      btn.addEventListener("click", onPageClick);
+      wrap.appendChild(btn);
+    }
+
+    container.appendChild(wrap);
+  }
+
+  function onPageClick(e) {
+    var page = parseInt(e.currentTarget.dataset.page, 10);
+    if (page === currentPage) return;
+    currentPage = page;
+    renderGallery();
+    renderPagination();
+    // Scroll to top of gallery grid
+    var grid = document.getElementById("gallery-grid");
+    if (grid) {
+      grid.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
 
   function initGalleryFilter() {
     var tabs = document.querySelectorAll(".gallery-tab");
@@ -10,9 +85,15 @@
 
     if (!tabs.length || !items.length) return;
 
+    // Initial render
+    renderGallery();
+    renderPagination();
+
     tabs.forEach(function (tab) {
       tab.addEventListener("click", function () {
         var cat = tab.dataset.cat;
+        currentCategory = cat;
+        currentPage = 1;
 
         // Update active tab
         tabs.forEach(function (t) {
@@ -22,14 +103,8 @@
         tab.classList.add("active");
         tab.setAttribute("aria-selected", "true");
 
-        // Show/hide items
-        items.forEach(function (item) {
-          if (cat === "all" || item.dataset.cat === cat) {
-            item.classList.remove("hidden");
-          } else {
-            item.classList.add("hidden");
-          }
-        });
+        renderGallery();
+        renderPagination();
       });
     });
   }

@@ -37,4 +37,7 @@ images:
   {% endfor %}
 </div>
 
+<!-- Pagination -->
+<div class="gallery-pagination" id="gallery-pagination"></div>
+
 <script src="{{ '/assets/js/gallery-filter.js' | relative_url }}" defer></script>
